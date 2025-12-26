@@ -18,12 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             UserSeeder::class,
-            // ApplicationSettingSeeder::class,
-            // BlogSeeder::class,
-            // CategorySeeder::class,
-            // ProductSeeder::class,
-            // KeywordSeeder::class,
-            // ContactSeeder::class,
+            ApplicationSettingSeeder::class,
+           
         ]);
     }
 }
