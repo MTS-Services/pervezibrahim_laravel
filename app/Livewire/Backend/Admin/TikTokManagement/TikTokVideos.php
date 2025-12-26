@@ -1,0 +1,376 @@
+<?php
+
+namespace App\Livewire\Backend\Admin\TikTokManagement;
+
+use App\Jobs\SyncTikTokVideosJob;
+use App\Jobs\UpdateEmptyVideosJob;
+use App\Models\TikTokUser;
+use App\Models\TikTokVideo;
+use App\Services\TikTokService;
+use App\Traits\Livewire\WithNotification;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+class TikTokVideos extends Component
+{
+    use WithPagination, WithNotification;
+
+    public $search = '';
+    public $perPage = 15;
+    public $statusFilter = '';
+    public $sortField = 'create_time';
+    public $sortDirection = 'desc';
+
+    // Bulk actions
+    public $selectedIds = [];
+    public $selectAll = false;
+    public $bulkAction = '';
+
+    protected TikTokService $tiktokService;
+
+    public function boot(TikTokService $tiktokService)
+    {
+        $this->tiktokService = $tiktokService;
+    }
+
+    private function getColumns()
+    {
+        return [
+            [
+                'key' => 'id',
+                'label' => 'ID',
+                'sortable' => true,
+            ],
+            [
+                'key' => 'cover',
+                'label' => 'Thumbnail',
+                'format' => fn($video) => view('components.admin.video-thumbnail', [
+                    'video' => $video
+                ])->render(),
+            ],
+            [
+                'key' => 'title',
+                'label' => 'Title',
+                'sortable' => true,
+                'format' => fn($video) => '<div class="max-w-xs truncate">' . ($video->title ?: $video->desc) . '</div>',
+            ],
+            [
+                'key' => 'username',
+                'label' => 'Username',
+                'sortable' => true,
+            ],
+            [
+                'key' => 'play_count',
+                'label' => 'Views',
+                'sortable' => true,
+                'format' => fn($video) => $video->formatted_play_count,
+            ],
+            [
+                'key' => 'digg_count',
+                'label' => 'Likes',
+                'sortable' => true,
+                'format' => fn($video) => $video->formatted_digg_count,
+            ],
+            [
+                'key' => 'is_featured',
+                'label' => 'Featured',
+                'format' => fn($video) => view('components.admin.badge', [
+                    'label' => $video->is_featured ? 'Featured' : 'NoFeatured',
+                    'type' => $video->is_featured ? 'success' : 'gray'
+                ])->render(),
+            ],
+            [
+                'key' => 'is_active',
+                'label' => 'Status',
+                'format' => fn($video) => view('components.admin.badge', [
+                    'label' => $video->is_active ? 'Active' : 'Inactive',
+                    'type' => $video->is_active ? 'success' : 'danger'
+                ])->render(),
+            ],
+            [
+                'key' => 'create_time',
+                'label' => 'Created',
+                'sortable' => true,
+                'format' => fn($video) => $video->create_time->format('M d, Y'),
+            ],
+        ];
+    }
+
+    /**
+     * Get dynamic actions based on video state
+     */
+    private function getActionsForVideo($video)
+    {
+        return [
+            [
+                'key' => 'id',
+                'label' => 'Hashtags',
+                'route' => 'admin.video-keyword',
+                'encrypt' => true
+            ],
+            [
+                'label' => $video->is_featured ? 'Not featured' : 'Featured',
+                'method' => 'toggleFeatured',
+                'key' => 'id',
+            ],
+            [
+                'label' => $video->is_active ? 'Inactive' : 'Active',
+                'method' => 'toggleActive',
+                'key' => 'id',
+            ],
+        ];
+    }
+
+    public function updatedSelectAll($value)
+    {
+        $this->selectedIds = $value
+            ? TikTokVideo::pluck('id')->toArray()
+            : [];
+    }
+
+    public function updatedSelectedIds()
+    {
+        $this->selectAll = false;
+    }
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedPerPage()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedStatusFilter()
+    {
+        $this->resetPage();
+    }
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortField = $field;
+            $this->sortDirection = 'asc';
+        }
+    }
+
+    public function resetFilters()
+    {
+        $this->search = '';
+        $this->statusFilter = '';
+        $this->perPage = 15;
+        $this->selectedIds = [];
+        $this->selectAll = false;
+        $this->resetPage();
+    }
+
+    /**
+     * Sync videos from TikTok API
+     */
+    public function syncVideos()
+    {
+        // try {
+        //     $users = TikTokUser::active()->get();
+
+        //     if (empty($users)) {
+        //         $this->error('No TikTok users configured');
+        //         return;
+        //     }
+
+        //     // $usernames = array_column($usernames, 'username');
+
+        //     $result = $this->tiktokService->syncVideos($users);
+
+        //     if ($result['success']) {
+        //         $this->success("Synced: {$result['synced']} new, {$result['updated']} updated");
+        //     } else {
+        //         $this->error($result['error'] ?? 'Sync failed');
+        //     }
+        // } catch (\Exception $e) {
+        //     $this->error('Sync error: ' . $e->getMessage());
+        // }
+
+
+        try {
+            $users = TikTokUser::active()->get();
+
+            if ($users->isEmpty()) {
+                $this->error('No TikTok users configured');
+                return;
+            }
+
+            // Dispatch job with users collection
+            SyncTikTokVideosJob::dispatch();
+
+            $this->info('TikTok video sync job dispatched successfully.');
+        } catch (\Exception $e) {
+            $this->error('Sync error: ' . $e->getMessage());
+        }
+    }
+
+
+    public function updateEmptyVideos()
+    {
+        // $result = $this->tiktokService->updateEmptyVideos();
+
+        // if ($result['success']) {
+        //     $this->success($result['message'] . " Updated: {$result['updated']}" . " Total Found: {$result['total_found']}");
+        // }
+
+        // $this->success('Empty videos not found');
+
+        try {
+            UpdateEmptyVideosJob::dispatch();
+            $this->info('TikTok empty video update job dispatched successfully.');
+        } catch (\Exception $e) {
+            $this->error('Sync error: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Toggle featured status
+     */
+    public function toggleFeatured($videoId)
+    {
+        try {
+            $result = $this->tiktokService->toggleFeatured($videoId);
+
+            if ($result['success']) {
+                $this->success($result['message']);
+            } else {
+                $this->error($result['error']);
+            }
+        } catch (\Exception $e) {
+            $this->error('Error: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Toggle active status
+     */
+    public function toggleActive($videoId)
+    {
+        try {
+            $result = $this->tiktokService->toggleActive($videoId);
+
+            if ($result['success']) {
+                $this->success($result['message']);
+            } else {
+                $this->error($result['error']);
+            }
+        } catch (\Exception $e) {
+            $this->error('Error: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Delete single video
+     */
+    public function deleteVideo($videoId)
+    {
+        try {
+            TikTokVideo::findOrFail($videoId)->delete();
+
+            $this->success('Video deleted successfully');
+        } catch (\Exception $e) {
+            $this->error('Delete error: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Bulk actions
+     */
+    public function confirmBulkAction()
+    {
+        if (empty($this->bulkAction) || empty($this->selectedIds)) {
+            $this->error('Please select action and items');
+            return;
+        }
+
+        try {
+            switch ($this->bulkAction) {
+                case 'activate':
+                    TikTokVideo::whereIn('id', $this->selectedIds)->update(['is_active' => true]);
+                    $this->success(count($this->selectedIds) . ' videos activated');
+                    break;
+
+                case 'deactivate':
+                    TikTokVideo::whereIn('id', $this->selectedIds)->update(['is_active' => false]);
+                    $this->success(count($this->selectedIds) . ' videos deactivated');
+                    break;
+
+                case 'feature':
+                    TikTokVideo::whereIn('id', $this->selectedIds)->update(['is_featured' => true]);
+                    $this->success(count($this->selectedIds) . ' videos featured');
+                    break;
+
+                case 'unfeature':
+                    TikTokVideo::whereIn('id', $this->selectedIds)->update(['is_featured' => false]);
+                    $this->success(count($this->selectedIds) . ' videos unfeatured');
+                    break;
+            }
+
+            $this->selectedIds = [];
+            $this->selectAll = false;
+            $this->bulkAction = '';
+        } catch (\Exception $e) {
+            $this->error('Bulk action error: ' . $e->getMessage());
+        }
+    }
+
+    public function render()
+    {
+        $videos = TikTokVideo::query()
+            ->when($this->search, function ($query) {
+                $query->where(function ($q) {
+                    $q->where('title', 'like', '%' . $this->search . '%')
+                        ->orWhere('desc', 'like', '%' . $this->search . '%')
+                        ->orWhere('username', 'like', '%' . $this->search . '%')
+                        ->orWhere('author_nickname', 'like', '%' . $this->search . '%');
+                });
+            })
+            ->when($this->statusFilter === 'active', fn($q) => $q->where('is_active', true))
+            ->when($this->statusFilter === 'inactive', fn($q) => $q->where('is_active', false))
+            ->when($this->statusFilter === 'featured', fn($q) => $q->where('is_featured', true))
+            ->orderBy($this->sortField, $this->sortDirection)
+            ->paginate($this->perPage);
+
+        // Prepare actions map
+        $actionsMap = [];
+        foreach ($videos as $video) {
+            $actionsMap[$video->id] = $this->getActionsForVideo($video);
+        }
+
+        return view('livewire.backend.admin.tik-tok-management.tik-tok-videos', [
+            'videos' => $videos,
+            'columns' => $this->getColumns(),
+            'actions' => [],
+            'actionsMap' => $actionsMap,
+            'statuses' => $this->getStatuses(),
+            'bulkActions' => $this->getBulkActions(),
+        ]);
+    }
+
+    private function getStatuses()
+    {
+        return [
+            ['value' => 'active', 'label' => 'Active'],
+            ['value' => 'inactive', 'label' => 'Inactive'],
+            ['value' => 'featured', 'label' => 'Featured'],
+        ];
+    }
+
+    private function getBulkActions()
+    {
+        return [
+            ['value' => 'activate', 'label' => 'Active'],
+            ['value' => 'deactivate', 'label' => 'Inactive'],
+            ['value' => 'feature', 'label' => 'Featured'],
+            ['value' => 'unfeature', 'label' => 'Not featured'],
+        ];
+    }
+}
