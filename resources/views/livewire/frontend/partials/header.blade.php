@@ -15,7 +15,7 @@
 
             <!-- Home -->
             <a href="{{ route('home') }}" wire:navigate
-                class="px-5 py-2 rounded-full text-sm  transition-all
+                class="px-5 py-2 rounded-full text-base  transition-all
        {{ request()->routeIs('home')
            ? 'bg-white text-black shadow'
            : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
@@ -24,14 +24,14 @@
 
             <!-- About Us -->
             <a href="#"
-                class="px-5 py-2 rounded-full text-sm  transition-all
+                class="px-5 py-2 rounded-full text-base  transition-all
        text-gray-300 hover:bg-white/10 hover:text-white">
                 {{ __('About Us') }}
             </a>
 
             <!-- Services -->
             <a href="#"
-                class="px-5 py-2 rounded-full text-sm  transition-all
+                class="px-5 py-2 rounded-full text-base  transition-all
        text-gray-300 hover:bg-white/10 hover:text-white">
                 {{ __('Services') }}
             </a>
@@ -42,7 +42,7 @@
 
                 <!-- Trigger -->
                 <button type="button" @click="open = !open"
-                    class="px-5 py-2 rounded-full text-sm  text-gray-300
+                    class="px-5 py-2 rounded-full text-base  text-gray-300
                 transition-all hover:bg-white/10 hover:text-white
                 flex items-center gap-1">
 
@@ -62,21 +62,21 @@
 
                     <!-- Gallery -->
                     <a href="#" @click="open = false"
-                        class="block text-center px-4 py-1.5 rounded-full text-sm 
+                        class="block text-center px-4 py-1.5 rounded-full text-base 
                bg-blue-600 text-white">
                         {{ __('Gallery') }}
                     </a>
 
                     <!-- Methods -->
                     <a href="#" @click="open = false"
-                        class="block text-center px-4 py-1.5 rounded-full text-sm 
+                        class="block text-center px-4 py-1.5 rounded-full text-base 
                bg-white text-black hover:bg-gray-200 transition">
                         {{ __('Methods') }}
                     </a>
 
                     <!-- FAQ -->
                     <a href="#" @click="open = false"
-                        class="block text-center px-4 py-1.5 rounded-full text-sm 
+                        class="block text-center px-4 py-1.5 rounded-full text-base 
                bg-white text-black hover:bg-gray-200 transition">
                         {{ __('FAQ') }}
                     </a>
