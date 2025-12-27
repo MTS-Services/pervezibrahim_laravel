@@ -1,5 +1,5 @@
 <div>
-    <section class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden ml-92 mr-92">
+    <section class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container mx-auto">
         <!-- Background Pattern Overlay -->
         <div class="absolute inset-0 opacity-40 pointer-events-none">
             <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
