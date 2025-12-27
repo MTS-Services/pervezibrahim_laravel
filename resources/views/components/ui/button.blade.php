@@ -12,11 +12,14 @@
 @php
     $variantClasses = [
         'primary' =>
-            'bg-zinc-500 px-4 md:px-6 py-2 md:py-4 text-text-btn-primary hover:text-text-btn-secondary hover:bg-zinc-50 border border-zinc-500 focus:outline-none focus:ring focus:ring-pink-500',
+            'bg-second-500 px-4 md:px-6 py-2 md:py-4 text-text-btn-primary hover:text-text-btn-secondary hover:bg-white  focus:outline-none focus:ring focus:ring-pink-500',
         'secondary' =>
-            'bg-zinc-50 px-4 md:px-6 py-2 md:py-4 text-text-btn-secondary hover:text-text-btn-primary hover:bg-zinc-500 border border-zinc-500 focus:outline-none focus:ring focus:ring-pink-500',
+            'bg-zinc-50 px-4 md:px-6 py-2 md:py-4 text-text-btn-secondary hover:text-text-btn-primary hover:bg-zinc-500 border-2 border-white focus:outline-none focus:ring focus:ring-pink-500',
         'tertiary' =>
             'bg-pink-500 px-4 md:px-6 py-2 md:py-4 text-text-btn-primary hover:text-text-btn-tertiary hover:bg-pink-50 border border-pink-500 focus:outline-none focus:ring focus:ring-zinc-500',
+        'orange-tertiary' =>
+            'bg-[#EC6A2B] px-4 md:px-6 py-2 md:py-4 text-text-btn-primary hover:text-text-btn-tertiary hover:bg-[#FFE5D6] border border-[#EC6A2B] focus:outline-none focus:ring focus:ring-zinc-500',
+
         'link' =>
             'bg-transparent px-4 md:px-6 py-2 md:py-4 text-text-btn-primary hover:text-text-btn-secondary/90 focus:outline-none focus:ring focus:ring-pink-500',
     ];
