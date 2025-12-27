@@ -1,4 +1,4 @@
-<header x-data="{ mobileMenuOpen: false }" x-cloak class="sticky top-0 z-50 bg-transparent ">
+<header x-data="{ mobileMenuOpen: false }" x-cloak class="fixed top-0 left-0 right-0 z-50 bg-transparent pt-4">
     <div class="container flex items-center justify-between py-3 px-6">
         <!-- Logo Section -->
         <a href="{{ route('home') }}" title="{{ __('ebSixOne') }}" wire:navigate class="flex items-center">
