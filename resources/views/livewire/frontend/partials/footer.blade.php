@@ -26,12 +26,6 @@
                     <li><a href="{{ route('home') }}" title="{{ __('Home') }}" wire:navigate
                             class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Home') }}</a>
                     </li>
-                    <li><a href="{{ route('video-feed') }}" title="{{ __('Video Feed') }}" wire:navigate
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Videos') }}</a>
-                    </li>
-                    <li><a href="{{ route('product') }}" title="{{ __('Products') }}" wire:navigate
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Products') }}</a>
-                    </li>
                 </ul>
             </div>
 
@@ -52,9 +46,6 @@
                             rel="noopener noreferrer"
                             class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('YouTube') }}</a>
                     </li>
-                    <li><a href="{{ route('contact') }}" title="{{ __('Contact') }}" wire:navigate
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Contact') }}</a>
-                    </li>
                 </ul>
             </div>
 
@@ -63,20 +54,7 @@
                 <h3 class="text-text-primary font-playfair font-semibold text-base sm:text-lg mb-3 sm:mb-4">
                     {{ __('Legal') }}
                 </h3>
-                <ul class="space-y-1">
-                    <li><a href="{{ route('PrivacyPolicy') }}" title="{{ __('Privacy Policy') }}"
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Privacy Policy') }}</a>
-                    </li>
-                    <li><a href="{{ route('TermsOfService') }}" title="{{ __('Terms of Service') }}"
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Terms of Service') }}</a>
-                    </li>
-                    <li><a href="{{ route('affiliate') }}" title="{{ __('Affiliate Disclosure') }}"
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Affiliate Disclosure') }}</a>
-                    </li>
-                    <li><a href="{{ route('support') }}" title="{{ __('Support') }}"
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Support') }}</a>
-                    </li>
-                </ul>
+              
             </div>
         </div>
     </div>

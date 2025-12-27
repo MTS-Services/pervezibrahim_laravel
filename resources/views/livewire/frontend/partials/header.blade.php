@@ -16,27 +16,6 @@
                 class="text-text-muted font-inter transition-colors {{ request()->routeIs('home') ? 'text-second-500! border-b-2 border-second-500' : 'hover:text-second-500! hover:border-b-2 hover:border-second-500' }}">
                 {{ __('Home') }}
             </a>
-            <a href="{{ route('product') }}" title="{{ __('Products') }}" wire:navigate
-                class="text-text-muted font-inter transition-colors {{ request()->routeIs('product') ? 'text-second-500! border-b-2 border-second-500' : 'hover:text-second-500 hover:border-b-2 hover:border-second-500' }}">
-                {{ __('Products') }}
-            </a>
-            <a href="{{ route('video-feed') }}" title="{{ __('Video Feed') }}" wire:navigate
-                class="text-text-muted font-inter transition-colors {{ request()->routeIs('video-feed') ? 'text-second-500! border-b-2 border-second-500' : 'hover:text-second-500! hover:border-b-2 hover:border-second-500' }}">
-                {{ __('Video Feed') }}
-            </a>
-            <a href="{{ route('blog') }}" title="{{ __('Blog') }}" wire:navigate
-                class="text-text-muted font-inter transition-colors {{ request()->routeIs('blog*') ? 'text-second-500! border-b-2 border-second-500' : 'hover:text-second-500! hover:border-b-2 hover:border-second-500' }}">
-                {{ __('Blog') }}
-            </a>
-            <a href="{{ route('about') }}" title="{{ __('About') }}" wire:navigate
-                class="text-text-muted font-inter transition-colors {{ request()->routeIs('about') ? 'text-second-500! border-b-2 border-second-500' : 'hover:text-second-500! hover:border-b-2 hover-border-second-500' }}">
-                {{ __('About') }}
-            </a>
-
-            <a href="{{ route('contact') }}" title="{{ __('Contact') }}" wire:navigate
-                class="text-text-muted font-inter transition-colors {{ request()->routeIs('contact') ? 'text-second-500! border-b-2 border-second-500' : 'hover:text-second-500! hover:border-b-2 hover-border-second-500' }}">
-                {{ __('Contact') }}
-            </a>
         </nav>
 
         <div class="hidden md:block">
@@ -62,22 +41,6 @@
             <a href="{{ route('home') }}" title="{{ __('Home') }}" wire:navigate
                 class="text-text-muted font-medium font-inter transition-colors {{ request()->routeIs('home') ? 'text-second-500!! underline ' : 'hover:text-second-500!' }}">
                 {{ __('Home') }}
-            </a>
-            <a href="{{ route('product') }}" title="{{ __('Products') }}" wire:navigate
-                class="text-text-muted font-medium font-inter transition-colors {{ request()->routeIs('product') ? 'text-second-500!! ' : 'hover:text-second-500!!' }}">
-                {{ __('Products') }}
-            </a>
-            <a href="{{ route('video-feed') }}" title="{{ __('Video Feed') }}" wire:navigate
-                class="text-text-muted font-medium font-inter transition-colors {{ request()->routeIs('video-feed') ? 'text-second-500!! ' : 'hover:text-second-500!!' }}">
-                {{ __('Video Feed') }}
-            </a>
-            <a href="{{ route('blog') }}" title="{{ __('Blog') }}" wire:navigate
-                class="text-text-muted font-medium font-inter transition-colors {{ request()->routeIs('blog') ? 'text-second-500!! ' : 'hover:text-second-500!!' }}">
-                {{ __('Blog') }}
-            </a>
-            <a href="{{ route('about') }}" title="{{ __('About') }}" wire:navigate
-                class="text-text-muted font-medium font-inter transition-colors {{ request()->routeIs('about') ? 'text-second-500!! ' : 'hover:text-second-500!!' }}">
-                {{ __('About') }}
             </a>
             <x-language />
         </nav>

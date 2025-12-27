@@ -12,7 +12,7 @@ class SetLocaleMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = 'fr'; 
+        $locale = 'en'; 
 
         $langFiles = File::glob(base_path('lang') . '/*.json');
         $supportedLocales = [];

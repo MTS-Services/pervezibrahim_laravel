@@ -2,20 +2,16 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\AuditableTrait;
-use OwenIt\Auditing\Contracts\Auditable;
-use Laravel\Scout\Attributes\SearchUsingPrefix;
 use Laravel\Scout\Searchable;
 
-class BaseModel extends Model implements Auditable
+class BaseModel extends Model 
 {
-    use HasFactory, SoftDeletes, AuditableTrait, Searchable;
+    use HasFactory, SoftDeletes,  Searchable;
 
     /* ================================================================
      * *** PROPERTIES ***

@@ -5,16 +5,14 @@ namespace App\Models;
 use App\Enums\AdminStatus;
 use App\Enums\OtpType;
 use App\Models\AuthBaseModel;
-use App\Traits\AuditableTrait;
 // use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Scout\Attributes\SearchUsingPrefix;
 use Laravel\Scout\Searchable;
-use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\Builder;
 
-class Admin extends AuthBaseModel implements Auditable
+class Admin extends AuthBaseModel 
 {
-    use AuditableTrait, Searchable;
+    use  Searchable;
 
     protected $guard = 'admin';
 
