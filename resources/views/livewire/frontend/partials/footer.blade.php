@@ -1,61 +1,99 @@
-<footer class="bg-bg-tertiary">
-    <div class="container px-4 py-10 sm:py-12">
-        <div class="grid grid-cols-3 xxs:grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8">
+<footer class="bg-gray-50 pb-4">
+    <div class="container px-4 py-8 sm:py-10 lg:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
             <!-- Brand Section -->
-            <div class="col-span-3 md:col-span-2">
-                <a href="{{ route('home') }}" wire:navigate class="flex items-center gap-2 sm:gap-3">
-                    <div
-                        class="w-8 h-8 xxs:w-10 xxs:h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 rounded-full btn-gradient flex items-center justify-center">
-                        <span class="text-white font-bold text-xl lg:text-2xl xl:text-3xl">{{ __('DG') }}</span>
-                    </div>
-                    <span
-                        class="text-xl lg:text-2xl xl:text-3xl font-bold font-playfair text-text-primary">{{ __('DiodioGlow') }}</span>
-                </a>
-                <p
-                    class="text-xs xxs:text-sm sm:text-base text-text-secondary mt-2 sm:mt-3 md:pr-10 lg:pr-20 xl:pr-50 leading-relaxed">
-                    {{ __('Curating viral skincare trends and AI-powered product recommendations for natural, glowing skin.') }}
+            <div class="md:col-span-12 lg:col-span-6">
+                <div class="flex items-center gap-2 mb-4">
+                    <img src="{{ asset('assets/images/home_page/logo_black.png') }}" alt="DiodioGlow" class="h-8 sm:h-10">
+                </div>
+                <p class="text-sm sm:text-base text-zinc-700 leading-relaxed mb-6">
+                    {{ __('Unlock flexible freelance work through our cognition-based qualification system. Join our network, and start earning on AI-related tasks.') }}
                 </p>
+                
+                <!-- Contact Info -->
+                <div class="space-y-3 mb-8 md:mb-0">
+                    <a href="mailto:support@ebsixone.com" class="flex items-center gap-2 text-gray-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                        </svg>
+                        <span class="break-all">support@ebsixone.com</span>
+                    </a>
+                    
+                    <a href="mailto:careers@ebsixone.com" class="flex items-center gap-2 text-gray-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="break-all">careers@ebsixone.com</span>
+                    </a>
+                    
+                    <a href="mailto:press@ebsixone.com" class="flex items-center gap-2 text-gray-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                        </svg>
+                        <span class="break-all">press@ebsixone.com</span>
+                    </a>
+                </div>
             </div>
 
-            <!-- Explore Section -->
-            <div class="col-span-1">
-                <h3 class="text-text-primary font-playfair font-semibold text-base sm:text-lg mb-3 sm:mb-4">
-                    {{ __('Explore') }}
-                </h3>
-                <ul class="space-y-1">
-                    <li><a href="{{ route('home') }}" title="{{ __('Home') }}" wire:navigate
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Home') }}</a>
-                    </li>
-                </ul>
-            </div>
+            <!-- Platform & Company Section - Side by Side on Mobile -->
+            <div class="md:col-span-12 lg:col-span-6 grid grid-cols-2 gap-8">
+                <!-- Platform Section -->
+                <div>
+                    <h3 class="text-zinc-900 font-semibold text-base sm:text-lg mb-3 sm:mb-4">
+                        {{ __('Platform') }}
+                    </h3>
+                    <ul class="space-y-2 sm:space-y-2.5">
+                        <li>
+                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                                {{ __('Services') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                                {{ __('Gallery') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                                {{ __('Terms') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="col-span-1">
-                <h3 class="text-text-primary font-playfair font-semibold text-base sm:text-lg mb-3 sm:mb-4">
-                    {{ __('Connect') }}
-                </h3>
-                <ul class="space-y-1">
-                    <li><a href="{{ route('home') }}" title="{{ __('TikTok') }}" wire:navigate
-                            rel="noopener noreferrer"
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('TikTok') }}</a>
-                    </li>
-                    <li><a href="{{ route('home') }}" title="{{ __('Instagram') }}" wire:navigate
-                            rel="noopener noreferrer"
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('Instagram') }}</a>
-                    </li>
-                    <li><a href="{{ route('home') }}" title="{{ __('YouTube') }}" wire:navigate
-                            rel="noopener noreferrer"
-                            class="text-text-secondary hover:text-second-500 transition-colors text-sm sm:text-base">{{ __('YouTube') }}</a>
-                    </li>
-                </ul>
+                <!-- Company Section -->
+                <div>
+                    <h3 class="text-zinc-900 font-semibold text-base sm:text-lg mb-3 sm:mb-4">
+                        {{ __('Company') }}
+                    </h3>
+                    <ul class="space-y-2 sm:space-y-2.5">
+                        <li>
+                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                                {{ __('About Us') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                                {{ __('FAQS') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                                {{ __('Contact') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Legal Section -->
-            <div class="col-span-1">
-                <h3 class="text-text-primary font-playfair font-semibold text-base sm:text-lg mb-3 sm:mb-4">
-                    {{ __('Legal') }}
-                </h3>
-              
-            </div>
+    <!-- Copyright -->
+    <div class="bg-black py-4 sm:py-5">
+        <div class="container px-4">
+            <p class="text-center text-white text-xs sm:text-sm md:text-base">
+                © 2025 ebsixone. {{ __('All rights reserved.') }}
+            </p>
         </div>
     </div>
 </footer>
