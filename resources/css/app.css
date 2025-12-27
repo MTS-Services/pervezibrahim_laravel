@@ -33,8 +33,8 @@
 
     /* Primary: Purple */
     --color-primary-50: #F6F9FE;
-    --color-primary-100: #0020601A;
-    --color-primary-200: #00206033;
+    --color-primary-100: #b8c1d3e5;
+    --color-primary-200: #9da2acfd;
     --color-primary-300: #0020604D;
     --color-primary-400: #00206080;
     --color-primary-500: #002060;
@@ -203,12 +203,8 @@
     /* ======================================================
     	 	 	 	 	 	 # font family
     ======================================================== */
-    --font-open-sans: "Open Sans", sans-serif;
-    --font-lato: "Lato", sans-serif;
-    --font-playfair: "Playfair Display", sans-serif;
-    --font-inter: "Inter", sans-serif;
+
     --font-montserrat: "Montserrat", sans-serif;
-    --font-outfit: "Outfit", sans-serif;
 
 
     /* ======================================================
@@ -290,8 +286,10 @@
     }
 
     p,
-    li {
-        @apply font-inter;
+    li,
+    span,
+    a {
+        @apply font-montserrat;
     }
 
     .dark * {
