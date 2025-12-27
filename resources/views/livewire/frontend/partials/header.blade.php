@@ -1,4 +1,4 @@
-<header x-data="{ mobileMenuOpen: false }" x-cloak class="sticky top-0 z-50 bg-transparent ">
+<header x-data="{ mobileMenuOpen: false }" x-cloak class="fixed top-0 left-0 right-0 z-50 bg-transparent pt-4">
     <div class="container flex items-center justify-between py-3 px-6">
         <!-- Logo Section -->
         <a href="{{ route('home') }}" title="{{ __('ebSixOne') }}" wire:navigate class="flex items-center">
@@ -15,7 +15,7 @@
 
             <!-- Home -->
             <a href="{{ route('home') }}" wire:navigate
-                class="px-5 py-2 rounded-full text-sm  transition-all
+                class="px-5 py-2 rounded-full text-base  transition-all
        {{ request()->routeIs('home')
            ? 'bg-white text-black shadow'
            : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
@@ -24,14 +24,14 @@
 
             <!-- About Us -->
             <a href="#"
-                class="px-5 py-2 rounded-full text-sm  transition-all
+                class="px-5 py-2 rounded-full text-base  transition-all
        text-gray-300 hover:bg-white/10 hover:text-white">
                 {{ __('About Us') }}
             </a>
 
             <!-- Services -->
             <a href="#"
-                class="px-5 py-2 rounded-full text-sm  transition-all
+                class="px-5 py-2 rounded-full text-base  transition-all
        text-gray-300 hover:bg-white/10 hover:text-white">
                 {{ __('Services') }}
             </a>
@@ -42,7 +42,7 @@
 
                 <!-- Trigger -->
                 <button type="button" @click="open = !open"
-                    class="px-5 py-2 rounded-full text-sm  text-gray-300
+                    class="px-5 py-2 rounded-full text-base  text-gray-300
                 transition-all hover:bg-white/10 hover:text-white
                 flex items-center gap-1">
 
@@ -62,21 +62,21 @@
 
                     <!-- Gallery -->
                     <a href="#" @click="open = false"
-                        class="block text-center px-4 py-1.5 rounded-full text-sm 
+                        class="block text-center px-4 py-1.5 rounded-full text-base 
                bg-blue-600 text-white">
                         {{ __('Gallery') }}
                     </a>
 
                     <!-- Methods -->
                     <a href="#" @click="open = false"
-                        class="block text-center px-4 py-1.5 rounded-full text-sm 
+                        class="block text-center px-4 py-1.5 rounded-full text-base 
                bg-white text-black hover:bg-gray-200 transition">
                         {{ __('Methods') }}
                     </a>
 
                     <!-- FAQ -->
                     <a href="#" @click="open = false"
-                        class="block text-center px-4 py-1.5 rounded-full text-sm 
+                        class="block text-center px-4 py-1.5 rounded-full text-base 
                bg-white text-black hover:bg-gray-200 transition">
                         {{ __('FAQ') }}
                     </a>
