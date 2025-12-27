@@ -26,7 +26,7 @@
 
             <!-- Right: Text Section -->
             <div class="flex flex-col space-y-8 mt-52">
-                <h1 class="text-2xl font-light text-wrap text-white">
+                <h1 class="text-1xl font-medium text-wrap text-white">
                     Business Process Management System and Methods for the New Era of Technology
                 </h1>
 
