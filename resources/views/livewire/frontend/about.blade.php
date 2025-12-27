@@ -53,10 +53,6 @@
 
         <!-- Learn More Button -->
         <div class="flex justify-center items-center gap-4 mb-12">
-            {{-- <button
-                class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition">
-                Learn More
-            </button> --}}
             <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
                 {{ __('Learn More') }}
             </x-ui.button>
@@ -91,8 +87,7 @@
 
         <!-- CTA Banner -->
         <div class="bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
-            <h3 class="text-white text-4xl font-bold mb-2 inline-block">ebSixOne<sup class="text-sm text-white">TM</sup>
-            </h3>
+            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs">
             <h2 class="text-white text-3xl font-bold mb-4">
                 Ready to Get Started?
             </h2>
