@@ -3,12 +3,12 @@
         <!-- Logo Section -->
         <a href="{{ route('home') }}" title="{{ __('DiodioGlow') }}" wire:navigate class="flex items-center gap-2">
             <div
-                class="w-10 lg:w-14 h-10 lg:h-14 xl:w-16 xl:h-16 rounded-full btn-gradient flex items-center justify-center">
-                <span class="text-white font-bold text-lg lg:text-2xl xl:text-3xl">{{ __('DG') }}</span>
+                class="w-10 lg:w-14 h-10 lg:h-14 xl:w-16 xl:h-16 flex items-center justify-center overflow-hidden">
+                <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="{{ __('DiodioGlow') }}"
+                    class="w-full h-full object-cover">
             </div>
-            <span
-                class="text-lg lg:text-2xl xl:text-3xl font-bold font-playfair text-text-primary">{{ __('DiodioGlow') }}</span>
         </a>
+
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-8">
@@ -19,7 +19,7 @@
         </nav>
 
         <div class="hidden md:block">
-            <x-language />
+            {{-- <x-language /> --}}
         </div>
 
 
@@ -42,7 +42,7 @@
                 class="text-text-muted font-medium font-inter transition-colors {{ request()->routeIs('home') ? 'text-second-500!! underline ' : 'hover:text-second-500!' }}">
                 {{ __('Home') }}
             </a>
-            <x-language />
+            {{-- <x-language /> --}}
         </nav>
     </div>
 </header>
