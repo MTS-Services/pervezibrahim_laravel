@@ -103,12 +103,6 @@
                         'icon' => 'cog-8-tooth',
                         'active' => 'general_settings',
                     ],
-                    [
-                        'name' => 'TikTok Settings',
-                        'route' => route('admin.as.tik-tok-settings'),
-                        'icon' => 'headset',
-                        'active' => 'tik_tok_settings',
-                    ],
                     // [
                     //     'name' => 'Security',
                     //     'route' => '#',

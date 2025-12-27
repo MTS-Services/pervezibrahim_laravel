@@ -19,9 +19,6 @@ class ApplicationSettingsController extends Controller
     {
         return view($this->masterView);
     }
-    public function tikTokSettings()
-    {
-        return view($this->masterView);
-    }
+  
     
 }
