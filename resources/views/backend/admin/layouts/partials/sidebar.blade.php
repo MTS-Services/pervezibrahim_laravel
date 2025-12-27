@@ -49,12 +49,12 @@
                         'icon' => 'user-circle',
                         'active' => 'admin',
                     ],
-                    // [
-                    //     'name' => 'Users',
-                    //     'route' => route('admin.um.user.index'),
-                    //     'icon' => 'user',
-                    //     'active' => 'admin-users',
-                    // ],
+                    [
+                        'name' => 'Users',
+                        'route' => route('admin.um.user.index'),
+                        'icon' => 'user',
+                        'active' => 'admin-users',
+                    ],
 
                     // [
                     //     'name' => 'Pending Users',
@@ -69,85 +69,25 @@
                     //     'active' => 'admin-users-banned',
                     // ],
                 ]" />
-            <x-backend.navlink type="dropdown" icon="user-circle" name="Product Management" :page_slug="$active"
+            {{-- <x-backend.navlink type="dropdown" icon="user-circle" name="Product Management" :page_slug="$active"
                 :items="[
                     [
                         'name' => 'Categories',
-                        'route' => route('admin.pm.category.index'),
+                        'route' => '#',
                         'icon' => 'user-circle',
                         'active' => 'category',
                     ],
                     [
                         'name' => 'Products',
-                        'route' => route('admin.pm.product.index'),
+                        'route' => '#',
                         'icon' => 'user',
                         'active' => 'product',
                     ],
 
-                    // [
-                    //     'name' => 'Pending Users',
-                    //     'route' => '#',
-                    //     'icon' => 'user-plus',
-                    //     'active' => 'admin-users-pending',
-                    // ],
-                    // [
-                    //     'name' => 'Banned Users',
-                    //     'route' => '#',
-                    //     'icon' => 'user-round-x',
-                    //     'active' => 'admin-users-banned',
-                    // ],
-                ]" />
-            <x-backend.navlink type="dropdown" icon="user-circle" name="TikTok Users" :page_slug="$active"
-                :items="[
-                    [
-                        'name' => 'Categories',
-                        'route' => route('admin.tm.user-category.index'),
-                        'icon' => 'user-circle',
-                        'active' => 'user-category',
-                    ],
-                    [
-                        'name' => 'Users',
-                        'route' => route('admin.tm.user.index'),
-                        'icon' => 'user-circle',
-                        'active' => 'tiktok-user',
-                    ],
-
-                    // [
-                    //     'name' => 'Pending Users',
-                    //     'route' => '#',
-                    //     'icon' => 'user-plus',
-                    //     'active' => 'admin-users-pending',
-                    // ],
-                    // [
-                    //     'name' => 'Banned Users',
-                    //     'route' => '#',
-                    //     'icon' => 'user-round-x',
-                    //     'active' => 'admin-users-banned',
-                    // ],
-                ]" />
-
-            <x-backend.navlink type="single" icon="youtube" name="Banner Videos" :route="route('admin.banner-video')" :wire="false"
-                active="banner-video" :page_slug="$active" />
-            <x-backend.navlink type="single" icon="youtube" name="Tiktok Videos" :route="route('admin.tiktok-videos')"
-                active="tiktok-video" :page_slug="$active" />
-            <x-backend.navlink type="single" icon="key-round" name="Keyword" :route="route('admin.keyword.index')" active="keyword"
-                :page_slug="$active" />
-
-            {{-- <x-backend.navlink type="dropdown" icon="user-group" name="Audit Log Management" :page_slug="$active"
-                :items="[
-                    [
-                        'name' => 'Audit Logs',
-                        'route' => route('admin.alm.audit.index'),
-                        'icon' => 'user',
-                        'active' => 'audit-log-management',
-                    ],
                 ]" /> --}}
-            <x-backend.navlink type="single" icon="folder" name="Blog" :route="route('admin.blog.index')" active="blog"
-                :page_slug="$active" />
-            <x-backend.navlink type="single" icon="phone" name="Contact" :route="route('admin.contact.index')" active="contact"
-                :page_slug="$active" />
-            <x-backend.navlink type="single" icon="folder" :wire="false" name="About CMS" :route="route('admin.about-cms')"
-                active="about-cms" :page_slug="$active" />
+         
+           
+            
             <div class="pt-4 pb-2">
                 <p class="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase"
                     x-show="(desktop && sidebar_expanded) || (!desktop && mobile_menu_open)">
