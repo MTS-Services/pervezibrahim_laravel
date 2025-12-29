@@ -18,7 +18,7 @@
             </a>
 
             <!-- About Us -->
-            <a href="#" class="px-5 py-2 rounded-full text-base text-zinc-50 hover:bg-white/10 hover:text-white transition-all">
+            <a href="{{ route('about') }}" class="px-5 py-2 rounded-full text-base text-zinc-50 hover:bg-white/10 hover:text-white transition-all">
                 {{ __('About Us') }}
             </a>
 
