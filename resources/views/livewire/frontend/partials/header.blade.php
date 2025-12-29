@@ -45,7 +45,7 @@
                     <a href="#" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base bg-second-500 text-white">
                         {{ __('Gallery') }}
                     </a>
-                    <a href="#" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base bg-white text-black hover:bg-gray-200 transition">
+                    <a href="{{ route('method') }}" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base bg-white text-black hover:bg-gray-200 transition">
                         {{ __('Methods') }}
                     </a>
                     <a href="#" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base bg-white text-black hover:bg-gray-200 transition">
