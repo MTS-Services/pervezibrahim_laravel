@@ -88,4 +88,80 @@
         </div>
     </section>
 
+    <section class="bg-[linear-gradient(135deg,_#9BBBF4_0%,_#EAF1FF_45%,_#FFFFFF_100%)] py-16 px-8 rounded-2xl shadow-md mt-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
+                    <img src="{{ asset('assets/images/home_page/logo_black.png') }}" alt="" class="w-72">
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">Business Process
+                        Management (BPM) for the New Era of Technology!
+                    </h1>
+                </div>
+
+                <!-- Right Images -->
+                <div class="">
+                    <img src="{{ asset('assets/images/home_page/Group 17694.png') }}" alt="" class="w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section 1 -->
+    <section class="py-20 px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Left Images -->
+                <div class="">
+                    <img src="{{ asset('assets/images/home_page/Group 17693.png') }}" alt="" class="w-full">
+                </div>
+
+                <!-- Right Content -->
+                <div class="bg-blue-50 p-12 rounded-3xl">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                        I'm excited to share some fantastic news that will truly inspire you.
+                    </h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                        After spending five decades in information technology, including SAP consulting, I have
+                        witnessed the evolution of computers and the development of various software and systems. This
+                        journey has taken us from traditional punched cards to desktops, web applications, mobile
+                        devices, and now advances in AI, robots, augmented reality, and virtual reality. Today, we are
+                        experiencing even further advancements in information technology.
+                    </p>
+                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
+                        {{ __('Learn More') }}
+                    </x-ui.button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section 2 -->
+    <section class="bg-gradient-to-r from-blue-50 to-purple-50 py-20 px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        For years, I have been passionate about developing a new approach to Business Process Management
+                        (BPM) grounded in natural principles. This approach, called "Enterprise Basics" aims to
+                        revolutionize how we understand and implement BPM. It strives to simplify and enhance BPM
+                        design, ensuring that it is grounded in natural principles, logical, and efficient. I am eager
+                        to hear your thoughts on this exciting innovation! The insights are the matter and equally
+                        compelling. Let's embark on this thrilling journey together and explore the possibilities. For
+                        more on this topic, please check out the next slide!
+                    </p>
+                </div>
+
+                <!-- Right Content -->
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                        Let's embark on this thrilling journey together and explore the possibilities! For more on this
+                        story, check out the next slide!
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
