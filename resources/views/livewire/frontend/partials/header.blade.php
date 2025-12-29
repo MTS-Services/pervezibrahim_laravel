@@ -18,12 +18,14 @@
             </a>
 
             <!-- About Us -->
-            <a href="{{ route('about') }}" class="px-5 py-2 rounded-full text-base text-zinc-50 hover:bg-white/10 hover:text-white transition-all">
+            <a href="{{ route('about') }}" class="px-5 py-2 rounded-full text-base transition-all
+               {{ request()->routeIs('about') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
                 {{ __('About Us') }}
             </a>
 
             <!-- Services -->
-            <a href="#" class="px-5 py-2 rounded-full text-base text-zinc-50 hover:bg-white/10 hover:text-white transition-all">
+            <a href="#" class="px-5 py-2 rounded-full text-base transition-all
+               {{ request()->routeIs('service') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
                 {{ __('Services') }}
             </a>
 
@@ -42,13 +44,13 @@
                 <!-- Dropdown -->
                 <div x-show="open" x-transition x-cloak
                      class="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-zinc-950 rounded-2xl px-4 py-3 space-y-2 shadow-xl min-w-[160px]">
-                    <a href="#" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base bg-second-500 text-white">
+                    <a href="#" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base {{ request()->routeIs('gallery') ? 'bg-second-500 text-white' : 'bg-white' }}">
                         {{ __('Gallery') }}
                     </a>
-                    <a href="#" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base bg-white text-black hover:bg-gray-200 transition">
+                    <a href="{{ route('method') }}" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base {{ request()->routeIs('method') ? 'bg-second-500 text-white' : 'bg-white' }} text-black hover:bg-gray-200 transition">
                         {{ __('Methods') }}
                     </a>
-                    <a href="#" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base bg-white text-black hover:bg-gray-200 transition">
+                    <a href="{{ route('faq') }}" @click="open = false" class="block text-center px-4 py-1.5 rounded-full text-base {{ request()->routeIs('faq') ? 'bg-second-500 text-white' : 'bg-white' }} text-black hover:bg-gray-200 transition">
                         {{ __('FAQ') }}
                     </a>
                 </div>

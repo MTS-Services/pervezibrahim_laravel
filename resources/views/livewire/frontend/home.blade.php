@@ -86,8 +86,8 @@
     </section>
 
     <section
-        class="bg-[linear-gradient(135deg,_#9BBBF4_0%,_#EAF1FF_45%,_#FFFFFF_100%)] rounded-2xl shadow-md mt-6 py-2">
-        <div class="container mx-auto">
+        class="container bg-[linear-gradient(135deg,_#9BBBF4_0%,_#EAF1FF_45%,_#FFFFFF_100%)] rounded-2xl shadow-md mt-6 py-2">
+        <div class="px-6 lg:px-16 py-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
                 <div>
