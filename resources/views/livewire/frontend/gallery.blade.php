@@ -546,15 +546,7 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
-
-
-
-
 
             <script>
                 const video = document.getElementById('videoPlayer');
@@ -633,8 +625,6 @@
                     });
                 });
             </script>
-
-
         </div>
     </section>
 
@@ -658,7 +648,4 @@
             </div>
         </div>
     </section>
-
-
-
 </div>

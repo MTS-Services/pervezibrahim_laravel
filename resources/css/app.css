@@ -26,6 +26,10 @@
     --color-red: #FF0000;
     --color-white: #ffffff;
     --color-bg-base: #1B0C33;
+    --color-PrussianBlue: #002060;
+    --color-PrimaryBlue: #2563EB;
+    --color-LightGray: #F3F4F6;
+    --color-SlateGray: #4B5563;
 
     --color-start: #FFFCF0;
     --color-end: #FFEBEE;
@@ -143,10 +147,15 @@
     --color-start: var(--color-start);
     --color-end: var(--color-end);
     --color-red: var(--color-red);
+    --color-PrimaryBlue: var(--color-PrimaryBlue);
+    --color-LightGray: var(--color-LightGray);
+
 
 
     --color-text-new: var(--color-text-new-light);
     --color-text-white: var(--color-white-light);
+    --color-text-PrussianBlue: var(--color-PrussianBlue);
+
 
     --color-accent: var(--color-accent-light);
     --color-accent-content: var(--color-accent-content-light);

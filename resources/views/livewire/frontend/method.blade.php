@@ -22,7 +22,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-20 items-center">
                 <div class="flex flex-col justify-center items-center gap-5">
                     <div class="w-full h-full">
-                        <img src="{{ asset('assets/images/methods/image-1.png') }}" alt="" class="w-full h-full">
+                        <img src="{{ asset('assets/images/methods/image-1.png') }}" alt=""
+                            class="w-full h-full">
                     </div>
                     <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
                         {{ __('Learn More') }}
@@ -30,7 +31,8 @@
                 </div>
                 <div class="flex flex-col justify-between items-center gap-5">
                     <div class="w-full h-full">
-                        <img src="{{ asset('assets/images/methods/image-2.png') }}" alt="" class="w-full h-full">
+                        <img src="{{ asset('assets/images/methods/image-2.png') }}" alt=""
+                            class="w-full h-full">
                     </div>
                     <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
                         {{ __('Learn More') }}
@@ -38,7 +40,8 @@
                 </div>
                 <div class="flex flex-col justify-center items-center gap-5">
                     <div class="w-full h-full">
-                        <img src="{{ asset('assets/images/methods/image-3.png') }}" alt="" class="w-full h-full">
+                        <img src="{{ asset('assets/images/methods/image-3.png') }}" alt=""
+                            class="w-full h-full">
                     </div>
                     <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
                         {{ __('Learn More') }}

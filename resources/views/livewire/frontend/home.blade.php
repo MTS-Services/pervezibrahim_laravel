@@ -41,46 +41,46 @@
         class="flex flex-col lg:flex-row items-center justify-between gap-8 py-8 lg:px-8 bg-white container mx-auto font-sans">
         <!-- Left Side: Quote and Author -->
         <div class="flex flex-col items-start md:items-end">
-            <h1 class="text-[#002855] text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-balance">
+            <h1 class="text-PrussianBlue text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-balance">
                 What gets measured - <br class="hidden md:block" /> gets managed!
             </h1>
             <div
-                class="mt-2 bg-[#2563EB] text-white text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full inline-flex items-center">
+                class="mt-2 bg-PrimaryBlue text-white text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full inline-flex items-center">
                 Peter Drucker
             </div>
         </div>
 
         <!-- Right Side: Logo Container -->
         <div
-            class="bg-[#F3F4F6] lg:rounded-full px-8 md:px-16 py-8 md:py-10 flex flex-wrap items-center justify-center gap-4 md:gap-12 flex-1 max-w-2xl">
+            class="bg-LightGray lg:rounded-full px-8 md:px-16 py-8 md:py-10 flex flex-wrap items-center justify-center gap-4 md:gap-12 flex-1 max-w-2xl">
             <!-- Logo 1 -->
             <div class="flex items-center gap-1">
-                <div class="w-5 h-5 border-4 border-[#4B5563] rounded-sm opacity-80"></div>
-                <span class="text-[#4B5563] font-black text-xl tracking-tighter opacity-80">LOGO</span>
+                <div class="w-5 h-5 border-4 border-muted rounded-sm opacity-80"></div>
+                <span class="text-muted font-black text-xl tracking-tighter opacity-80">LOGO</span>
             </div>
 
             <!-- Logo 2 -->
             <div class="flex items-center gap-1.5">
-                <div class="w-5 h-5 bg-[#4B5563] rounded-full flex items-center justify-center opacity-80">
-                    <div class="w-2 h-2 bg-[#F3F4F6] rounded-full"></div>
+                <div class="w-5 h-5 bg-SlateGray rounded-full flex items-center justify-center opacity-80">
+                    <div class="w-2 h-2 bg-LightGray rounded-full"></div>
                 </div>
-                <span class="text-[#4B5563] font-bold text-lg opacity-80">Logoipsum</span>
+                <span class="text-muted font-bold text-lg opacity-80">Logoipsum</span>
             </div>
 
             <!-- Logo 3 -->
-            <div class="text-[#4B5563] font-black text-2xl tracking-widest opacity-80">
+            <div class="text-muted font-black text-2xl tracking-widest opacity-80">
                 IPSUM
             </div>
 
             <!-- Logo 4 -->
             <div class="flex items-center gap-1 opacity-80">
                 <div class="grid grid-cols-2 gap-0.5">
-                    <div class="w-2 h-2 bg-[#4B5563]"></div>
-                    <div class="w-2 h-2 bg-[#4B5563]"></div>
-                    <div class="w-2 h-2 bg-[#4B5563]"></div>
-                    <div class="w-2 h-2 border border-[#4B5563]"></div>
+                    <div class="w-2 h-2 bg-SlateGray"></div>
+                    <div class="w-2 h-2 bg-SlateGray"></div>
+                    <div class="w-2 h-2 bg-SlateGray"></div>
+                    <div class="w-2 h-2 border border-SlateGray"></div>
                 </div>
-                <span class="text-[#4B5563] font-bold text-xl tracking-tight">LOGO</span>
+                <span class="text-muted font-bold text-xl tracking-tight">LOGO</span>
             </div>
         </div>
     </section>

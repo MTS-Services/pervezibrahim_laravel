@@ -50,9 +50,7 @@
                                 <path d="M8 5v14l11-7z"></path>
                             </svg>
                         </button>
-
                     </div>
-
 
                     <div id="controls"
                         class="absolute inset-0 from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -153,18 +151,12 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="flex items-center justify-center ">
-
                 <div
                     class="relative group w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
-
-
                     <div class="relative w-full h-full">
-
                         <!-- VIDEO -->
                         <video id="videoPlayer" class="w-full h-full object-cover">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -285,21 +277,15 @@
                 </div>
             </div>
 
-
             <div class="flex items-center justify-center ">
-
                 <div
                     class="relative group w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
-
-
                     <div class="relative w-full h-full">
-
                         <!-- VIDEO -->
                         <video id="videoPlayer" class="w-full h-full object-cover">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-
                         <!-- CENTER PLAY ICON -->
                         <button id="centerPlayBtn"
                             class="absolute inset-0 flex items-center justify-center transition">
@@ -309,10 +295,7 @@
                                 <path d="M8 5v14l11-7z"></path>
                             </svg>
                         </button>
-
                     </div>
-
-
                     <div id="controls"
                         class="absolute inset-0 from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 
@@ -416,19 +399,14 @@
 
 
             <div class="flex items-center justify-center ">
-
                 <div
                     class="relative group w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
-
-
                     <div class="relative w-full h-full">
-
                         <!-- VIDEO -->
                         <video id="videoPlayer" class="w-full h-full object-cover">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-
                         <!-- CENTER PLAY ICON -->
                         <button id="centerPlayBtn"
                             class="absolute inset-0 flex items-center justify-center transition">
@@ -438,10 +416,7 @@
                                 <path d="M8 5v14l11-7z"></path>
                             </svg>
                         </button>
-
                     </div>
-
-
                     <div id="controls"
                         class="absolute inset-0 from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 
@@ -541,13 +516,7 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
-
-
 
             <script>
                 const video = document.getElementById('videoPlayer');
@@ -626,15 +595,10 @@
                     });
                 });
             </script>
-
-
         </div>
     </section>
 
     <section class="container py-16 px-4 mx-auto">
-
-
-
         <!-- CTA Banner -->
         <div
             class="bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
@@ -654,7 +618,4 @@
             </div>
         </div>
     </section>
-
-
-
 </div>
