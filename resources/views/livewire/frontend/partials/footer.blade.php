@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}" wire:navigate
+                            <a href="{{ route('gallery') }}" wire:navigate
                                 class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
                                 {{ __('Gallery') }}
                             </a>

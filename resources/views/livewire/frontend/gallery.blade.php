@@ -9,6 +9,7 @@
         <!-- Header / Navigation -->
         <header class="relative z-10 flex items-center justify-between px-6 lg:px-16 py-8">
 
+
         </header>
 
         <!-- Hero Content -->
@@ -16,8 +17,8 @@
             <!-- Right: Text Section -->
             <div class="flex flex-col mt-32">
                 <h1 class="text-3xl space-8 font-bold text-wrap text-white">
-                    ebSixOne Systems <br>
-                    design!
+                    Discover how<br> ebSixOne works!
+
                 </h1>
             </div>
         </main>
@@ -66,7 +67,7 @@
                         <div class="flex items-center justify-between">
 
                             <div class="flex items-center gap-6">
-                                <button id="playBtn" class="text-white transition-all">
+                                <button id="playBtn" class="text-white  hover:scale-110 transition-all">
                                     <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-white"
                                         viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z"></path>
@@ -79,7 +80,7 @@
 
                                 <div class="flex items-center gap-4">
                                     <button id="nextBtn"
-                                        class="text-white transition-colors duration-300 p-1 outline-none">
+                                        class="text-white hover:text-gray-200 transition-colors duration-300 p-1 outline-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-white"
                                             viewBox="0 0 24 24">
                                             <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
@@ -103,7 +104,7 @@
                             <div class="flex items-center gap-6">
                                 <div class="relative group/settings">
                                     <button id="settingsBtn"
-                                        class="text-white  hover:rotate-90 transition-all duration-500 p-1 outline-none">
+                                        class="text-white hover:text-gray-200 hover:rotate-90 transition-all duration-500 p-1 outline-none">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="h-6 w-6 fill-white stroke-current" viewBox="0 0 24 24"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -123,7 +124,137 @@
                                             class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
                                             data-speed="0.5">0.5x</button>
                                         <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg bg-blue-600/20 text-blue-400 text-sm"
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg bg-blue-600/20 text-blue text-sm"
+                                            data-speed="1">Normal</button>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
+                                            data-speed="1.5">1.5x</button>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
+                                            data-speed="2">2x</button>
+                                    </div>
+                                </div>
+
+                                <button class="p-1 text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                                        <rect x="3" y="7" width="18" height="10" rx="2" />
+                                    </svg>
+                                </button>
+
+
+                                <button id="fullscreenBtn" class="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="white" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="flex items-center justify-center ">
+
+                <div
+                    class="relative group w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
+
+
+                    <div class="relative w-full h-full">
+
+                        <!-- VIDEO -->
+                        <video id="videoPlayer" class="w-full h-full object-cover">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <!-- CENTER PLAY ICON -->
+                        <button id="centerPlayBtn"
+                            class="absolute inset-0 flex items-center justify-center transition">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="w-20 h-20 text-white fill-white hover:scale-110 transition-transform"
+                                viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </button>
+
+                    </div>
+
+
+                    <div id="controls"
+                        class="absolute inset-0 from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+                        <div class="w-full h-1.5 bg-white/20 rounded-full mb-4 cursor-pointer overflow-hidden relative"
+                            id="progressContainer">
+                            <div id="progressBar"
+                                class="absolute top-0 left-0 h-full bg-red w-0 transition-all duration-100"></div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="flex items-center gap-6">
+                                <button id="playBtn" class="text-white  hover:scale-110 transition-all">
+                                    <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-white"
+                                        viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"></path>
+                                    </svg>
+                                    <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-8 w-8 fill-white hidden" viewBox="0 0 24 24">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+                                    </svg>
+                                </button>
+
+                                <div class="flex items-center gap-4">
+                                    <button id="nextBtn"
+                                        class="text-white hover:text-gray-200 transition-colors duration-300 p-1 outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-white"
+                                            viewBox="0 0 24 24">
+                                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+                                        </svg>
+                                    </button>
+                                    <div class="flex items-center gap-2 group/vol">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
+                                            fill="none" viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                        </svg>
+                                        <div
+                                            class="w-0 group-hover/vol:w-20 overflow-hidden transition-all duration-300">
+                                            <input type="range" class="w-full bg-red" min="0"
+                                                max="1" step="0.1" value="1" id="volumeSlider">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-6">
+                                <div class="relative group/settings">
+                                    <button id="settingsBtn"
+                                        class="text-white hover:text-gray-200 hover:rotate-90 transition-all duration-500 p-1 outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 fill-white stroke-current" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                            <path
+                                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                            </path>
+                                        </svg>
+                                    </button>
+
+                                    <div id="settingsMenu"
+                                        class="absolute bottom-full right-0 mb-4 w-48 bg-zinc-900/95 backdrop-blur-md border border-white/10 rounded-xl p-2 hidden shadow-xl text-white">
+                                        <div
+                                            class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold px-3 py-1">
+                                            Playback Speed</div>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
+                                            data-speed="0.5">0.5x</button>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg bg-blue-600/20  text-sm"
                                             data-speed="1">Normal</button>
                                         <button
                                             class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
@@ -156,6 +287,7 @@
 
 
             </div>
+
 
             <div class="flex items-center justify-center ">
 
@@ -209,7 +341,7 @@
 
                                 <div class="flex items-center gap-4">
                                     <button id="nextBtn"
-                                        class="text-white hover:text-gray-200 transition-colors duration-300 p-1 outline-none">
+                                        class="text-white  transition-colors duration-300 p-1 outline-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-white"
                                             viewBox="0 0 24 24">
                                             <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
@@ -223,7 +355,7 @@
                                         </svg>
                                         <div
                                             class="w-0 group-hover/vol:w-20 overflow-hidden transition-all duration-300">
-                                            <input type="range" class="w-full red-500" min="0"
+                                            <input type="range" class="w-full bg-red" min="0"
                                                 max="1" step="0.1" value="1" id="volumeSlider">
                                         </div>
                                     </div>
@@ -233,7 +365,7 @@
                             <div class="flex items-center gap-6">
                                 <div class="relative group/settings">
                                     <button id="settingsBtn"
-                                        class="text-white hover:text-gray-200 hover:rotate-90 transition-all duration-500 p-1 outline-none">
+                                        class="text-white  hover:rotate-90 transition-all duration-500 p-1 outline-none">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="h-6 w-6 fill-white stroke-current" viewBox="0 0 24 24"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -265,6 +397,137 @@
                                 </div>
 
                                 <button class="p-1 text-white  transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                        stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                                        <rect x="3" y="7" width="18" height="10" rx="2" />
+                                    </svg>
+                                </button>
+
+
+                                <button id="fullscreenBtn" class=" ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="white" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="flex items-center justify-center ">
+
+                <div
+                    class="relative group w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
+
+
+                    <div class="relative w-full h-full">
+
+                        <!-- VIDEO -->
+                        <video id="videoPlayer" class="w-full h-full object-cover">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <!-- CENTER PLAY ICON -->
+                        <button id="centerPlayBtn"
+                            class="absolute inset-0 flex items-center justify-center transition">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="w-20 h-20 text-white fill-white hover:scale-110 transition-transform"
+                                viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </button>
+
+                    </div>
+
+
+                    <div id="controls"
+                        class="absolute inset-0 from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+                        <div class="w-full h-1.5 bg-white/20 rounded-full mb-4 cursor-pointer overflow-hidden relative"
+                            id="progressContainer">
+                            <div id="progressBar"
+                                class="absolute top-0 left-0 h-full bg-red w-0 transition-all duration-100"></div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="flex items-center gap-6">
+                                <button id="playBtn" class="text-white  hover:scale-110 transition-all">
+                                    <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-white"
+                                        viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"></path>
+                                    </svg>
+                                    <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-8 w-8 fill-white hidden" viewBox="0 0 24 24">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+                                    </svg>
+                                </button>
+
+                                <div class="flex items-center gap-4">
+                                    <button id="nextBtn"
+                                        class="text-white hover:text-gray-200 transition-colors duration-300 p-1 outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-white"
+                                            viewBox="0 0 24 24">
+                                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+                                        </svg>
+                                    </button>
+                                    <div class="flex items-center gap-2 group/vol">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
+                                            fill="none" viewBox="0 0 24 24" stroke="white">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                        </svg>
+                                        <div
+                                            class="w-0 group-hover/vol:w-20 overflow-hidden transition-all duration-300">
+                                            <input type="range" class="w-full bg-red" min="0"
+                                                max="1" step="0.1" value="1" id="volumeSlider">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-6">
+                                <div class="relative group/settings">
+                                    <button id="settingsBtn"
+                                        class="text-white hover:text-gray-200 hover:rotate-90 transition-all duration-500 p-1 outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6 fill-white stroke-current" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                            <path
+                                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                            </path>
+                                        </svg>
+                                    </button>
+
+                                    <div id="settingsMenu"
+                                        class="absolute bottom-full right-0 mb-4 w-48 bg-zinc-900/95 backdrop-blur-md border border-white/10 rounded-xl p-2 hidden shadow-xl text-white">
+                                        <div
+                                            class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold px-3 py-1">
+                                            Playback Speed</div>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
+                                            data-speed="0.5">0.5x</button>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg bg-blue-600/20 text-blue-400 text-sm"
+                                            data-speed="1">Normal</button>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
+                                            data-speed="1.5">1.5x</button>
+                                        <button
+                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
+                                            data-speed="2">2x</button>
+                                    </div>
+                                </div>
+
+                                <button class="p-1 text-white transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
                                         stroke="white" stroke-width="2" viewBox="0 0 24 24">
                                         <rect x="3" y="7" width="18" height="10" rx="2" />
@@ -283,267 +546,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="flex items-center justify-center ">
-
-                <div
-                    class="relative group w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
-
-
-                    <div class="relative w-full h-full">
-
-                        <!-- VIDEO -->
-                        <video id="videoPlayer" class="w-full h-full object-cover">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-
-                        <!-- CENTER PLAY ICON -->
-                        <button id="centerPlayBtn"
-                            class="absolute inset-0 flex items-center justify-center transition">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-20 h-20 text-white fill-white hover:scale-110 transition-transform"
-                                viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"></path>
-                            </svg>
-                        </button>
-
-                    </div>
-
-
-                    <div id="controls"
-                        class="absolute inset-0 from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-
-                        <div class="w-full h-1.5 bg-white/20 rounded-full mb-4 cursor-pointer overflow-hidden relative"
-                            id="progressContainer">
-                            <div id="progressBar"
-                                class="absolute top-0 left-0 h-full bg-red w-0 transition-all duration-100"></div>
-                        </div>
-
-                        <div class="flex items-center justify-between">
-
-                            <div class="flex items-center gap-6">
-                                <button id="playBtn" class="text-white  hover:scale-110 transition-all">
-                                    <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-white"
-                                        viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"></path>
-                                    </svg>
-                                    <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg"
-                                        class="h-8 w-8 fill-white hidden" viewBox="0 0 24 24">
-                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
-                                    </svg>
-                                </button>
-
-                                <div class="flex items-center gap-4">
-                                    <button id="nextBtn"
-                                        class="text-white hover:text-gray-200 transition-colors duration-300 p-1 outline-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-white"
-                                            viewBox="0 0 24 24">
-                                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
-                                        </svg>
-                                    </button>
-                                    <div class="flex items-center gap-2 group/vol">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
-                                            fill="none" viewBox="0 0 24 24" stroke="white">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                                        </svg>
-                                        <div
-                                            class="w-0 group-hover/vol:w-20 overflow-hidden transition-all duration-300">
-                                            <input type="range" class="w-full bg-red" min="0"
-                                                max="1" step="0.1" value="1" id="volumeSlider">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-6">
-                                <div class="relative group/settings">
-                                    <button id="settingsBtn"
-                                        class="text-white hover:text-gray-200 hover:rotate-90 transition-all duration-500 p-1 outline-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-6 w-6 fill-white stroke-current" viewBox="0 0 24 24"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="3"></circle>
-                                            <path
-                                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                                            </path>
-                                        </svg>
-                                    </button>
-
-                                    <div id="settingsMenu"
-                                        class="absolute bottom-full right-0 mb-4 w-48 bg-zinc-900/95 backdrop-blur-md border border-white/10 rounded-xl p-2 hidden shadow-xl text-white">
-                                        <div
-                                            class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold px-3 py-1">
-                                            Playback Speed</div>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
-                                            data-speed="0.5">0.5x</button>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg bg-blue-600/20  text-sm"
-                                            data-speed="1">Normal</button>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
-                                            data-speed="1.5">1.5x</button>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
-                                            data-speed="2">2x</button>
-                                    </div>
-                                </div>
-
-                                <button class="p-1 text-white  transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                                        <rect x="3" y="7" width="18" height="10" rx="2" />
-                                    </svg>
-                                </button>
-
-
-                                <button id="fullscreenBtn" class=" ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="white" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="flex items-center justify-center ">
-
-                <div
-                    class="relative group w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
-
-
-                    <div class="relative w-full h-full">
-
-                        <!-- VIDEO -->
-                        <video id="videoPlayer" class="w-full h-full object-cover">
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-
-                        <!-- CENTER PLAY ICON -->
-                        <button id="centerPlayBtn"
-                            class="absolute inset-0 flex items-center justify-center transition">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-20 h-20 text-white fill-white hover:scale-110 transition-transform"
-                                viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"></path>
-                            </svg>
-                        </button>
-
-                    </div>
-
-
-                    <div id="controls"
-                        class="absolute inset-0 from-black/70 via-transparent to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-
-                        <div class="w-full h-1.5 bg-white/20 rounded-full mb-4 cursor-pointer overflow-hidden relative"
-                            id="progressContainer">
-                            <div id="progressBar"
-                                class="absolute top-0 left-0 h-full bg-red w-0 transition-all duration-100"></div>
-                        </div>
-
-                        <div class="flex items-center justify-between">
-
-                            <div class="flex items-center gap-6">
-                                <button id="playBtn" class="text-white  hover:scale-110 transition-all">
-                                    <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-white"
-                                        viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"></path>
-                                    </svg>
-                                    <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg"
-                                        class="h-8 w-8 fill-white hidden" viewBox="0 0 24 24">
-                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
-                                    </svg>
-                                </button>
-
-                                <div class="flex items-center gap-4">
-                                    <button id="nextBtn"
-                                        class="text-white hover:text-gray-200 transition-colors duration-300 p-1 outline-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-white"
-                                            viewBox="0 0 24 24">
-                                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
-                                        </svg>
-                                    </button>
-                                    <div class="flex items-center gap-2 group/vol">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
-                                            fill="none" viewBox="0 0 24 24" stroke="white">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                                        </svg>
-                                        <div
-                                            class="w-0 group-hover/vol:w-20 overflow-hidden transition-all duration-300">
-                                            <input type="range" class="w-full bg-red" min="0"
-                                                max="1" step="0.1" value="1" id="volumeSlider">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-6">
-                                <div class="relative group/settings">
-                                    <button id="settingsBtn"
-                                        class="text-white hover:text-gray-200 hover:rotate-90 transition-all duration-500 p-1 outline-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-6 w-6 fill-white stroke-current" viewBox="0 0 24 24"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="3"></circle>
-                                            <path
-                                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                                            </path>
-                                        </svg>
-                                    </button>
-
-                                    <div id="settingsMenu"
-                                        class="absolute bottom-full right-0 mb-4 w-48 bg-zinc-900/95 backdrop-blur-md border border-white/10 rounded-xl p-2 hidden shadow-xl text-white">
-                                        <div
-                                            class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold px-3 py-1">
-                                            Playback Speed</div>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
-                                            data-speed="0.5">0.5x</button>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg bg-blue-600/20  text-sm"
-                                            data-speed="1">Normal</button>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
-                                            data-speed="1.5">1.5x</button>
-                                        <button
-                                            class="speed-option w-full text-left px-3 py-2 rounded-lg hover:bg-white/10 text-sm"
-                                            data-speed="2">2x</button>
-                                    </div>
-                                </div>
-
-                                <button class="p-1 text-white  transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                                        <rect x="3" y="7" width="18" height="10" rx="2" />
-                                    </svg>
-                                </button>
-
-
-                                <button id="fullscreenBtn" class=" ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="white" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
             </div>
+
+
 
 
 
@@ -632,9 +639,6 @@
     </section>
 
     <section class="container py-16 px-4 mx-auto">
-
-
-
         <!-- CTA Banner -->
         <div
             class="bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">

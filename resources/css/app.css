@@ -23,6 +23,7 @@
 :root {
     /* Base Colors */
     --color-black: #000000;
+    --color-red: #FF0000;
     --color-white: #ffffff;
     --color-bg-base: #1B0C33;
 
@@ -141,6 +142,7 @@
     /* linear color gradient  for bg*/
     --color-start: var(--color-start);
     --color-end: var(--color-end);
+    --color-red: var(--color-red);
 
 
     --color-text-new: var(--color-text-new-light);
