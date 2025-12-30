@@ -68,12 +68,12 @@
                     </h3>
                     <ul class="space-y-2 sm:space-y-2.5">
                         <li>
-                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                            <a href="{{ route('about') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
                                 {{ __('About Us') }}
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                            <a href="{{ route('faq') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
                                 {{ __('FAQS') }}
                             </a>
                         </li>

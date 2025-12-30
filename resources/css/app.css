@@ -171,6 +171,7 @@
     --hover-bg-theme: var(--color-zinc-200);
     --color-bg-black: var(--color-black);
     --color-bg-white: var(--color-white);
+    --color-light-blue: #DCE7FB;
 
     /* ======================================================
     	 	 	 	 	 	 # Shadows
@@ -213,6 +214,7 @@
 
     --text-40px: 2.5rem;
     --text-20px: 1.25rem;
+    --text-56px: 3.5rem;
 
     /* ======================================================
     	 	 	 	 	 	 # Breakpoints
