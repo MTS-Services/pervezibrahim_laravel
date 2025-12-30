@@ -112,7 +112,8 @@
                 class="w-full h-full object-none" />
         </div>
         <div class="absolute right-0 bottom-0 w-1/3 h-full pointer-events-none hidden md:block">
-            <img src="{{ asset('assets/images/home_page/_Background mask.png') }}" alt="" class="w-full h-full" />
+            <img src="{{ asset('assets/images/home_page/_Background mask.png') }}" alt=""
+                class="w-full h-full" />
         </div>
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row gap-12 items-start">
