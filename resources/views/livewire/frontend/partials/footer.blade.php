@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('home') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
+                            <a href="{{ route('contact-us') }}" wire:navigate class="text-zinc-700 hover:text-zinc-900 transition-colors text-sm sm:text-base">
                                 {{ __('Contact') }}
                             </a>
                         </li>

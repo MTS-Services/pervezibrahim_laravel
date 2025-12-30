@@ -24,7 +24,7 @@
                     <div class="w-full h-full">
                         <img src="{{ asset('assets/images/methods/image-1.png') }}" alt="" class="w-full h-full">
                     </div>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
+                    <x-ui.button href="{{ route('method.reader', ['slug' => 1]) }}" variant="orange-tertiary" class="w-auto! py-2!">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="w-full h-full">
                         <img src="{{ asset('assets/images/methods/image-2.png') }}" alt="" class="w-full h-full">
                     </div>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
+                    <x-ui.button href="{{ route('method.reader', ['slug' => 2]) }}" variant="orange-tertiary" class="w-auto! py-2!">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
@@ -40,7 +40,7 @@
                     <div class="w-full h-full">
                         <img src="{{ asset('assets/images/methods/image-3.png') }}" alt="" class="w-full h-full">
                     </div>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
+                    <x-ui.button href="{{ route('method.reader', ['slug' => 3]) }}" variant="orange-tertiary" class="w-auto! py-2!">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>

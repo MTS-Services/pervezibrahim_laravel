@@ -59,7 +59,7 @@
     <livewire:frontend.partials.header />
 
     {{-- @endif --}}
-    <main class="flex-1 p-5 pb-0">
+    <main class="flex-1">
         {{ $slot }}
     </main>
     {{-- @if (!(request()->routeIs('login') || request()->routeIs('register') || request()->routeIs('password.request') || request()->routeIs('password.reset') || request()->routeIs('verify-reset-otp') || request()->routeIs('verification.notice') || request()->routeIs('verify-otp') || request()->routeIs('verification.verify') || request()->routeIs('two-factor.*') || request()->routeIs('two-factor.login') || request()->routeIs('two-factor.login.store') || request()->routeIs('admin.*'))) --}}
