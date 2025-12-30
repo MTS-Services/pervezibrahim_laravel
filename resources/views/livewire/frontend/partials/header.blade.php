@@ -59,7 +59,7 @@
 
         <!-- Desktop Contact Button -->
         <div class="hidden md:block">
-            <x-ui.button type="submit" class="w-auto! py-2!" variant="secondary">
+            <x-ui.button href="{{ route('contact-us') }}" type="submit" class="w-auto! py-2!" variant="secondary">
                 {{ __('Contact Us') }}
             </x-ui.button>
         </div>
@@ -111,7 +111,7 @@
             </div>
 
             <!-- Mobile Contact Button -->
-            <x-ui.button type="button" class="w-full py-2 mt-4" variant="secondary">
+            <x-ui.button href="{{ route('contact-us') }}" class="w-full py-2 mt-4" variant="secondary">
                 {{ __('Contact Us') }}
             </x-ui.button>
         </nav>
