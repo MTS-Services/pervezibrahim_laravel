@@ -628,24 +628,14 @@
         </div>
     </section>
 
-    <section class="container py-16 px-4 mx-auto">
-        <!-- CTA Banner -->
+    <section class="my-20 space-y-12">
         <div
-            class="bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
+            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
             <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
                 class="mx-auto w-full max-w-xs">
-            <h2 class="text-white text-3xl font-bold mb-4">
-                Ready to Get Started?
-            </h2>
-            <p class="text-zinc-100 text-lg max-w-2xl mx-auto">
-                Business Process Management (BPM) software that can capture the organisational "Value Chain," which is
-                the Business "DNA."
-            </p>
-            <div class="mt-6 flex justify-center">
-                <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
-                    {{ __('Get Started') }}
-                </x-ui.button>
-            </div>
+            <h2 class="text-white text-56px font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-white text-lg font-bold max-w-2xl mx-auto">Business Process Management (BPM) software that
+                can capture the organisational "Value Chain," which is the Business "DNA."</p>
         </div>
     </section>
 </div>
