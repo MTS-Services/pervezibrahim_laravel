@@ -21,77 +21,120 @@
         <div class="container">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (1).png') }}" alt="Where Are We Today"
+                    <img src="{{ asset('assets/images/contact-us/Rectangle 39.png') }}" alt="Where Are We Today"
                         class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-blue-800 mt-4">Where Are We Today?</h3>
-                        <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
+                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
+                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
                 <div class="bg-white rounded-lg">
                     <img src="{{ asset('assets/images/contact-us/Rectangle 39 (1).png') }}" alt="Where Are We Today"
                         class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-blue-800 mt-4">Where Are We Today?</h3>
-                        <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
+                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
+                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
                 <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (1).png') }}" alt="Where Are We Today"
+                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (3).png') }}" alt="Where Are We Today"
                         class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-blue-800 mt-4">Where Are We Today?</h3>
-                        <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
+                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
+                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
                 <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (1).png') }}" alt="Where Are We Today"
+                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (3).png') }}" alt="Where Are We Today"
                         class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-blue-800 mt-4">Where Are We Today?</h3>
-                        <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
+                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
+                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
                 <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (1).png') }}" alt="Where Are We Today"
+                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (4).png') }}" alt="Where Are We Today"
                         class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-blue-800 mt-4">Where Are We Today?</h3>
-                        <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
+                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
+                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
                 <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (1).png') }}" alt="Where Are We Today"
+                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (5).png') }}" alt="Where Are We Today"
                         class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-blue-800 mt-4">Where Are We Today?</h3>
-                        <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
+                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
+                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
             </div>
 
-            <!-- Download Section -->
-            <div class="mt-12 flex flex-col lg:flex-row items-center gap-5">
-                <h2 class="text-3xl font-semibold text-blue-800 mb-4">Download a free copy of our enforcement of writs
-                    of control here</h2>
-                <form action="#" method="post" class="max-w-3xl mx-auto p-6 rounded-lg shadow-lg">
-                    <div class="space-y-4">
-                        <input type="text" name="first-name" placeholder="First Name"
-                            class="w-full p-3 rounded-md border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <input type="text" name="organization" placeholder="Organization"
-                            class="w-full p-3 rounded-md border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <input type="email" name="email" placeholder="Your Email"
-                            class="w-full p-3 rounded-md border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <div class="flex items-center space-x-3">
-                            <input type="checkbox" name="updates" class="h-4 w-4 text-blue-500 focus:ring-blue-500">
-                            <label for="updates" class="text-sm text-gray-700">I am interested to receive
-                                updates</label>
-                        </div>
-                        <button type="submit"
-                            class="w-full px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-all">Send
-                            Us</button>
+            <div class="mt-16 flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 flex flex-col items-center">
+                    <div class="w-full max-h-[35rem] overflow-hidden rounded-lg">
+                        <img src="{{ asset('assets/images/contact-us/1.png') }}" alt="Contact us illustration"
+                            class="w-full h-[35rem] object-cover" loading="lazy">
                     </div>
-                </form>
+
+                    <x-ui.button variant="orange-tertiary" class="!w-auto !py-2 mt-4">
+                        {{ __('Learn More') }}
+                    </x-ui.button>
+                </div>
+
+                <div class="w-full lg:w-1/2 flex flex-col items-center">
+                    <div class="w-full max-h-[35rem] overflow-hidden rounded-lg">
+                        <img src="{{ asset('assets/images/contact-us/3.png') }}" alt="Customer support illustration"
+                            class="w-full h-[35rem] object-cover" loading="lazy">
+                    </div>
+
+                    <x-ui.button variant="orange-tertiary" class="!w-auto !py-2 mt-4">
+                        {{ __('Learn More') }}
+                    </x-ui.button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+
+                <!-- Left Content -->
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-second-500 leading-tight">
+                        Download a free <br>
+                        copy of our <br>
+                        enforcement of <br>
+                        writs of control here
+                    </h2>
+                </div>
+
+                <!-- Right Form Card -->
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-900 rounded-2xl p-8 shadow-xl">
+                        <form class="space-y-4">
+
+                            <input type="text" placeholder="First Name"
+                                class="w-full px-4 py-3 rounded-md outline-none text-gray-700 bg-white">
+
+                            <input type="text" placeholder="Organisation"
+                                class="w-full px-4 py-3 rounded-md outline-none text-gray-700 bg-white">
+
+                            <input type="email" placeholder="Your Email"
+                                class="w-full px-4 py-3 rounded-md outline-none text-gray-700 bg-white">
+
+                            <label class="flex items-center gap-2 text-white text-sm">
+                                <input type="checkbox" class="accent-white bg-white">
+                                <span class="text-white">I am interested to receive updates</span>
+                            </label>
+
+                            <x-ui.button variant="orange-tertiary" class="!w-auto !py-2 mt-4">
+                                {{ __('Send Us') }}
+                            </x-ui.button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
