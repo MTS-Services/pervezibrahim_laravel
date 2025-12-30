@@ -8,19 +8,19 @@
 
         <!-- Hero Content -->
         <main
-            class="relative z-10 container mx-auto px-6 lg:px-16 mt-20 grid lg:grid-cols-2 grid-cols-1 gap-8 lg:gap-12 items-center">
+            class="relative z-10 container mx-auto px-6 lg:px-16 mt-20 ">
             <!-- Left: Video Player Section -->
-            <div class="relative group w-full h-full">
+            {{-- <div class="relative group w-full h-full">
                 <!-- Video Container -->
                 <div class="relative overflow-hidden">
                     <img src="{{ asset('assets/images/home_page/Rectangle 31.png') }}" alt="Business Team"
                         class="w-full h-full object-cover" style="object-position: 15% center;" />
                     <!-- Video Overlay Content -->
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Right: Text Section -->
-            <div class="lg:mt-40 mb-5 lg:mb-0">
+            <div class="lg:mt-40 mb-5 lg:mb-0 w-full lg:w-1/2">
                 <div class="flex flex-col space-y-8">
                     <h1 class="text-xl md:text-2xl lg:text-3xl font-light text-wrap text-white">
                         Business Process Management System and Methods for the New Era of Technology
@@ -107,12 +107,12 @@
 
     <!-- Content Section 1 -->
     <section class="py-8 lg:py-16 lg:px-8 relative">
-        <div class="absolute inset-0 opacity-40 pointer-events-none">
-            <img src="{{ asset('assets/images/home_page/Background pattern.png') }}" alt=""
+        <div class="absolute inset-0 pointer-events-none">
+            <img src="{{ asset('assets/images/home_page/Background pattern.png') }}" alt="Background mask"
                 class="w-full h-full object-none" />
         </div>
         <div class="absolute right-0 bottom-0 w-1/3 h-full pointer-events-none hidden md:block">
-            <img src="{{ asset('assets/images/home_page/_Background mask.png') }}" alt="" class="w-full h-full" />
+            <img src="{{ asset('assets/images/home_page/_Background mask.png') }}" alt="Background pattern" class="w-full h-full" />
         </div>
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row gap-12 items-start">
