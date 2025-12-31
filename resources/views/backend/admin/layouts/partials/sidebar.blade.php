@@ -69,6 +69,8 @@
                     //     'active' => 'admin-users-banned',
                     // ],
                 ]" />
+            <x-backend.navlink type="single" icon="user-group" name="Faq" :route="route('admin.faq.index')"
+                active="faq" :page_slug="$active" />
             {{-- <x-backend.navlink type="dropdown" icon="user-circle" name="Product Management" :page_slug="$active"
                 :items="[
                     [
