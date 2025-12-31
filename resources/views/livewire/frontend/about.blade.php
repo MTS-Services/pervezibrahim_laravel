@@ -55,9 +55,9 @@
     </section>
 
 
-    <section class=" rounded-xl container px-1 mt-4">
+    <section class=" rounded-xl container px-1 mt-8">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
 
             <div class="bg-[#DCE7FB] rounded-2xl relative overflow-hidden gap-2 p-6">
                 <div>
@@ -101,9 +101,9 @@
 
     </section>
 
-    <section class=" rounded-xl container px-1 mt-4">
+    <section class=" rounded-xl container px-1 mt-8">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
 
             <div class="bg-[#DCE7FB] rounded-2xl relative overflow-hidden gap-2 p-6">
                 <div>
@@ -141,9 +141,9 @@
     </section>
 
 
-    <section class="container">
+    <section class="container py-8">
         <!-- BPM System Section -->
-        <div class="bg-[#E9F0FC] border-teal-400 rounded-3xl mt-4 mb-4 p-6">
+        <div class="bg-[#E9F0FC] border-teal-400 rounded-3xl mt-4 mb-12 py-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <!-- Left Image -->
                 <div class="flex justify-center items-center">
@@ -186,5 +186,7 @@
                 </x-ui.button>
             </div>
         </div>
+
     </section>
+
 </div>
