@@ -15,76 +15,130 @@
             </div>
         </main>
     </section>
-    <div class="container py-12">
-        <!-- Industry Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-20 mb-8">
-            <div class="relative">
-                <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-1.png') }}" alt=""
-                        class="w-full h-full object-cover">
+
+    <div class=" flex items-center justify-center  p-12 container">
+        <h1 class="text-4xl  font-bold text-blue-900 text-center max-w-5xl leading-tight">
+            We are entering a new era of technology; what we do today may not exist tomorrow!
+        </h1>
+    </div>
+
+
+    <section class="bg-light-blue rounded-xl container p-8">
+        <div class="#">
+            <!-- Grid Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+                <!-- Left Video Grid -->
+                <div class="rounded-2xl relative">
+                    <div>
+                        <img src="{{ asset('assets/images/home_page/working2.png') }}" alt=""
+                            class="w-full h-full object-cover" />
+                    </div>
                 </div>
-                <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block">
-                    <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
-                        class="w-6 h-6">
-                </div>
-            </div>
-            <div class="relative">
-                <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-2.png') }}" alt=""
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden lg:block">
-                    <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
-                        class="w-6 h-6">
-                </div>
-            </div>
-            <div class="relative">
-                <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-3.png') }}" alt=""
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block lg:hidden">
-                    <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
-                        class="w-6 h-6">
+                <div class="rounded-2xl relative">
+                    <div>
+                        <img src="{{ asset('assets/images/home_page/working2.png') }}" alt=""
+                            class="w-full h-full object-cover" />
+                    </div>
                 </div>
             </div>
-            <div class="relative">
-                <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-4.png') }}" alt=""
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block">
-                    <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
-                        class="w-6 h-6">
-                </div>
-            </div>
-            <div class="relative">
-                <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-5.png') }}" alt=""
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block">
-                    <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
-                        class="w-6 h-6">
-                </div>
-            </div>
-            <div class="relative">
-                <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-6.png') }}" alt=""
-                        class="w-full h-full object-cover">
-                </div>
+
+            <!-- Text Content -->
+            <div class=" bg-opacity-60 backdrop-blur-sm  p-8 text-center">
+                <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+                    Today, we are experiencing an exciting technological era that promises to transform our lives! To
+                    support this new phase, I have four brief videos that provide an overview of the innovative BPM
+                    system. Let's collaborate and embrace this advancement together!
+                </p>
             </div>
         </div>
+    </section>
 
-        <!-- Learn More Button -->
-        <div class="flex justify-center items-center gap-4 mb-12">
-            <x-ui.button variant="orange-tertiary" class="w-auto! py-2!">
-                {{ __('Learn More') }}
-            </x-ui.button>
+
+    <section class=" rounded-xl container px-1 mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
+                <div>
+                    <img src="{{ asset('assets/images/home_page/robots.png') }}" alt=""
+                        class="w-full h-full object-cover" />
+                </div>
+                <!-- Text Content -->
+                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
+                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+                        <span class="font-bold">Peter Drucker once said,</span> "The best way to
+                        predict the future is to create it." Inspired
+                        by this advice, I passionately developed
+                        the ebSixOne™ BPM system, as it is often
+                        said that passion never fails. Watch a short
+                        video of 2 minutes and 20 seconds.
+                    </p>
+                </div>
+            </div>
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
+                <div>
+                    <img src="{{ asset('assets/images/home_page/book.png') }}" alt=""
+                        class="w-full h-full object-cover" />
+                </div>
+
+                <!-- Text Content -->
+                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
+                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+                        <span class="font-bold">My quest for an innovative BPM system.</span>
+                        A system that connects your entire supply
+                        chain management, ERP system, and
+                        robotics, resulting in a comprehensive
+                        business process ecosystem. Watch the
+                        video; it’s 3 minutes long.
+                    </p>
+                </div>
+            </div>
+
         </div>
 
+    </section>
+
+    <section class=" rounded-xl container px-1 mt-8">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
+                <div>
+                    <img src="{{ asset('assets/images/home_page/humanrobot.png') }}" alt=""
+                        class="w-full h-full object-cover" />
+                </div>
+
+                <!-- Text Content -->
+                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
+                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+                        <span class="font-bold">Life is really simple, but we must insist ​
+                            On making it complicated!</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
+                <div>
+                    <img src="{{ asset('assets/images/home_page/kipto.png') }}" alt=""
+                        class="w-full h-full object-cover" />
+                </div>
+
+                <!-- Text Content -->
+                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
+                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+                        <span class="font-bold">Book 2 – BPM History and Why I created a
+                            BPM system watch 3 M -Video.</span>
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="container py-12">
         <!-- BPM System Section -->
-        <div class="bg-white border-teal-400 rounded-3xl p-8 mb-12">
+        <div class="bg-light-blue border-teal-400 rounded-3xl mt-4 mb-12 py-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <!-- Left Image -->
                 <div class="flex justify-center items-center">
@@ -96,7 +150,7 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-second-500 mb-4 leading-tight">
                         Business Process<br />Management (BPM)<br />System
                     </h2>
-                    <p class="text-gray-700 text-sm leading-relaxed">
+                    <p class="text-gray-700 text-wrap leading-relaxed">
                         It serves as the heartbeat of every enterprise, tailored to meet your current needs, and
                         designed with nature's principles in mind. A BPM system is designed with nature's principles in
                         mind, supporting your BPM requirements in today's rapidly changing technological landscape.
@@ -127,5 +181,7 @@
                 </x-ui.button>
             </div>
         </div>
-    </div>
+
+    </section>
+
 </div>
