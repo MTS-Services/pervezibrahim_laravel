@@ -1,23 +1,17 @@
 <div>
-    <section class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container flex items-center justify-start">
+    <section
+        class="rounded-3xl relative bg-black/80 text-white min-h-[50vh] overflow-hidden container flex items-center justify-start">
         <!-- Background Pattern Overlay -->
         <div class="absolute inset-0 opacity-40 pointer-events-none">
-            <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
-                class="w-full h-full object-none" />
+            <img src="{{ asset('assets/images/home_page/Union.png') }}" alt="" class="w-full h-full object-none" />
         </div>
 
         <!-- Hero Content -->
-        <main class="releative z-10 w-full md:w-1/2 md:px-8 mt-20 py-4">
+        <main class="releative z-10 w-full mt-20 py-12">
             <div class="flex flex-col space-y-8">
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wrap text-white">Everything you do is a process!</h1>
-                <p class="text-md md:text-lg lg:text-xl font-light text-wrap text-white">Whether you grow wheat, make Croissants, bake bread, drill for oil, produce chemicals, build jet planes, or make financial transactions in millions.</p>
 
-                <div>
-                    <a href="#"
-                        class="inline-block px-8 py-3 rounded-full border border-white/50 text-white font-medium hover:bg-white hover:text-black transition-all">
-                        Learn More
-                    </a>
-                </div>
+                <img src="{{ asset('assets/images/home_page/Frame_Home.png') }}" alt="" class="w-full h-full " />
+
             </div>
         </main>
     </section>
@@ -26,7 +20,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-20 mb-8">
             <div class="relative">
                 <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-1.png') }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/about_page/image-1.png') }}" alt=""
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block">
                     <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
@@ -35,7 +30,8 @@
             </div>
             <div class="relative">
                 <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-2.png') }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/about_page/image-2.png') }}" alt=""
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden lg:block">
                     <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
@@ -44,7 +40,8 @@
             </div>
             <div class="relative">
                 <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-3.png') }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/about_page/image-3.png') }}" alt=""
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block lg:hidden">
                     <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
@@ -53,7 +50,8 @@
             </div>
             <div class="relative">
                 <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-4.png') }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/about_page/image-4.png') }}" alt=""
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block">
                     <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
@@ -62,7 +60,8 @@
             </div>
             <div class="relative">
                 <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-5.png') }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/about_page/image-5.png') }}" alt=""
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -right-14 top-1/2 transform -translate-y-1/2 text-2xl hidden md:block">
                     <img src="{{ asset('assets/images/about_page/arrow_shape_up_stack.png') }}" alt=""
@@ -71,7 +70,8 @@
             </div>
             <div class="relative">
                 <div class="w-full h-full">
-                    <img src="{{ asset('assets/images/about_page/image-6.png') }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/about_page/image-6.png') }}" alt=""
+                        class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
