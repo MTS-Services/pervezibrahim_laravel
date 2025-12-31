@@ -21,17 +21,17 @@
         <div class="max-w-6xl mx-auto px-6" x-data="{ open: 1 }">
             <div class="space-y-4">
                 @forelse ($faqs as $faq)
-                    <div :class="open === 2 ? 'bg-second-500' : 'bg-light-blue'" class="p-6 rounded-2xl shadow-lg">
-                        <button @click="open === 2 ? open = null : open = 2"
+                    <div :class="open === {{ $loop->iteration }} ? 'bg-second-500' : 'bg-light-blue'" class="p-6 rounded-2xl shadow-lg">
+                        <button @click="open === {{ $loop->iteration }} ? open = null : open = {{ $loop->iteration }}"
                             class="w-full text-left font-semibold flex items-center justify-between focus:outline-none">
-                            <span :class="open === 2 ? 'text-white' : ''">{{ $loop->iteration }}. {{ $faq->question }}</span>
+                            <span :class="open === {{ $loop->iteration }} ? 'text-white' : ''">{{ $loop->iteration }}. {{ $faq->question }}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path :class="open === 2 ? 'rotate-180 text-white' : ''" d="M6 9l6 6 6-6">
+                                <path :class="open === {{ $loop->iteration }} ? 'rotate-180 text-white' : ''" d="M6 9l6 6 6-6">
                                 </path>
                             </svg>
                         </button>
-                        <div x-show="open === 2" x-transition class="mt-4 text-white text-sm">{{ $faq->answer }}</div>
+                        <div x-show="open === {{ $loop->iteration }}" x-transition class="mt-4 text-white text-sm">{{ $faq->answer }}</div>
                     </div>
                 @empty
                 @endforelse
