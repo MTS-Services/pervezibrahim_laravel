@@ -9,9 +9,10 @@ use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Contracts\AdminRepositoryInterface;
 use App\Repositories\Contracts\ApplicationSettingsIntarface;
 use App\Repositories\Contracts\FaqRepositoryInterface;
+use App\Repositories\Contracts\VideoRepositoryInterface;
 use App\Repositories\Eloquent\ApplicationSettingsRepository;
 use App\Repositories\Eloquent\FaqRepository;
-
+use App\Repositories\Eloquent\VideoRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ApplicationSettingsIntarface::class,
             ApplicationSettingsRepository::class
+        );
+        $this->app->bind(
+            VideoRepositoryInterface::class,
+            VideoRepository::class
         );
        
     }
