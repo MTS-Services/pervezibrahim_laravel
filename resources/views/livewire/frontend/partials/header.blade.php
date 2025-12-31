@@ -13,7 +13,7 @@
             <!-- Home -->
             <a href="{{ route('home') }}" wire:navigate
                class="px-5 py-2 rounded-full text-base transition-all
-               {{ request()->routeIs('home') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
+               {{ $pageSlug == 'home' ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
                 {{ __('Home') }}
             </a>
 
@@ -25,7 +25,7 @@
 
             <!-- Services -->
             <a href="{{ route('services') }}" class="px-5 py-2 rounded-full text-base transition-all
-               {{ request()->routeIs('service') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
+               {{ request()->routeIs('services') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
                 {{ __('Services') }}
             </a>
 

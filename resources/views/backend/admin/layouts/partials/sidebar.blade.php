@@ -43,18 +43,18 @@
 
             <x-backend.navlink type="dropdown" icon="user-group" name="User Management" :page_slug="$active"
                 :items="[
-                    // [
-                    //     'name' => 'Admins',
-                    //     'route' => route('admin.um.admin.index'),
-                    //     'icon' => 'user-circle',
-                    //     'active' => 'admin',
-                    // ],
                     [
-                        'name' => 'Users',
-                        'route' => route('admin.um.user.index'),
-                        'icon' => 'user',
-                        'active' => 'admin-users',
+                        'name' => 'Admins',
+                        'route' => route('admin.um.admin.index'),
+                        'icon' => 'user-circle',
+                        'active' => 'admin',
                     ],
+                    // [
+                    //     'name' => 'Users',
+                    //     'route' => route('admin.um.user.index'),
+                    //     'icon' => 'user',
+                    //     'active' => 'admin-users',
+                    // ],
 
                     // [
                     //     'name' => 'Pending Users',
