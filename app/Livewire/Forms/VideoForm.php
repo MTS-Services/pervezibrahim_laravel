@@ -36,16 +36,14 @@ class VideoForm extends Form
         ];
     }
 
-    public function setData($admin): void
+    public function setData($video): void
     {
-        $this->id = $admin->id;
-        $this->page = $admin->page;
-        $this->thumbnail = $admin->thumbnail;
-        $this->file = $admin->file;
-        $this->title = $admin->title;
-        $this->description = $admin->description;
-        $this->action = $admin->action;
-        $this->status = $admin->status->value;
+        $this->id = $video->id;
+        $this->page = $video->page;
+        $this->title = $video->title;
+        $this->description = $video->description;
+        $this->action = $video->action;
+        $this->status = $video->status->value;
     }
 
     public function reset(...$properties): void

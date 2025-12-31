@@ -36,7 +36,6 @@ class UpdateAction
             $model = $model->fresh();
 
             // event(new AdminUpdated($model, $data));
-
             return $model;
         });
     }

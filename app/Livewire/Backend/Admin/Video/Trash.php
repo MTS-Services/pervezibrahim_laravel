@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\Backend\Admin\Faq;
+namespace App\Livewire\Backend\Admin\video;
 
 use Livewire\Component;
 use App\Enums\ActiveInactive;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Log;
-use App\Services\FaqService;
+use App\Services\VideoService;
 use App\Traits\Livewire\WithDataTable;
 use App\Traits\Livewire\WithNotification;
 
@@ -24,9 +24,9 @@ class Trash extends Component
 
     protected $listeners = ['userCreated' => '$refresh', 'userUpdated' => '$refresh'];
 
-    protected FaqService $service;
+    protected VideoService $service;
 
-    public function boot(FaqService $service)
+    public function boot(VideoService $service)
     {
         $this->service = $service;
     }
@@ -40,13 +40,17 @@ class Trash extends Component
 
         $columns = [
             [
-                'key' => 'question',
-                'label' => 'Question',
-                'sortable' => true
+                'key' => 'thumbnail',
+                'label' => 'Thumbnail',
+                'format' => function ($data) {
+                    return $data->thumbnail
+                        ? '<img src="' . $data->thumbnail . '" alt="' . $data->title . '" class="w-10 h-10 rounded-full object-cover shadow-sm">'
+                        : '<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 font-semibold">' . strtoupper(substr($data->title, 0, 2)) . '</div>';
+                }
             ],
             [
-                'key' => 'answer',
-                'label' => 'Answer',
+                'key' => 'title',
+                'label' => 'Title',
                 'sortable' => true
             ],
             [
@@ -98,7 +102,7 @@ class Trash extends Component
             ['value' => 'bulkForceDelete', 'label' => 'Permanently Delete'],
         ];
 
-        return view('livewire.backend.admin.faq.trash', [
+        return view('livewire.backend.admin.video.trash', [
             'datas' => $datas,
             'statuses' => ActiveInactive::options(),
             'columns' => $columns,
@@ -121,8 +125,8 @@ class Trash extends Component
 
             $this->success('Data deleted successfully');
         } catch (\Throwable $e) {
-            Log::error('Failed to delete Faq: ' . $e->getMessage());
-            $this->error('Failed to delete Faq.');
+            Log::error('Failed to delete video: ' . $e->getMessage());
+            $this->error('Failed to delete video.');
         }
     }
     public function restore($encryptedId): void
@@ -134,8 +138,8 @@ class Trash extends Component
             ]);
             $this->success('Data restored successfully');
         } catch (\Throwable $e) {
-            Log::error('Failed to restore Faq: ' . $e->getMessage());
-            $this->error('Failed to restore Faq.');
+            Log::error('Failed to restore video: ' . $e->getMessage());
+            $this->error('Failed to restore video.');
         }
     }
     public function resetFilters(): void

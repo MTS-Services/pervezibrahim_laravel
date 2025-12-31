@@ -1,9 +1,9 @@
 <section>
     <div class="glass-card rounded-2xl p-6 mb-6">
         <div class="flex items-center justify-between">
-            <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('FAQ Edit') }}</h2>
+            <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Video Edit') }}</h2>
             <div class="flex items-center gap-2">
-                <x-ui.button href="{{ route('admin.faq.index') }}" class="w-auto! py-2!">
+                <x-ui.button href="{{ route('admin.video.index') }}" class="w-auto! py-2!">
                     <flux:icon name="arrow-left"
                         class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-secondary" />
                     {{ __('Back') }}
@@ -15,15 +15,31 @@
         <form wire:submit="save">
             <!-- Add other form fields here -->
             <div class="mt-6 space-y-4 grid grid-cols-2 gap-5">
-                <div class="w-full col-span-2">
-                    <x-ui.label value="{{ __('Question') }}" class="mb-1" />
-                    <x-ui.input type="text" placeholder="{{ __('Question') }}" wire:model="form.question" />
-                    <x-ui.input-error :messages="$errors->get('form.question')" />
+                <div class="w-full">
+                    {{-- <x-ui.file-input wire:model="form.thumbnail" label="{{ __('Thumbnail') }}" accept="image/*"
+                        :error="$errors->first('form.thumbnail')" hint="Upload a profile picture (Max: 2MB)" /> --}}
+                        <x-ui.file-input wire:model="form.thumbnail" label="{{ __('Thumbnail') }}" accept="image/*" :error="$errors->first('form.thumbnail')"
+                    hint="Upload a profile picture (Max: 2MB)" />
                 </div>
-                <div class="w-full col-span-2">
-                    <x-ui.label value="{{ __('Answer') }}" class="mb-1" />
-                    <x-ui.input type="text" placeholder="{{ __('Answer') }}" wire:model="form.answer" />
-                    <x-ui.input-error :messages="$errors->get('form.answer')" />
+                <div class="w-full">
+                    <x-ui.file-input wire:model="form.file" label="{{ __('Video File') }}" accept="video/*"
+                        hint="Upload a video file (Max: 10MB)" />
+                    <x-ui.input-error :messages="$errors->get('form.file')" />
+                </div>
+                <div class="w-full">
+                    <x-ui.label value="{{ __('Title') }}" class="mb-1" />
+                    <x-ui.input type="text" placeholder="{{ __('Title') }}" wire:model="form.title" />
+                    <x-ui.input-error :messages="$errors->get('form.title')" />
+                </div>
+                <div class="w-full">
+                    <x-ui.label value="{{ __('Page') }}" class="mb-1" />
+                    <x-ui.input type="text" placeholder="{{ __('Page') }}" wire:model="form.page" />
+                    <x-ui.input-error :messages="$errors->get('form.page')" />
+                </div>
+                <div class="w-full">
+                    <x-ui.label value="{{ __('Action') }}" class="mb-1" />
+                    <x-ui.input type="text" placeholder="{{ __('Action') }}" wire:model="form.action" />
+                    <x-ui.input-error :messages="$errors->get('form.action')" />
                 </div>
                 <div class="w-full">
                     <x-ui.label value="{{ __('Select Status') }}" class="mb-1" />
