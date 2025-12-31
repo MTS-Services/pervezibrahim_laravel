@@ -23,8 +23,7 @@
     </div>
 
 
-    <section class="bg-[#DCE7FB] rounded-xl container p-8">
-
+    <section class="bg-light-blue rounded-xl container p-8">
         <div class="#">
             <!-- Grid Container -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
@@ -56,15 +55,12 @@
 
 
     <section class=" rounded-xl container px-1 mt-8">
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-
-            <div class="bg-[#DCE7FB] rounded-2xl relative overflow-hidden gap-2 p-6">
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
                 <div>
                     <img src="{{ asset('assets/images/home_page/robots.png') }}" alt=""
                         class="w-full h-full object-cover" />
                 </div>
-
                 <!-- Text Content -->
                 <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
                     <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
@@ -77,8 +73,7 @@
                     </p>
                 </div>
             </div>
-
-            <div class="bg-[#DCE7FB] rounded-2xl relative overflow-hidden gap-2 p-6">
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
                 <div>
                     <img src="{{ asset('assets/images/home_page/book.png') }}" alt=""
                         class="w-full h-full object-cover" />
@@ -105,7 +100,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
 
-            <div class="bg-[#DCE7FB] rounded-2xl relative overflow-hidden gap-2 p-6">
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
                 <div>
                     <img src="{{ asset('assets/images/home_page/humanrobot.png') }}" alt=""
                         class="w-full h-full object-cover" />
@@ -120,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="bg-[#DCE7FB] rounded-2xl relative overflow-hidden gap-2 p-6">
+            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
                 <div>
                     <img src="{{ asset('assets/images/home_page/kipto.png') }}" alt=""
                         class="w-full h-full object-cover" />
@@ -143,7 +138,7 @@
 
     <section class="container py-8">
         <!-- BPM System Section -->
-        <div class="bg-[#E9F0FC] border-teal-400 rounded-3xl mt-4 mb-12 py-6">
+        <div class="bg-light-blue border-teal-400 rounded-3xl mt-4 mb-12 py-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <!-- Left Image -->
                 <div class="flex justify-center items-center">
