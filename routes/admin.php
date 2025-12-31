@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Admin\UserManagement\UserController;
 use App\Http\Controllers\Backend\Admin\UserManagement\AdminController;
 use App\Http\Controllers\Backend\Admin\ApplicationSettings\ApplicationSettingsController;
 use App\Http\Controllers\Backend\Admin\FaqController;
+use App\Http\Controllers\Backend\Admin\VideoController;
 
 Route::middleware(['auth:admin', 'admin', 'adminVerify'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
@@ -45,6 +46,13 @@ Route::middleware(['auth:admin', 'admin', 'adminVerify'])->name('admin.')->prefi
     });
 
     Route::controller(FaqController::class)->name('faq.')->prefix('faq')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/view/{id}', 'view')->name('view');
+        Route::get('/trash', 'trash')->name('trash');
+    });
+    Route::controller(VideoController::class)->name('video.')->prefix('video')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::get('/edit/{id}', 'edit')->name('edit');
