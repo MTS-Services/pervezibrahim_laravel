@@ -43,12 +43,12 @@
 
             <x-backend.navlink type="dropdown" icon="user-group" name="User Management" :page_slug="$active"
                 :items="[
-                    [
-                        'name' => 'Admins',
-                        'route' => route('admin.um.admin.index'),
-                        'icon' => 'user-circle',
-                        'active' => 'admin',
-                    ],
+                    // [
+                    //     'name' => 'Admins',
+                    //     'route' => route('admin.um.admin.index'),
+                    //     'icon' => 'user-circle',
+                    //     'active' => 'admin',
+                    // ],
                     [
                         'name' => 'Users',
                         'route' => route('admin.um.user.index'),
@@ -69,8 +69,17 @@
                     //     'active' => 'admin-users-banned',
                     // ],
                 ]" />
+            <x-backend.navlink type="dropdown" icon="user-group" name="Video Management" :page_slug="$active"
+                :items="[
+                    [
+                        'name' => 'Videos',
+                        'route' => route('admin.video.index'),
+                        'icon' => 'user-circle',
+                        'active' => 'admin-video',
+                    ],
+                ]" />
             <x-backend.navlink type="single" icon="user-group" name="Faq" :route="route('admin.faq.index')"
-                active="faq" :page_slug="$active" />
+                active="admin-faq" :page_slug="$active" />
             {{-- <x-backend.navlink type="dropdown" icon="user-circle" name="Product Management" :page_slug="$active"
                 :items="[
                     [

@@ -43,42 +43,4 @@ trait AuditColumnsTrait
         $table->dropColumn('restored_by');
         $table->dropColumn('restored_at');
     }
-
-
-    public function addMorphedAuditColumns(Blueprint $table): void
-    {
-        $table->timestamp('restored_at')->nullable();
-
-        $table->unsignedBigInteger('creater_id')->nullable();
-        $table->string('creater_type')->nullable();
-        $table->unsignedBigInteger('updater_id')->nullable();
-        $table->string('updater_type')->nullable();
-        $table->unsignedBigInteger('deleter_id')->nullable();
-        $table->string('deleter_type')->nullable();
-        $table->unsignedBigInteger('restorer_id')->nullable();
-        $table->string('restorer_type')->nullable();
-
-        $table->index(['creater_id', 'creater_type']);
-        $table->index(['updater_id', 'updater_type']);
-        $table->index(['deleter_id', 'deleter_type']);
-        $table->index(['restorer_id', 'restorer_type']);
-    }
-
-    public function dropMorphedAuditColumns(Blueprint $table): void
-    {
-        $table->dropIndex(['creater_id', 'creater_type']);
-        $table->dropIndex(['updater_id', 'updater_type']);
-        $table->dropIndex(['deleter_id', 'deleter_type']);
-        $table->dropIndex(['restorer_id', 'restorer_type']);
-
-        $table->dropColumn('creater_id');
-        $table->dropColumn('creater_type');
-        $table->dropColumn('updater_id');
-        $table->dropColumn('updater_type');
-        $table->dropColumn('deleter_id');
-        $table->dropColumn('deleter_type');
-        $table->dropColumn('restorer_id');
-        $table->dropColumn('restorer_type');
-        $table->dropColumn('restored_at');
-    }
 }
