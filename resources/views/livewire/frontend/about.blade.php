@@ -26,7 +26,7 @@
     <section class="bg-light-blue rounded-xl container p-8">
         <div class="#">
             <!-- Grid Container -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 <!-- Left Video Grid -->
                 <div class="rounded-2xl relative">
                     <div>
