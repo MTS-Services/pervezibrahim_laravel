@@ -34,6 +34,7 @@
                         <div x-show="open === {{ $loop->iteration }}" x-transition class="mt-4 text-white text-sm">{{ $faq->answer }}</div>
                     </div>
                 @empty
+                    <p class="text-center text-gray-500">No FAQs available at the moment.</p>
                 @endforelse
             </div>
         </div>
