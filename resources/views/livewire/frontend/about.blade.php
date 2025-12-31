@@ -136,7 +136,7 @@
     </section>
 
 
-    <section class="container py-8">
+    <section class="container py-12">
         <!-- BPM System Section -->
         <div class="bg-light-blue border-teal-400 rounded-3xl mt-4 mb-12 py-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
