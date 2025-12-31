@@ -13,7 +13,7 @@
             <!-- Home -->
             <a href="{{ route('home') }}" wire:navigate
                class="px-5 py-2 rounded-full text-base transition-all
-               {{ $pageSlug == 'home' ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
+               {{ request()->routeIs('home') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
                 {{ __('Home') }}
             </a>
 
@@ -33,9 +33,9 @@
             <div class="relative" x-data="{ open: false }" @click.outside="open = false" @keydown.escape.window="open = false">
                 <!-- Trigger -->
                 <button type="button" @click="open = !open"
-                        class="px-5 py-2 rounded-full text-base text-zinc-50 transition-all hover:bg-white/10 hover:text-white flex items-center gap-1">
-                    {{ __('Pages') }}
-                    <svg class="w-4 h-4 transition-transform duration-200 stroke-white" :class="{ 'rotate-180': open }"
+                            class="px-5 py-2 rounded-full text-base text-zinc-50 transition-all hover:bg-white/10 hover:text-white flex items-center gap-1 {{ request()->routeIs('method') || request()->routeIs('gallery') || request()->routeIs('faq') ? 'bg-white text-black! shadow' : '' }}">
+                        {{ __('Pages') }}
+                    <svg class="w-4 h-4 transition-transform duration-200 {{ request()->routeIs('method') || request()->routeIs('gallery') || request()->routeIs('faq') ? 'stroke-black' : 'stroke-white' }}" :class="{ 'rotate-180': open }"
                          fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
