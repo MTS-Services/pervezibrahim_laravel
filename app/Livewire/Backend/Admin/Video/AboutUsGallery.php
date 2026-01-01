@@ -3,6 +3,7 @@
 namespace App\Livewire\Backend\Admin\Video;
 
 use App\Enums\ActiveInactive;
+use App\Enums\Page;
 use App\Models\Admin;
 use App\Services\VideoService;
 use App\Traits\Livewire\WithDataTable;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Index extends Component
+class AboutUsGallery extends Component
 {
     use WithDataTable, WithNotification, WithFileUploads;
 
@@ -67,7 +68,7 @@ class Index extends Component
                 'label' => 'Created',
                 'sortable' => true,
                 'format' => function ($data) {
-                    return $data->created_at_formatted;
+                    return $data->created_at;
                 }
             ],
             [
@@ -92,8 +93,7 @@ class Index extends Component
             [
                 'key' => 'id',
                 'label' => 'Edit',
-                'route' => 'admin.video.edit',
-                'encrypt' => true
+                'x_click' => "\$dispatch('video-form-open', { videoId: '{value}' });"
             ],
             [
                 'key' => 'id',
@@ -109,7 +109,7 @@ class Index extends Component
             ['value' => 'inactive', 'label' => 'Inactive'],
         ];
 
-        return view('livewire.backend.admin.video.index', [
+        return view('livewire.backend.admin.video.about-us-gallery', [
             'datas' => $datas,
             'statuses' => ActiveInactive::options(),
             'columns' => $columns,
@@ -213,6 +213,7 @@ class Index extends Component
             'status' => $this->statusFilter,
             'sort_field' => $this->sortField,
             'sort_direction' => $this->sortDirection,
+            'page' => Page::ABOUT_GALLERY->value,
         ];
     }
 

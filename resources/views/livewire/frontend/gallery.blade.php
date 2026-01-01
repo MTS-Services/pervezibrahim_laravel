@@ -109,7 +109,7 @@
     </section>
 
 
-    {{-- <section class="container mx-auto my-16 px-6 lg:px-16">
+    <section class="container mx-auto my-16 px-6 lg:px-16">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -710,7 +710,7 @@
                 });
             </script>
         </div>
-    </section> --}}
+    </section>
 
     <section class="pt-20">
         <div class="container">

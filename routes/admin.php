@@ -53,7 +53,11 @@ Route::middleware(['auth:admin', 'admin', 'adminVerify'])->name('admin.')->prefi
         Route::get('/trash', 'trash')->name('trash');
     });
     Route::controller(VideoController::class)->name('video.')->prefix('video')->group(function () {
-        Route::get('/', 'index')->name('index');
+        Route::get('/home-banner', 'homeBanner')->name('home-banner');
+        Route::get('/about-us', 'aboutUs')->name('about-us');
+        Route::get('/about-us-gallery', 'aboutUsGallery')->name('about-us-gallery');
+        Route::get('/service', 'service')->name('service');
+        Route::get('/gallery', 'gallery')->name('gallery');
         Route::get('/create', 'create')->name('create');
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::get('/view/{id}', 'view')->name('view');

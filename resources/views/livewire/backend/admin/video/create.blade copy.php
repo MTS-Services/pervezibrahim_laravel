@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Video Create') }}</h2>
             <div class="flex items-center gap-2">
-                <x-ui.button href="{{ route('admin.video.index') }}" class="w-auto! py-2!">
+                <x-ui.button href="{{ url()->previous() }}" class="w-auto! py-2!">
                     <flux:icon name="arrow-left"
                         class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-secondary" />
                     {{ __('Back') }}
@@ -31,9 +31,13 @@
                     <x-ui.input-error :messages="$errors->get('form.title')" />
                 </div>
                 <div class="w-full">
-                    <x-ui.label value="{{ __('Page') }}" class="mb-1" />
-                    <x-ui.input type="text" placeholder="{{ __('Page') }}" wire:model="form.page" />
-                    <x-ui.input-error :messages="$errors->get('form.page')" />
+                    <x-ui.label value="{{ __('Select Page') }}" class="mb-1" />
+                    <x-ui.select wire:model="form.page">
+                        @foreach ($pages as $page)
+                            <option value="{{ $page['value'] }}">{{ $page['label'] }}</option>
+                        @endforeach
+                    </x-ui.select>
+                    <x-ui.input-error :messages="$errors->get('form.status')" />
                 </div>
                 <div class="w-full">
                     <x-ui.label value="{{ __('Action') }}" class="mb-1" />

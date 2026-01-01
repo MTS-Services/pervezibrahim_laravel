@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use App\Enums\ActiveInactive;
+use App\Enums\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Video extends Model
+class Video extends AuthBaseModel
 {
     use SoftDeletes;
     //
@@ -35,6 +36,7 @@ class Video extends Model
 
     protected $casts = [
         'status' => ActiveInactive::class,
+        'page' => Page::class,
     ];
 
     /* =#=#=#=#=#=#=#=#=#=#==#=#=#=#= =#=#=#=#=#=#=#=#=#=#==#=#=#=#=
@@ -54,6 +56,11 @@ class Video extends Model
     public function getStatusColorAttribute(): string
     {
         return $this->status->color();
+    }
+
+    public function getPageLabelAttribute(): string
+    {
+        return $this->page->label();
     }
 
     public function __construct(array $attributes = [])
@@ -84,6 +91,11 @@ class Video extends Model
                 $filters['is_default'] ?? null,
                 fn($q, $isDefault) =>
                 $q->where('is_default', $isDefault)
+            )
+            ->when(
+                $filters['page'] ?? null,
+                fn($q, $page) =>
+                $q->where('page', $page)
             );
     }
 
@@ -95,6 +107,14 @@ class Video extends Model
     public function scopeInactive($query)
     {
         return $query->where('status', ActiveInactive::INACTIVE);
+    }
+    public function scopeOfPage($query, Page $page)
+    {
+        return $query->where('page', $page->value);
+    }
+    public function scopeHomeBanner($query)
+    {
+        return $query->where('page', Page::HOME_BANNER->value);
     }
 
     /* =#=#=#=#=#=#=#=#=#=#==#=#=#=#= =#=#=#=#=#=#=#=#=#=#==#=#=#=#=
