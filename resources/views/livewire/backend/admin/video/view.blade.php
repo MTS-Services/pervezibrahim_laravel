@@ -9,7 +9,7 @@
                         {{ __('Video Details') }}
                     </h2>
                     <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <x-ui.button href="{{ route('admin.video.index') }}" class="w-auto py-2!">
+                        <x-ui.button href="{{ route('admin.video.home-banner') }}" class="w-auto py-2!">
                             <flux:icon name="arrow-left"
                                 class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-secondary" />
                             {{ __('Back') }}
@@ -19,9 +19,9 @@
             </div>
             <!-- Main Card -->
             <div class="glass-card rounded-2xl shadow-lg overflow-hidden border border-gray-500/20 min-h-[500px]">
-                <div class="w-52 h-52 rounded-md m-8 border-4 border-pink-100 overflow-hidden">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNu9uulWIgqP6ax8ikiM4eQUf2cNqGtOMkaQ&s"
-                        alt="Profile Image" class="w-full h-full object-cover">
+                {{-- @dd($model->file) --}}
+                <div class="w-full max-w-md px-8 pt-8">
+                    <x-video-player :video="$model" />
                 </div>
                 @if ($model->description != null)
                     <div class="px-8 py-4">

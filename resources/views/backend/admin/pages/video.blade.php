@@ -26,7 +26,7 @@
             <x-slot name="title">{{ __('Video View') }}</x-slot>
             <x-slot name="breadcrumb">{{ __('Video / View') }}</x-slot>
             <x-slot name="pageSlug">{{ __('video') }}</x-slot>
-            <livewire:backend.admin.video.view />
+            <livewire:backend.admin.video.view :model="$data" />
         @break
 
         @case('admin.video.about-us')
