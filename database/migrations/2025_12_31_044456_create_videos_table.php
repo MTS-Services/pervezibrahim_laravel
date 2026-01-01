@@ -21,7 +21,7 @@ return new class extends Migration
 
             $table->string('thumbnail')->nullable();
             $table->string('file');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('action')->nullable();
 

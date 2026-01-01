@@ -1,4 +1,4 @@
-<aside class="transition-all duration-300 ease-in-out z-50 max-h-screen py-2 pl-2"
+<aside class="transition-all duration-300 ease-in-out z-20 max-h-screen py-2 pl-2"
     :class="{
         'w-72': desktop && sidebar_expanded,
         'w-20': desktop && !sidebar_expanded,
@@ -72,10 +72,34 @@
             <x-backend.navlink type="dropdown" icon="user-group" name="Video Management" :page_slug="$active"
                 :items="[
                     [
-                        'name' => 'Videos',
-                        'route' => route('admin.video.index'),
+                        'name' => 'Home Banner',
+                        'route' => route('admin.video.home-banner'),
                         'icon' => 'user-circle',
-                        'active' => 'admin-video',
+                        'active' => 'home-banner',
+                    ],
+                    [
+                        'name' => 'About-Us',
+                        'route' => route('admin.video.about-us'),
+                        'icon' => 'user-circle',
+                        'active' => 'about-us',
+                    ],
+                    [
+                        'name' => 'About-Gallery',
+                        'route' => route('admin.video.about-us-gallery'),
+                        'icon' => 'user-circle',
+                        'active' => 'about-us-gallery',
+                    ],
+                    [
+                        'name' => 'Services',
+                        'route' => route('admin.video.service'),
+                        'icon' => 'user-circle',
+                        'active' => 'services',
+                    ],
+                    [
+                        'name' => 'Gallery',
+                        'route' => route('admin.video.gallery'),
+                        'icon' => 'user-circle',
+                        'active' => 'gallery',
                     ],
                 ]" />
             <x-backend.navlink type="single" icon="user-group" name="Faq" :route="route('admin.faq.index')"

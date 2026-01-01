@@ -2,7 +2,6 @@
     'columns' => [],
     'data' => [],
     'actions' => [],
-    'actionsMap' => [],
     'searchProperty' => 'search',
     'showSearch' => true,
     'perPageProperty' => 'perPage',
@@ -33,7 +32,8 @@
             {{-- Per Page --}}
             @if ($showPerPage)
                 <div class="w-full sm:w-auto">
-                    <select wire:model.live="{{ $perPageProperty }}" class="select w-full sm:w-auto min-w-[140px]">
+                    <select wire:model.live="{{ $perPageProperty }}"
+                        class="select w-full sm:w-auto min-w-[140px] shadow-shadow-primary">
                         @foreach ($perPageOptions as $option)
                             <option value="{{ $option }}">{{ $option }} {{ __('per page') }}</option>
                         @endforeach
@@ -44,7 +44,8 @@
             {{-- Status Filter --}}
             @if (!empty($statuses))
                 <div class="w-full sm:w-auto">
-                    <select wire:model.live="statusFilter" class="select w-full sm:w-auto min-w-[140px]">
+                    <select wire:model.live="statusFilter"
+                        class="select w-full sm:w-auto min-w-[140px] shadow-shadow-primary">
                         <option value="">{{ __('All Statuses') }}</option>
                         @foreach ($statuses as $status)
                             <option value="{{ $status['value'] }}">{{ $status['label'] }}</option>
@@ -117,7 +118,8 @@
                     {{-- Bulk Select Checkbox --}}
                     @if ($showBulkActions)
                         <th scope="col" class="w-12 px-4 py-3 text-center">
-                            <input type="checkbox" wire:model.live="selectAll" class="checkbox w-5 h-5 rounded">
+                            <input type="checkbox" wire:model.live="selectAll"
+                                class="checkbox w-5 h-5 rounded shadow-shadow-primary checkbox-accent">
                         </th>
                     @endif
 
@@ -185,7 +187,7 @@
                         @if ($showBulkActions)
                             <td class="px-4 py-3 text-center">
                                 <input type="checkbox" wire:model.live="selectedIds" value="{{ $item->id }}"
-                                    class="checkbox w-5 h-5 rounded">
+                                    class="checkbox w-5 h-5 rounded shadow-shadow-primary checkbox-accent">
                             </td>
                         @endif
 
@@ -211,7 +213,7 @@
                         @endforeach
 
                         {{-- Actions Dropdown --}}
-                        @if (count($actions) > 0 || !empty($actionsMap))
+                        @if (count($actions) > 0)
                             <td class="p-3 text-center shrink-0">
                                 <div class="relative inline-block text-left">
                                     <div x-data="{ open: false }">
@@ -230,19 +232,11 @@
                                             x-transition:leave-end="transform opacity-0 scale-95"
                                             class="absolute z-10 mt-2 min-w-32 w-fit max-w-52 origin-top-right right-0 rounded-md shadow-lg text-center"
                                             @click.outside="open = false">
-                                            <div class="rounded-md bg-bg-primary shadow-xs">
+                                            <div class="rounded-md bg-card shadow-shadow-primary">
                                                 <div class="py-1">
-                                                    @php
-                                                        // Use actionsMap if available, otherwise use static actions
-                                                        $itemActions =
-                                                            isset($actionsMap) && isset($actionsMap[$item->id])
-                                                                ? $actionsMap[$item->id]
-                                                                : $actions;
-                                                    @endphp
-
-                                                    @foreach ($itemActions as $action)
+                                                    @foreach ($actions as $action)
                                                         @php
-                                                            // Determine which param key to use
+                                                            // Determine which param key to use (e.g. 'id', 'slug', etc.)
                                                             $param =
                                                                 isset($action['param']) && $action['param']
                                                                     ? $action['param']
@@ -251,7 +245,7 @@
                                                             // Get actual value from current item/row
                                                             $actionValue = data_get($item, $param);
 
-                                                            // Encrypt VALUE if requested
+                                                            // Encrypt VALUE (not key) if requested
                                                             $isEncrypted =
                                                                 isset($action['encrypt']) && $action['encrypt'];
                                                             if ($isEncrypted && !is_null($actionValue)) {
@@ -278,7 +272,7 @@
                                                                 title="{{ $action['label'] }}"
                                                                 target="{{ $action['target'] ?? '_self' }}"
                                                                 class="block px-4 py-2 w-full text-sm text-left dark:text-zinc-100! dark:hover:text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
-                                                                {{ isset($action['wire']) && $action['wire'] == false ? '' : 'wire:navigate' }}>
+                                                                wire:navigate>
                                                                 {{ $action['label'] }}
                                                             </a>
 
@@ -288,7 +282,7 @@
                                                                 title="{{ $action['label'] }}"
                                                                 target="{{ $action['target'] ?? '_self' }}"
                                                                 class="block px-4 py-2 w-full text-sm text-left dark:text-zinc-100! dark:hover:text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
-                                                                {{ isset($action['wire']) && $action['wire'] == false ? '' : 'wire:navigate' }}>
+                                                                wire:navigate>
                                                                 {{ $action['label'] }}
                                                             </a>
 
@@ -304,7 +298,7 @@
                                                             {{-- 🪄 Case 4: Alpine.js x-on:click --}}
                                                         @elseif (!empty($action['x_click']))
                                                             @php
-                                                                // Replace {param} or {value} placeholders
+                                                                // Replace {param} or {value} placeholders in x_click string
                                                                 $xClick = str_replace(
                                                                     ['{param}', '{value}'],
                                                                     $actionValue,
@@ -318,6 +312,8 @@
                                                             </button>
                                                         @endif
                                                     @endforeach
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -360,19 +356,19 @@
                         <div class="flex items-center gap-3">
                             @if ($showBulkActions)
                                 <input type="checkbox" wire:model.live="selectedIds" value="{{ $item->id }}"
-                                    class="checkbox w-5 h-5 rounded flex-shrink-0">
+                                    class="checkbox w-5 h-5 rounded shrink-0 shadow-shadow-primary checkbox-accent">
                             @endif
 
                             @if ($showRowNumber)
                                 <div
-                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-sm font-semibold text-gray-700 dark:text-gray-300 flex-shrink-0">
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-sm font-semibold text-gray-700 dark:text-gray-300 shrink-0">
                                     {{ $rowNumber }}
                                 </div>
                             @endif
                         </div>
 
                         {{-- Right: Actions Dropdown --}}
-                        @if (count($actions) > 0 || !empty($actionsMap))
+                        @if (count($actions) > 0)
                             <div class="relative" x-data="{ open: false }">
                                 <button type="button" @click="open = !open"
                                     class="inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-400 transition-all duration-200 group">
@@ -386,83 +382,25 @@
                                     x-transition:enter-end="transform opacity-100 scale-100"
                                     class="absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-lg bg-bg-primary shadow-xl ring-1 ring-black ring-opacity-5">
                                     <div class="py-1">
-                                        @php
-                                            // Use actionsMap if available, otherwise use static actions
-                                            $itemActions =
-                                                isset($actionsMap) && isset($actionsMap[$item->id])
-                                                    ? $actionsMap[$item->id]
-                                                    : $actions;
-                                        @endphp
-
-                                        @foreach ($itemActions as $action)
+                                        @foreach ($actions as $action)
                                             @php
-                                                // Determine which param key to use
                                                 $param = $action['param'] ?? ($action['key'] ?? 'id');
-
-                                                // Get actual value from current item/row
                                                 $actionValue = data_get($item, $param);
-
-                                                // Encrypt VALUE if requested
-                                                $isEncrypted = isset($action['encrypt']) && $action['encrypt'];
-                                                if ($isEncrypted && !is_null($actionValue)) {
-                                                    $actionValue = encrypt($actionValue);
-                                                }
-
-                                                // Format parameter safely
                                                 $actionParam = is_numeric($actionValue)
                                                     ? $actionValue
-                                                    : (is_null($actionValue)
-                                                        ? null
-                                                        : "'{$actionValue}'");
+                                                    : "'{$actionValue}'";
                                             @endphp
 
-                                            {{-- 🔗 Case 1: Direct href --}}
-                                            @if (!empty($action['href']) && $action['href'] !== '#')
-                                                @php
-                                                    $href = empty($actionValue)
-                                                        ? $action['href']
-                                                        : rtrim($action['href'], '/') . '/' . $actionValue;
-                                                @endphp
-
-                                                <a href="{{ $href }}" title="{{ $action['label'] }}"
-                                                    target="{{ $action['target'] ?? '_self' }}"
-                                                    class="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 dark:hover:text-black hover:bg-zinc-300 dark:hover:bg-zinc-400"
-                                                    {{ isset($action['wire']) && $action['wire'] == false ? '' : 'wire:navigate' }}>
+                                            @if (isset($action['route']))
+                                                <a href="{{ route($action['route'], $actionValue) }}" wire:navigate
+                                                    class="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300  dark:hover:text-black hover:bg-zinc-300 dark:hover:bg-zinc-400">
                                                     {{ $action['label'] }}
                                                 </a>
-
-                                                {{-- 🧭 Case 2: Named route --}}
-                                            @elseif (!empty($action['route']) && $action['route'] !== '#')
-                                                <a href="{{ route($action['route'], $actionValue) }}"
-                                                    title="{{ $action['label'] }}"
-                                                    target="{{ $action['target'] ?? '_self' }}"
-                                                    class="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 dark:hover:text-black hover:bg-zinc-300 dark:hover:bg-zinc-400"
-                                                    {{ isset($action['wire']) && $action['wire'] == false ? '' : 'wire:navigate' }}>
-                                                    {{ $action['label'] }}
-                                                </a>
-
-                                                {{-- ⚡ Case 3: Livewire method --}}
-                                            @elseif (!empty($action['method']))
+                                            @elseif (isset($action['method']))
                                                 <button type="button"
                                                     wire:click="{{ $action['method'] }}({{ $actionParam }})"
                                                     @click="open = false"
-                                                    class="block w-full text-left px-4 py-2.5 text-sm text-gray-700 dark:hover:text-black dark:text-gray-300 hover:bg-zinc-300 dark:hover:bg-zinc-400">
-                                                    {{ $action['label'] }}
-                                                </button>
-
-                                                {{-- 🪄 Case 4: Alpine.js x-on:click --}}
-                                            @elseif (!empty($action['x_click']))
-                                                @php
-                                                    // Replace {param} or {value} placeholders
-                                                    $xClick = str_replace(
-                                                        ['{param}', '{value}'],
-                                                        $actionValue,
-                                                        $action['x_click'],
-                                                    );
-                                                @endphp
-
-                                                <button type="button" x-on:click="{{ $xClick }}"
-                                                    class="block w-full text-left px-4 py-2.5 text-sm text-gray-700 dark:hover:text-black dark:text-gray-300 hover:bg-zinc-300 dark:hover:bg-zinc-400">
+                                                    class="block w-full text-left px-4 py-2.5 text-sm text-gray-700 dark:hover:text-black  dark:text-gray-300 hover:bg-zinc-300 dark:hover:bg-zinc-400">
                                                     {{ $action['label'] }}
                                                 </button>
                                             @endif
