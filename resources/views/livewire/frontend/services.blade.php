@@ -113,6 +113,9 @@
                     <x-video-player :video="$video" />
                 @endforeach
             </div>
+            @if ($videos->isEmpty())
+                <p class="text-center text-second-500 text-xl font-bold">No videos available at the moment.</p>
+            @endif
         </div>
     </section>
 

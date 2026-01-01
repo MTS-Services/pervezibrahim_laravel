@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Frontend;
 
+use App\Enums\ActiveInactive;
+use App\Enums\Page;
 use App\Services\VideoService;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -9,8 +11,6 @@ use Livewire\WithPagination;
 class Services extends Component
 {
     use WithPagination;
-    
-    public $videos = [];
 
     protected VideoService $videoService;
 
@@ -18,18 +18,25 @@ class Services extends Component
     {
         $this->videoService = $videoService;
     }
-
-    public function mount()
-    {
-        $this->videos = $this->videoService->getAllDatas();
-    }
     public function render()
     {
+        $videos = $this->videoService->getPaginatedData(
+            perPage: 10,
+            filters: $this->getFilters()
+        );
         return view(
             'livewire.frontend.services',
             [
-                'videos' => $this->videos,
+                'videos' => $videos,
             ]
         );
+    }
+
+    protected function getFilters(): array
+    {
+        return [
+            'status' => ActiveInactive::ACTIVE->value,
+            'page' => Page::GALLERY->value,
+        ];
     }
 }
