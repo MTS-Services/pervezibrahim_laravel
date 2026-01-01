@@ -14,7 +14,23 @@ class VideoController extends Controller
     /**
      * Show the list of resources.
      */
-    public function index()
+    public function homeBanner()
+    {
+        return view($this->masterView);
+    }
+    public function aboutUs()
+    {
+        return view($this->masterView);
+    }
+    public function aboutUsGallery()
+    {
+        return view($this->masterView);
+    }
+    public function service()
+    {
+        return view($this->masterView);
+    }
+    public function gallery()
     {
         return view($this->masterView);
     }
