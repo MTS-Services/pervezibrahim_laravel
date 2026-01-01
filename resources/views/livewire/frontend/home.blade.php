@@ -3,7 +3,7 @@
         <!-- Background Pattern Overlay -->
         <div class="absolute inset-0 opacity-40 pointer-events-none">
             <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
-                class="w-full h-full object-none" />
+                class="w-full h-full object-cover" />
         </div>
 
         <!-- Hero Content -->
@@ -22,7 +22,7 @@
             <!-- Right: Text Section -->
             <div class="lg:mt-40 mb-5 lg:mb-0">
                 <div class="flex flex-col space-y-8">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl font-light text-wrap text-white">
+                    <h1 class="text-1xl font-medium text-wrap text-white">
                         Business Process Management System and Methods for the New Era of Technology
                     </h1>
 
