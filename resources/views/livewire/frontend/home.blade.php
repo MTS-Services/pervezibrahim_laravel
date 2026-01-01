@@ -3,7 +3,7 @@
         <!-- Background Pattern Overlay -->
         <div class="absolute inset-0 opacity-40 pointer-events-none">
             <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
-                class="w-full h-full object-none" />
+                class="w-full h-full object-cover" />
         </div>
 
         <!-- Hero Content -->
@@ -22,7 +22,7 @@
             <!-- Right: Text Section -->
             <div class="lg:mt-40 mb-5 lg:mb-0">
                 <div class="flex flex-col space-y-8">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl font-light text-wrap text-white">
+                    <h1 class="text-1xl font-medium text-wrap text-white">
                         Business Process Management System and Methods for the New Era of Technology
                     </h1>
 
@@ -45,7 +45,7 @@
                 What gets measured - <br class="hidden md:block" /> gets managed!
             </h1>
             <div
-                class="mt-2 bg-PrimaryBlue text-white text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full inline-flex items-center">
+                class="-mt-10 bg-PrimaryBlue text-white text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full inline-flex items-center">
                 Peter Drucker
             </div>
         </div>
@@ -112,7 +112,8 @@
                 class="w-full h-full object-none" />
         </div>
         <div class="absolute right-0 bottom-0 w-1/3 h-full pointer-events-none hidden md:block">
-            <img src="{{ asset('assets/images/home_page/_Background mask.png') }}" alt="Background pattern" class="w-full h-full" />
+            <img src="{{ asset('assets/images/home_page/_Background mask.png') }}" alt="Background pattern"
+                class="w-full h-full" />
         </div>
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row gap-12 items-start">
@@ -164,5 +165,3 @@
             </div>
         </div>
     </section>
-
-</div>
