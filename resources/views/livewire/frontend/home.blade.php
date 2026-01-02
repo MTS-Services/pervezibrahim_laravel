@@ -40,15 +40,24 @@
     <section
         class="flex flex-col lg:flex-row items-center justify-between gap-8 py-8 lg:px-8 bg-white container mx-auto font-sans">
         <!-- Left Side: Quote and Author -->
-        <div class="flex flex-col items-start md:items-end">
-            <h1 class="text-PrussianBlue text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-balance">
-                What gets measured - <br class="hidden md:block" /> gets managed!
-            </h1>
-            <div
-                class="-mt-10 bg-PrimaryBlue text-white text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full inline-flex items-center">
-                Peter Drucker
+
+
+
+
+        <div class="flex items-center justify-center bg-gray-50 p-4">
+            <div class="flex flex-col items-start sm:items-end max-w-2xl w-full">
+                <h1
+                    class="text-PrussianBlue text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-balance">
+                    What gets measured - <br class="hidden sm:block"> gets managed!
+                </h1>
+                <div
+                    class="mt-3 sm:-mt-10 bg-PrimaryBlue text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full inline-flex items-center">
+                    Peter Drucker
+                </div>
             </div>
         </div>
+
+
 
         <!-- Right Side: Logo Container -->
         <div
