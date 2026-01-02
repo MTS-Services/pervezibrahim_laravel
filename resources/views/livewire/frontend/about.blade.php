@@ -28,18 +28,11 @@
             <!-- Grid Container -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 <!-- Left Video Grid -->
-                <div class="rounded-2xl relative">
+                @foreach ($aboutVideos as $galleryVideo)
                     <div>
-                        <img src="{{ asset('assets/images/home_page/working2.png') }}" alt=""
-                            class="w-full h-full object-cover" />
+                        <x-video-player :video="$galleryVideo" />
                     </div>
-                </div>
-                <div class="rounded-2xl relative">
-                    <div>
-                        <img src="{{ asset('assets/images/home_page/working2.png') }}" alt=""
-                            class="w-full h-full object-cover" />
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- Text Content -->
@@ -56,83 +49,21 @@
 
     <section class=" rounded-xl container px-1 mt-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <img src="{{ asset('assets/images/home_page/robots.png') }}" alt=""
-                        class="w-full h-full object-cover" />
-                </div>
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Peter Drucker once said,</span> "The best way to
-                        predict the future is to create it." Inspired
-                        by this advice, I passionately developed
-                        the ebSixOne™ BPM system, as it is often
-                        said that passion never fails. Watch a short
-                        video of 2 minutes and 20 seconds.
-                    </p>
-                </div>
-            </div>
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <img src="{{ asset('assets/images/home_page/book.png') }}" alt=""
-                        class="w-full h-full object-cover" />
-                </div>
+            @foreach ($galleryVideos as $about_video)
+                <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
+                    <div>
+                        <x-video-player :video="$about_video" />
+                    </div>
 
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">My quest for an innovative BPM system.</span>
-                        A system that connects your entire supply
-                        chain management, ERP system, and
-                        robotics, resulting in a comprehensive
-                        business process ecosystem. Watch the
-                        video; it’s 3 minutes long.
-                    </p>
+                    <!-- Text Content -->
+                    <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
+                        <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+                            <span class="font-bold">{{ $about_video->title }}</span>{{ $about_video->description }}
+                        </p>
+                    </div>
                 </div>
-            </div>
-
+            @endforeach
         </div>
-
-    </section>
-
-    <section class=" rounded-xl container px-1 mt-8">
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <img src="{{ asset('assets/images/home_page/humanrobot.png') }}" alt=""
-                        class="w-full h-full object-cover" />
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Life is really simple, but we must insist ​
-                            On making it complicated!</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <img src="{{ asset('assets/images/home_page/kipto.png') }}" alt=""
-                        class="w-full h-full object-cover" />
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Book 2 – BPM History and Why I created a
-                            BPM system watch 3 M -Video.</span>
-
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
     </section>
 
 
