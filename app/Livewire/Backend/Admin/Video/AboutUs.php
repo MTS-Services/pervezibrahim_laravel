@@ -37,14 +37,15 @@ class AboutUs extends Component
             perPage: $this->perPage,
             filters: $this->getFilters()
         );
+        $page = Page::ABOUT_US->value;
         
         $columns = [
             [
                 'key' => 'thumbnail',
                 'label' => 'Thumbnail',
                 'format' => function ($data) {
-                    return $data->thumbnail
-                        ? '<img src="' . $data->thumbnail . '" alt="' . $data->title . '" class="w-10 h-10 rounded-full object-cover shadow-sm">'
+                    return $data->thumbnail_url
+                        ? '<img src="' . $data->thumbnail_url . '" alt="' . $data->title . '" class="w-10 h-10 rounded-full object-cover shadow-sm">'
                         : '<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 font-semibold">' . strtoupper(substr($data->title, 0, 2)) . '</div>';
                 }
             ],
@@ -93,7 +94,7 @@ class AboutUs extends Component
             [
                 'key' => 'id',
                 'label' => 'Edit',
-                'x_click' => "\$dispatch('video-form-open', { videoId: '{value}' });"
+                'x_click' => "\$dispatch('video-form-open', { videoId: '{value}' }, { page: '{$page}' });"
             ],
             [
                 'key' => 'id',

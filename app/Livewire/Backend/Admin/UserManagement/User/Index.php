@@ -35,6 +35,7 @@ class Index extends Component
             perPage: $this->perPage,
             filters: $this->getFilters()
         );
+        dd($datas);
 
         $datas->load(['creater']);
 

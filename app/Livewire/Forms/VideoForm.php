@@ -39,7 +39,7 @@ class VideoForm extends Form
     public function setData($video): void
     {
         $this->id = $video->id;
-        $this->page = $video->page;
+        $this->page = $video->page->value;
         $this->title = $video->title;
         $this->description = $video->description;
         $this->action = $video->action;

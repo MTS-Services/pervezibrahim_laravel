@@ -9,6 +9,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use App\Repositories\Contracts\AdminRepositoryInterface;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,67 +17,6 @@ class UpdateAction
 {
     public function __construct(public AdminRepositoryInterface $interface) {}
 
-    // public function execute(int $id,  array $data): Admin
-    // {
-    //     return DB::transaction(function () use ($id, $data) {
-
-    //         $model = $this->interface->find($id);
-
-    //         if (!$model) {
-    //             Log::error('Admin not found', ['admin_id' => $id]);
-    //             throw new \Exception('Admin not found');
-    //         }
-    //          $oldData = $model->getAttributes();
-    //         $newData = $data;
-
-    //         $oldAvatarPath = Arr::get($oldData, 'avatar');
-    //         $uploadedAvatar = Arr::get($data, 'avatar');
-    //         $newSingleAvatarPath = null;
-
-
-    //         if ($uploadedAvatar instanceof UploadedFile) {
-    //             // Delete old file permanently (File deletion is non-reversible)
-    //             if ($oldAvatarPath && Storage::disk('public')->exists($oldAvatarPath)) {
-    //                 Storage::disk('public')->delete($oldAvatarPath);
-    //             }
-
-    //             // Store the new file and track path for rollback
-    //             $prefix = uniqid('IMX') . '-' . time() . '-' . uniqid();
-    //             $fileName = $prefix . '-' . $uploadedAvatar->getClientOriginalName();
-
-    //             $newSingleAvatarPath = Storage::disk('public')->putFileAs('admins', $uploadedAvatar, $fileName);
-    //             $newData['avatar'] = $newSingleAvatarPath;
-    //         } elseif (Arr::get($data, 'remove_file')) {
-    //             if ($oldAvatarPath && Storage::disk('public')->exists($oldAvatarPath)) {
-    //                 Storage::disk('public')->delete($oldAvatarPath);
-    //             }
-    //             $newData['avatar'] = null;
-    //         }
-
-    //         if (!$newData['remove_file'] && !$newSingleAvatarPath) {
-    //             $newData['avatar'] = $oldAvatarPath ?? null;
-    //         }
-
-    //         unset($newData['remove_file']);
-
-    //         $newData['password'] = $newData['password'] ?? $model->password;
-
-    //         // Update Admin
-    //         $updated = $this->interface->update($id, $newData);
-
-    //         if (!$updated) {
-    //             Log::error('Failed to update Admin in repository', ['admin_id' => $id]);
-    //             throw new \Exception('Failed to update Admin');
-    //         }
-
-    //         // Refresh the Admin model
-    //         $model = $model->fresh();
-
-    //         event(new AdminUpdated($model, $newData));
-
-    //         return $model;
-    //     });
-    // }
      public function execute(int $id, array $data): Admin
     {
         // 1. Initialize variables to track newly uploaded files for rollback
