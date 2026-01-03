@@ -18,12 +18,14 @@ class Services extends Component
     {
         $this->videoService = $videoService;
     }
+
     public function render()
     {
         $videos = $this->videoService->getPaginatedData(
             perPage: 10,
             filters: $this->getFilters()
         );
+
         return view(
             'livewire.frontend.services',
             [
@@ -36,7 +38,7 @@ class Services extends Component
     {
         return [
             'status' => ActiveInactive::ACTIVE->value,
-            'page' => Page::GALLERY->value,
+            'page' => Page::SERVICE->value,
         ];
     }
 }
