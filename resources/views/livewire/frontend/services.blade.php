@@ -26,7 +26,7 @@
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @foreach ($videos as $video)
-                    <x-video-player :video="$video" />
+                    <x-video-player :thumbnail="$video->thumbnail" :file="$video->file" />
                 @endforeach
             </div>
             @if ($videos->isEmpty())

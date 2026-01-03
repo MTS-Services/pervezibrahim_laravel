@@ -27,21 +27,17 @@
         <div class="#">
             <!-- Grid Container -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                <!-- Left Video Grid -->
-                @foreach ($aboutVideos as $galleryVideo)
                     <div>
-                        <x-video-player :video="$galleryVideo" />
+                        <x-video-player :thumbnail="$aboutVideos->thumbnail_one" :file="$aboutVideos->file_one" />
                     </div>
-                @endforeach
+                    <div>
+                        <x-video-player :thumbnail="$aboutVideos->thumbnail_two" :file="$aboutVideos->file_two" />
+                    </div>
             </div>
 
             <!-- Text Content -->
             <div class=" bg-opacity-60 backdrop-blur-sm  p-8 text-center">
-                <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                    Today, we are experiencing an exciting technological era that promises to transform our lives! To
-                    support this new phase, I have four brief videos that provide an overview of the innovative BPM
-                    system. Let's collaborate and embrace this advancement together!
-                </p>
+                <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">{{ $aboutVideos->description }}</p>
             </div>
         </div>
     </section>
@@ -52,7 +48,7 @@
             @foreach ($galleryVideos as $about_video)
                 <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
                     <div>
-                        <x-video-player :video="$about_video" />
+                        <x-video-player :thumbnail="$about_video->thumbnail" :file="$about_video->file" />
                     </div>
 
                     <!-- Text Content -->

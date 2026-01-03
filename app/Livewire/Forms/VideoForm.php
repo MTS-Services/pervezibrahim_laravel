@@ -29,7 +29,7 @@ class VideoForm extends Form
             'page' => 'nullable|string|max:255',
             'thumbnail' => 'nullable|image',
             'file' => 'nullable|file',
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'action' => 'nullable|string|max:255',
             'status' => 'required|string|in:' . implode(',', array_column(ActiveInactive::cases(), 'value')),

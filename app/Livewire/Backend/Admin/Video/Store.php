@@ -54,15 +54,21 @@ class Store extends Component
     public function save()
     {
         $validated = $this->form->validate();
-        $validated['page'] = $this->page;
         try {
+            $validated['page'] = $this->page;
             $validated['creater_by'] = Admin::class;
-            $validated['page'] = Page::HOME_BANNER->value;
             $this->service->createData($validated, admin()->id);
 
             $this->dispatch('VideoCreated');
             $this->success('Data created successfully');
-            return $this->redirect(route('admin.video.home-banner'), navigate: true);
+
+            $this->resetForm();
+            $this->reset([
+                'videoFormOpen',
+                'isLoading',
+                'page',
+            ]);
+            return redirect()->back();
         } catch (\Exception $e) {
             Log::error('Failed to create video: ' . $e->getMessage());
             $this->error('Failed to create video.');
@@ -78,13 +84,16 @@ class Store extends Component
             $this->dispatch('VideoUpdated');
             $this->success('Data updated successfully');
             $this->reset([
-                'videoFormOpen',
-                'isLoading',
                 'editMode',
                 'existingThumbnail',
                 'existingFile',
             ]);
             $this->resetForm();
+            $this->reset([
+                'videoFormOpen',
+                'isLoading',
+                'page',
+            ]);
             return redirect()->back();
         } catch (\Throwable $e) {
             Log::error('Failed to update video', [
@@ -104,6 +113,7 @@ class Store extends Component
             'editMode',
             'existingThumbnail',
             'existingFile',
+            'page'
         );
     }
 
