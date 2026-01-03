@@ -4,6 +4,7 @@ namespace App\Livewire\Frontend;
 
 use App\Enums\ActiveInactive;
 use App\Enums\Page;
+use App\Models\AboutUs as ModelsAboutUs;
 use App\Services\VideoService;
 use Livewire\Component;
 
@@ -17,13 +18,10 @@ class About extends Component
     }
     public function render()
     {
-        $aboutVideos = $this->videoService->getPaginatedData(
-            perPage: 2,
-            filters: $this->getAboutFilters()
-        );
+        $aboutVideos = ModelsAboutUs::first();
         $galleryVideos = $this->videoService->getPaginatedData(
             perPage: 6,
-            filters: $this->getGalleryFilters()
+            filters: $this->getAboutGalleryFilters()
         );
         return view('livewire.frontend.about',[
             'aboutVideos' => $aboutVideos,
@@ -31,18 +29,11 @@ class About extends Component
         ]);
     }
 
-    protected function getGalleryFilters(): array
+    protected function getAboutGalleryFilters(): array
     {
         return [
             'status' => ActiveInactive::ACTIVE->value,
-            'page' => Page::GALLERY->value,
-        ];
-    }
-    protected function getAboutFilters(): array
-    {
-        return [
-            'status' => ActiveInactive::ACTIVE->value,
-            'page' => Page::ABOUT_US->value,
+            'page' => Page::ABOUT_GALLERY->value,
         ];
     }
 }

@@ -2,17 +2,17 @@
 
 namespace App\Livewire\Backend\Admin\Video;
 
-use App\Enums\ActiveInactive;
-use App\Enums\Page;
-use App\Livewire\Forms\VideoForm;
 use App\Models\Admin;
-use App\Models\Video;
-use App\Services\VideoService;
-use App\Traits\Livewire\WithDataTable;
-use App\Traits\Livewire\WithNotification;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use App\Models\BannerVideo;
+use Illuminate\Support\Arr;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Log;
+use App\Traits\Livewire\WithDataTable;
+use App\Livewire\Forms\BannerVideoForm;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
+use App\Traits\Livewire\WithNotification;
 
 class HomeBanner extends Component
 {
@@ -24,216 +24,87 @@ class HomeBanner extends Component
     public $bulkAction = '';
     public $showBulkActionModal = false;
 
-    public Page $page;
+    public $existingThumbnail;
+    public $existingFile;
+
+    public BannerVideoForm $form;
 
     protected $listeners = ['userCreated' => '$refresh', 'userUpdated' => '$refresh'];
 
-    protected VideoService $service;
-
-    public function boot(VideoService $service)
+    public function mount()
     {
-        $this->service = $service;
+        $model = BannerVideo::first();
+        $this->form->setData($model);
+        $this->existingThumbnail = $model?->thumbnail;
+        $this->existingFile = $model?->file;
     }
+
+    public function save()
+    {
+        $validated = $this->form->validate();
+
+        try {
+            $video = BannerVideo::first();
+            
+            $oldData = $video->getAttributes();
+            $newData = $validated;
+
+            $oldThumbnail = Arr::get($oldData, 'thumbnail');
+            $thumbnail = Arr::get($newData, 'thumbnail');
+
+            if ($thumbnail instanceof UploadedFile) {
+                if ($oldThumbnail && Storage::disk('public')->exists($oldThumbnail)) {
+                    Storage::disk('public')->delete($oldThumbnail);
+                }
+
+                $newThumbnailPath = Storage::disk('public')
+                    ->putFile('thumbnails', $thumbnail);
+
+                $newData['thumbnail'] = $newThumbnailPath;
+            } else {
+                $newData['thumbnail'] = $oldThumbnail;
+            }
+
+            $oldFile = Arr::get($oldData, 'file');
+            $file = Arr::get($newData, 'file');
+
+            if ($file instanceof UploadedFile) {
+                if ($oldFile && Storage::disk('public')->exists($oldFile)) {
+                    Storage::disk('public')->delete($oldFile);
+                }
+
+                $newFilePath = Storage::disk('public')
+                    ->putFile('videos', $file);
+
+                $newData['file'] = $newFilePath;
+            } else {
+                $newData['file'] = $oldFile;
+            }
+
+            $newData['created_by'] = admin()->id;
+            if ($video) {
+                $video->update($newData);
+            } else {
+                BannerVideo::create($newData);
+            }
+
+            $this->success('Home banner updated successfully.');
+
+            return redirect()->route('admin.video.home-banner');
+        } catch (\Exception $e) {
+            Log::error('Home Banner Update Error', [
+                'message' => $e->getMessage(),
+                'trace'   => $e->getTraceAsString(),
+            ]);
+
+            $this->error('Banner data upload failed. Please try again.');
+        }
+    }
+
 
     public function render()
     {
-        $datas = $this->service
-            ->getPaginatedData(
-                perPage: $this->perPage,
-                filters: $this->getFilters()
-            );
-        $page = Page::HOME_BANNER->value;
 
-        $columns = [
-            [
-                'key' => 'thumbnail',
-                'label' => 'Thumbnail',
-                'format' => function ($data) {
-                    return $data->thumbnail_url
-                        ? '<img src="' . $data->thumbnail_url . '" alt="' . $data->title . '" class="w-10 h-10 rounded-full object-cover shadow-sm">'
-                        : '<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 font-semibold">' . strtoupper(substr($data->title, 0, 2)) . '</div>';
-                }
-            ],
-            [
-                'key' => 'title',
-                'label' => 'Title',
-                'sortable' => true
-            ],
-            [
-                'key' => 'status',
-                'label' => 'Status',
-                'sortable' => true,
-                'format' => function ($data) {
-                    return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium badge badge-soft ' . $data->status->color() . '">' .
-                        $data->status->label() .
-                        '</span>';
-                }
-            ],
-            [
-                'key' => 'created_at',
-                'label' => 'Created',
-                'sortable' => true,
-                'format' => function ($data) {
-                    return $data->created_at_formatted;
-                }
-            ],
-            [
-                'key' => 'created_by',
-                'label' => 'Created By',
-                'format' => function ($data) {
-                    return optional($data->creater)->name
-                        ? '<span class="text-sm font-medium text-gray-900 dark:text-gray-100">' . e($data->creater->name) . '</span>'
-                        : '<span class="text-sm text-gray-500 dark:text-gray-400 italic">System</span>';
-                },
-                'sortable' => true,
-            ],
-        ];
-
-        $actions = [
-            [
-                'key' => 'id',
-                'label' => 'View',
-                'route' => 'admin.video.view',
-                'encrypt' => true
-            ],
-            [
-                'key' => 'id',
-                'label' => 'Edit',
-                'x_click' => "\$dispatch('video-form-open', { videoId: '{value}' }, { page: '{$page}' });"
-            ],
-            [
-                'key' => 'id',
-                'label' => 'Delete',
-                'method' => 'confirmDelete',
-                'encrypt' => true
-            ],
-        ];
-
-        $bulkActions = [
-            ['value' => 'delete', 'label' => 'Delete'],
-            ['value' => 'activate', 'label' => 'Activate'],
-            ['value' => 'inactive', 'label' => 'Inactive'],
-        ];
-
-        return view('livewire.backend.admin.video.home-banner', [
-            'datas' => $datas,
-            'statuses' => ActiveInactive::options(),
-            'columns' => $columns,
-            'actions' => $actions,
-            'bulkActions' => $bulkActions,
-        ]);
-    }
-
-    public function confirmDelete($encryptedId): void
-    {
-        $this->deleteId = decrypt($encryptedId);
-        $this->showDeleteModal = true;
-    }
-
-    public function delete(): void
-    {
-        try {
-            if (!$this->deleteId) {
-                return;
-            }
-
-            $this->service->deleteData(id: $this->deleteId, actioner: [
-                'id' => admin()->id,
-                'type' => Admin::class,
-            ]);
-
-            $this->showDeleteModal = false;
-            $this->deleteId = null;
-
-            $this->success('Data deleted successfully');
-        } catch (\Throwable $e) {
-            Log::error('Failed to delete user', [
-                'user_id' => $this->deleteId,
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
-            ]);
-            $this->error('Failed to delete user.');
-        }
-    }
-
-    public function resetFilters(): void
-    {
-        $this->reset(['search', 'statusFilter', 'perPage', 'sortField', 'sortDirection', 'selectedIds', 'selectAll', 'bulkAction']);
-        $this->resetPage();
-    }
-
-    public function confirmBulkAction(): void
-    {
-        if (empty($this->selectedIds) || empty($this->bulkAction)) {
-            $this->warning('Please select Datas and an action');
-            Log::info('No Datas selected or no bulk action selected');
-            return;
-        }
-
-        $this->showBulkActionModal = true;
-    }
-
-    public function executeBulkAction(): void
-    {
-        $this->showBulkActionModal = false;
-
-        try {
-            match ($this->bulkAction) {
-                'delete' => $this->bulkDelete(),
-                'activate' => $this->bulkUpdateStatus(ActiveInactive::ACTIVE),
-                'inactive' => $this->bulkUpdateStatus(ActiveInactive::INACTIVE),
-                default => null,
-            };
-
-            $this->selectedIds = [];
-            $this->selectAll = false;
-            $this->bulkAction = '';
-        } catch (\Exception $e) {
-            $this->error('Bulk action failed: ' . $e->getMessage());
-        }
-    }
-
-    protected function bulkDelete(): void
-    {
-        $count = $this->service->bulkDeleteData(ids: $this->selectedIds, actioner: [
-            'id' => admin()->id,
-            'type' => Admin::class,
-        ]);
-
-        $this->success("{$count} Datas deleted successfully");
-    }
-
-    protected function bulkUpdateStatus(ActiveInactive $status): void
-    {
-        $count = $this->service->bulkUpdateStatus(ids: $this->selectedIds, status: $status, actioner: [
-            'id' => admin()->id,
-            'type' => Admin::class,
-        ]);
-        $this->success("{$count} Datas updated successfully");
-    }
-
-    protected function getFilters(): array
-    {
-        return [
-            'search' => $this->search,
-            'status' => $this->statusFilter,
-            'sort_field' => $this->sortField,
-            'sort_direction' => $this->sortDirection,
-            'page' => Page::HOME_BANNER->value,
-        ];
-    }
-
-    protected function getSelectableIds(): array
-    {
-        $ids =  $this->service->getPaginatedData(
-            perPage: $this->perPage,
-            filters: $this->getFilters()
-        )->pluck('id')->toArray();
-        return $ids;
-    }
-
-    public function updatedStatusFilter(): void
-    {
-        $this->resetPage();
+        return view('livewire.backend.admin.video.home-banner');
     }
 }

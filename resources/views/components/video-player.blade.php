@@ -1,10 +1,10 @@
 {{-- resources/views/components/video-player.blade.php --}}
-@props(['video'])
+@props(['video', 'thumbnail', 'file'])
 
 <div x-data="videoPlayer()" class="video-container aspect-video">
-    <video x-ref="video" class="w-full h-full object-cover" poster="{{ storage_url($video->thumbnail) }}"
+    <video x-ref="video" class="w-full h-full object-cover" poster="{{ storage_url($thumbnail) }}"
         @timeupdate="updateProgress" @loadedmetadata="duration = $refs.video.duration">
-        <source src="{{ storage_url($video->file) }}" type="video/mp4">
+        <source src="{{ storage_url($file) }}" type="video/mp4">
     </video>
 
     <div class="video-overlay" x-show="!playing" x-transition>
