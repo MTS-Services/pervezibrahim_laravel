@@ -25,7 +25,6 @@ class AdminForm extends Form
 
     public function rules(): array
     {
-
         $email = $this->isUpdating() ? 'sometimes|required|email|max:255|unique:admins,email,' . $this->id : 'sometimes|required|email|max:255|unique:admins,email';
         $password = $this->isUpdating() ? 'nullable|string|min:8' : 'sometimes|required|string|min:8|confirmed';
         return [

@@ -63,6 +63,20 @@ class Video extends AuthBaseModel
         return $this->page->label();
     }
 
+    public function getThumbnailUrlAttribute(): string
+    {
+        return $this->thumbnail
+            ? asset('storage/' . $this->thumbnail)
+            : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
+    }
+
+    public function getFileUrlAttribute(): string
+    {
+        return $this->file
+            ? asset('storage/' . $this->file)
+            : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
+    }
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);

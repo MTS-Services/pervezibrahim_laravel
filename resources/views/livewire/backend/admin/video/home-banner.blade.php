@@ -6,18 +6,18 @@
             <h2 class="text-xl lg:text-2xl font-bold text-text-primary">
                 {{ __('Home Banner List') }}
             </h2>
-            <div class="flex items-center gap-2 w-full sm:w-auto">
+            {{-- <div class="flex items-center gap-2 w-full sm:w-auto">
                 <x-ui.button href="{{ route('admin.video.trash') }}" variant='tertiary' class="w-auto py-2!">
                     <flux:icon name="trash"
                         class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-tertiary" />
                     {{ __('Trash') }}
                 </x-ui.button>
-                <x-ui.button x-on:click="$dispatch('video-form-open')" class="w-auto py-2!">
+                <x-ui.button x-on:click="$dispatch('video-form-open', {page: '{{ App\Enums\Page::HOME_BANNER->value }}'})" class="w-auto py-2!">
                     <flux:icon name="user-plus"
                         class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-secondary" />
                     {{ __('Add') }}
                 </x-ui.button>
-            </div>
+            </div> --}}
         </div>
     </div>
 

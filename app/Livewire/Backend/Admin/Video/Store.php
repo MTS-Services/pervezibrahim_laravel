@@ -25,6 +25,12 @@ class Store extends Component
 
     public $videoFormOpen = false;
     public $isLoading = true;
+    public $editMode = false;
+    public $page;
+    public $videoId;
+
+    public $existingThumbnail = [];
+    public $existingFile = [];
 
     protected VideoService $service;
 
@@ -48,8 +54,10 @@ class Store extends Component
     public function save()
     {
         $validated = $this->form->validate();
+        $validated['page'] = $this->page;
         try {
             $validated['creater_by'] = Admin::class;
+            $validated['page'] = Page::HOME_BANNER->value;
             $this->service->createData($validated, admin()->id);
 
             $this->dispatch('VideoCreated');
@@ -60,20 +68,64 @@ class Store extends Component
             $this->error('Failed to create video.');
         }
     }
+    public function update()
+    {
+        $validated = $this->form->validate();
+        try {
+            $validated['updater_by'] = Admin::class;
+            $this->service->updateData($this->model->id, $validated);
+
+            $this->dispatch('VideoUpdated');
+            $this->success('Data updated successfully');
+            $this->reset([
+                'videoFormOpen',
+                'isLoading',
+                'editMode',
+                'existingThumbnail',
+                'existingFile',
+            ]);
+            $this->resetForm();
+            return redirect()->back();
+        } catch (\Throwable $e) {
+            Log::error('Failed to update video', [
+                'video_id' => $this->model->id,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            $this->error('Failed to update video.');
+        }
+    }
 
     public function resetForm(): void
     {
-        $this->form->reset();
+        $this->form->reset(
+            'videoFormOpen',
+            'isLoading',
+            'editMode',
+            'existingThumbnail',
+            'existingFile',
+        );
     }
 
     #[On('video-form-open')]
-    public function openVideoForm(?string  $videoId = null): void
+    public function openVideoForm(?string $page = null, ?string $videoId = null): void
     {
+        $this->page = $page;
         if ($videoId) {
             $this->videoFormOpen = true;
             $this->isLoading = false;
+            $this->editMode = true;
+            $this->formData($videoId);
         } else {
             $this->isLoading = false;
         }
+    }
+
+    public function formData($videoId)
+    {
+        $this->model = $this->service->findData($videoId);
+        $this->form->setData($this->model);
+        $this->existingThumbnail = $this->model->thumbnail;
+        $this->existingFile = $this->model->file;
     }
 }
