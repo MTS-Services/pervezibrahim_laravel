@@ -5,7 +5,7 @@
     x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0" @video-form-open.window="videoFormOpen = true"
     class="fixed inset-0 flex items-center justify-center bg-black/5 backdrop-blur-2xl h-screen z-30">
-    <div class="shadow-glass-card p-4 rounded-2xl glass">
+    <div class="shadow-glass-card p-4 rounded-2xl glass max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         <div class="flex items-center justify-between mb-6 gap-5">
             <h2 class="text-xl font-bold">{{ __('Video Form') }}</h2>
             <x-ui.button variant="orange-tertiary" class="w-auto! p-2! rounded-full" @click="videoFormOpen = false">
@@ -14,7 +14,7 @@
             </x-ui.button>
         </div>
         @if ($isLoading)
-            <p>Loading...</p>
+            <p class="text-center">Loading...</p>
         @else
             <form wire:submit="{{ $editMode ? 'update' : 'save' }}" class="space-y-6">
                 <!-- Add other form fields here -->
