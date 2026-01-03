@@ -23,7 +23,7 @@ class About extends Component
         );
         $galleryVideos = $this->videoService->getPaginatedData(
             perPage: 6,
-            filters: $this->getGalleryFilters()
+            filters: $this->getAboutGalleryFilters()
         );
         return view('livewire.frontend.about',[
             'aboutVideos' => $aboutVideos,
@@ -31,11 +31,11 @@ class About extends Component
         ]);
     }
 
-    protected function getGalleryFilters(): array
+    protected function getAboutGalleryFilters(): array
     {
         return [
             'status' => ActiveInactive::ACTIVE->value,
-            'page' => Page::GALLERY->value,
+            'page' => Page::ABOUT_GALLERY->value,
         ];
     }
     protected function getAboutFilters(): array

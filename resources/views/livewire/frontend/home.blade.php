@@ -8,26 +8,22 @@
 
         <!-- Hero Content -->
         <main
-            class="relative z-10 container mx-auto px-6 lg:px-16 mt-20 grid lg:grid-cols-2 grid-cols-1 gap-8 lg:gap-12 items-center">
+            class="relative z-10 container mx-auto px-6 lg:px-16 mt-28 grid lg:grid-cols-2 grid-cols-1 gap-8 lg:gap-12 items-center">
             <!-- Left: Video Player Section -->
             <div class="relative group w-full h-full">
                 <!-- Video Container -->
-                <div class="relative overflow-hidden">
-                    <img src="{{ asset('assets/images/home_page/Rectangle 31.png') }}" alt="Business Team"
-                        class="w-full h-full object-cover" style="object-position: 15% center;" />
-                    <!-- Video Overlay Content -->
+                <div>
+                    <x-video-player :video="$video" />
                 </div>
             </div>
 
             <!-- Right: Text Section -->
             <div class="lg:mt-40 mb-5 lg:mb-0">
                 <div class="flex flex-col space-y-8">
-                    <h1 class="text-1xl font-medium text-wrap text-white">
-                        Business Process Management System and Methods for the New Era of Technology
-                    </h1>
+                    <h1 class="text-1xl font-medium text-wrap text-white">{{ $video->title }}</h1>
 
                     <div>
-                        <a href="#"
+                        <a href="{{ $video->action }}"
                             class="inline-block px-8 py-3 rounded-full border border-white/50 text-white font-medium hover:bg-white hover:text-black transition-all">
                             Learn More
                         </a>

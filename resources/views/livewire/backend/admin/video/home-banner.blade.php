@@ -2,38 +2,56 @@
 
     {{-- Page Header --}}
     <div class="glass-card rounded-2xl p-4 lg:p-6 mb-6">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="">
             <h2 class="text-xl lg:text-2xl font-bold text-text-primary">
-                {{ __('Home Banner List') }}
+                {{ __('Update Home page Banner') }}
             </h2>
-            {{-- <div class="flex items-center gap-2 w-full sm:w-auto">
-                <x-ui.button href="{{ route('admin.video.trash') }}" variant='tertiary' class="w-auto py-2!">
-                    <flux:icon name="trash"
-                        class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-tertiary" />
-                    {{ __('Trash') }}
-                </x-ui.button>
-                <x-ui.button x-on:click="$dispatch('video-form-open', {page: '{{ App\Enums\Page::HOME_BANNER->value }}'})" class="w-auto py-2!">
-                    <flux:icon name="user-plus"
-                        class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-secondary" />
-                    {{ __('Add') }}
-                </x-ui.button>
-            </div> --}}
+
+            <form wire:submit="save" class="space-y-6">
+                <!-- Add other form fields here -->
+                <div class="mt-6 space-y-4 grid grid-cols-2 gap-5">
+                    <div class="w-full">
+                        <x-ui.file-input wire:model="form.thumbnail" label="{{ __('Thumbnail') }}" accept="image/*"
+                            :existingFiles="$existingThumbnail" removeModel="form.remove_file"
+                            hint="Upload a profile picture (Max: 2MB)" />
+                        <x-ui.input-error :messages="$errors->get('form.thumbnail')" />
+                    </div>
+                    <div class="w-full">
+                        <x-ui.file-input wire:model="form.file" label="{{ __('Video File') }}" accept="video/*"
+                            :existingFiles="$existingFile" removeModel="form.remove_file" hint="Upload a video file (Max: 10MB)" />
+                        <x-ui.input-error :messages="$errors->get('form.file')" />
+                    </div>
+                    <div class="w-full">
+                        <x-ui.label value="{{ __('Title') }}" class="mb-1" />
+                        <x-ui.input type="text" placeholder="{{ __('Title') }}" wire:model="form.title" />
+                        <x-ui.input-error :messages="$errors->get('form.title')" />
+                    </div>
+                    <div class="w-full">
+                        <x-ui.label value="{{ __('Action') }}" class="mb-1" />
+                        <x-ui.input type="text" placeholder="{{ __('Action') }}" wire:model="form.action"
+                            accept="url" />
+                        <x-ui.input-error :messages="$errors->get('form.action')" />
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="flex items-center justify-end gap-4 mt-6">
+                    <x-ui.button wire:click="resetForm" variant="tertiary" class="w-auto! py-2!">
+                        <flux:icon name="x-circle"
+                            class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-tertiary" />
+                        <span wire:loading.remove wire:target="resetForm"
+                            class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Reset') }}</span>
+                        <span wire:loading wire:target="resetForm"
+                            class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Reseting...') }}</span>
+                    </x-ui.button>
+
+                    <x-ui.button class="w-auto! py-2!" type="submit">
+                        <span wire:loading.remove wire:target="update"
+                            class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Update User') }}</span>
+                        <span wire:loading wire:target="update"
+                            class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Updating...') }}</span>
+                    </x-ui.button>
+                </div>
+            </form>
         </div>
-    </div>
-
-    {{-- Table Component --}}
-    <x-ui.table :data="$datas" :columns="$columns" :actions="$actions" :bulkActions="$bulkActions" :statuses="$statuses"
-        :selectedIds="$selectedIds" :mobileVisibleColumns="2" searchProperty="search" perPageProperty="perPage" :showBulkActions="true"
-        emptyMessage="{{ __('No users found. Create your first user to get started.') }}" />
-
-    {{-- Delete Confirmation Modal --}}
-    <x-ui.confirmation-modal :show="'showDeleteModal'" title="{{ __('Delete this user?') }}"
-        message="{{ __('Are you sure you want to remove this user?') }}" :method="'delete'"
-        button-text="{{ __('Delete User') }}" />
-
-    {{-- Bulk Action Confirmation Modal --}}
-    <x-ui.confirmation-modal :show="'showBulkActionModal'" title="{{ __('Confirm Bulk Action') }}"
-        message="{{ __('Are you sure you want to perform this action on ' . count($selectedIds) . ' selected user(s)?') }}"
-        :method="'executeBulkAction'" button-text="{{ __('Confirm Action') }}" />
-    {{-- @dd('What is this') --}}
 </section>
