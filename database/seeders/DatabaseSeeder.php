@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ApplicationSettingSeeder::class,
             FaqSeeder::class,
             BannerVideoSeeder::class,
+            AboutUsSeeder::class
            
         ]);
     }
