@@ -2,25 +2,23 @@
 
 namespace App\Models;
 
+use App\Enums\PdfPage;
 use App\Enums\ActiveInactive;
-use App\Enums\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Video extends AuthBaseModel
+class Pdf extends Model
 {
-    use SoftDeletes;
-    //
-
     protected $fillable = [
         'sort_order',
-        'page',
-        'status',
-        'thumbnail',
+
+        'cover_image',
         'file',
         'title',
         'description',
+        'page',
+        'status',
+        'is_featured',
         'action',
 
         'created_by',
@@ -36,7 +34,7 @@ class Video extends AuthBaseModel
 
     protected $casts = [
         'status' => ActiveInactive::class,
-        'page' => Page::class,
+        'page' => PdfPage::class,
     ];
 
     /* =#=#=#=#=#=#=#=#=#=#==#=#=#=#= =#=#=#=#=#=#=#=#=#=#==#=#=#=#=
@@ -57,24 +55,14 @@ class Video extends AuthBaseModel
     {
         return $this->status->color();
     }
-
-    public function getPageLabelAttribute(): string
+    public function getCreatedAtFormattedAttribute(): string
     {
-        return $this->page->label();
+        return dateTimeFormat($this->attributes['created_at']);
     }
 
-    public function getThumbnailUrlAttribute(): string
+    public function getCoverImageUrlAttribute(): ?string
     {
-        return $this->thumbnail
-            ? asset('storage/' . $this->thumbnail)
-            : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
-    }
-
-    public function getFileUrlAttribute(): string
-    {
-        return $this->file
-            ? asset('storage/' . $this->file)
-            : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
+        return $this->cover_image ? asset('storage/' . $this->cover_image) : null;
     }
 
     public function __construct(array $attributes = [])
@@ -88,6 +76,7 @@ class Video extends AuthBaseModel
     /* =#=#=#=#=#=#=#=#=#=#==#=#=#=#= =#=#=#=#=#=#=#=#=#=#==#=#=#=#=
                 Start of Scopes
      =#=#=#=#=#=#=#=#=#=#==#=#=#=#= =#=#=#=#=#=#=#=#=#=#==#=#=#=#= */
+
     public function scopeFilter(Builder $query, array $filters): Builder
     {
         return $query
@@ -121,10 +110,6 @@ class Video extends AuthBaseModel
     public function scopeInactive($query)
     {
         return $query->where('status', ActiveInactive::INACTIVE);
-    }
-    public function scopeOfPage($query, Page $page)
-    {
-        return $query->where('page', $page->value);
     }
 
     /* =#=#=#=#=#=#=#=#=#=#==#=#=#=#= =#=#=#=#=#=#=#=#=#=#==#=#=#=#=

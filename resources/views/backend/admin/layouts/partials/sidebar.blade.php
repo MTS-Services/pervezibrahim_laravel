@@ -69,118 +69,56 @@
                     //     'active' => 'admin-users-banned',
                     // ],
                 ]" />
-            <x-backend.navlink type="dropdown" icon="user-group" name="Video Management" :page_slug="$active"
+            <x-backend.navlink type="dropdown" icon="video-camera" name="Video Management" :page_slug="$active"
                 :items="[
                     [
                         'name' => 'Home Banner',
                         'route' => route('admin.video.home-banner'),
-                        'icon' => 'user-circle',
+                        'icon' => 'play-circle',
                         'active' => 'home-banner',
                     ],
                     [
                         'name' => 'About-Us',
                         'route' => route('admin.video.about-us'),
-                        'icon' => 'user-circle',
+                        'icon' => 'play-circle',
                         'active' => 'about-us',
                     ],
                     [
                         'name' => 'About-Gallery',
                         'route' => route('admin.video.about-us-gallery'),
-                        'icon' => 'user-circle',
+                        'icon' => 'play-circle',
                         'active' => 'about-us-gallery',
                     ],
                     [
                         'name' => 'Services',
                         'route' => route('admin.video.service'),
-                        'icon' => 'user-circle',
+                        'icon' => 'play-circle',
                         'active' => 'services',
                     ],
                     [
                         'name' => 'Gallery',
                         'route' => route('admin.video.gallery'),
-                        'icon' => 'user-circle',
+                        'icon' => 'play-circle',
                         'active' => 'gallery',
                     ],
                 ]" />
-            <x-backend.navlink type="single" icon="user-group" name="Faq" :route="route('admin.faq.index')"
-                active="admin-faq" :page_slug="$active" />
-            {{-- <x-backend.navlink type="dropdown" icon="user-circle" name="Product Management" :page_slug="$active"
+            <x-backend.navlink type="dropdown" icon="document" name="PDF Management" :page_slug="$active"
                 :items="[
                     [
-                        'name' => 'Categories',
-                        'route' => '#',
-                        'icon' => 'user-circle',
-                        'active' => 'category',
+                        'name' => 'Contract PDF',
+                        'route' => route('admin.pdf.index', ['page' => App\Enums\PdfPage::CONTACT_US->value]),
+                        'icon' => 'document-text',
+                        'active' => App\Enums\PdfPage::CONTACT_US->value,
                     ],
                     [
-                        'name' => 'Products',
-                        'route' => '#',
-                        'icon' => 'user',
-                        'active' => 'product',
+                        'name' => 'Method PDF',
+                        'route' => route('admin.pdf.index', ['page' => App\Enums\PdfPage::METHOD->value]),
+                        'icon' => 'document-text',
+                        'active' => App\Enums\PdfPage::METHOD->value,
                     ],
-
-                ]" /> --}}
-         
-           
-            
-            <div class="pt-4 pb-2">
-                <p class="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase"
-                    x-show="(desktop && sidebar_expanded) || (!desktop && mobile_menu_open)">
-                    {{ __('Settings & Tools') }}</p>
-                <p class="text-center text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase"
-                    x-show="desktop && !sidebar_expanded">...</p>
-            </div>
-            <x-backend.navlink type="dropdown" icon="wrench-screwdriver" name="Application Settings" :page_slug="$active"
-                :items="[
-                    [
-                        'name' => 'Settings',
-                        'route' => route('admin.as.general-settings'),
-                        'icon' => 'cog-8-tooth',
-                        'active' => 'general_settings',
-                    ],
-                    // [
-                    //     'name' => 'Security',
-                    //     'route' => '#',
-                    //     'icon' => 'shield',
-                    //     'active' => 'two-factor',
-                    // ],
-                    // [
-                    //     'name' => 'Languages',
-                    //     'route' => route('admin.as.language.index'),
-                    //     'icon' => 'language',
-                    //     'active' => 'language',
-                    // ],
-                    // [
-                    //     'name' => 'Currencies',
-                    //     'route' => '#',
-                    //     'icon' => 'currency-dollar',
-                    //     'active' => 'currency',
-                    // ],
-                    // [
-                    //     'name' => 'Analytics',
-                    //     'route' => '#',
-                    //     'icon' => 'chart-bar',
-                    //     'active' => 'settings-analytics',
-                    // ],
-                    // [
-                    //     'name' => 'Support',
-                    //     'route' => '#',
-                    //     'icon' => 'headset',
-                    //     'active' => 'settings-support',
-                    // ],
-                    // [
-                    //     'name' => 'Notifications',
-                    //     'route' => '#',
-                    //     'icon' => 'bell',
-                    //     'active' => 'settings-notifications',
-                    // ],
-                    // [
-                    //     'name' => 'Database',
-                    //     'route' => route('admin.as.database-settings'),
-                    //     'icon' => 'database',
-                    //     'active' => 'database_settings',
-                    // ],
                 ]" />
+            <x-backend.navlink type="single" icon="question-mark-circle" name="Faq" :route="route('admin.faq.index')"
+                active="admin-faq" :page_slug="$active" />
 
             <div class="space-y-2">
                 <flux:separator class="bg-accent!" />
