@@ -1,5 +1,5 @@
 <x-admin::app>
-    <x-slot name="pageSlug">{{ request('page') }}</x-slot>
+    <x-slot name="pageSlug">{{ request('page_slug') }}</x-slot>
 
     @switch(Route::currentRouteName())
         @case('admin.pdf.create')

@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('PDF Create') }}</h2>
             <div class="flex items-center gap-2">
-                <x-ui.button href="{{ route('admin.pdf.index') }}" class="w-auto! py-2!">
+                <x-ui.button href="{{ route('admin.pdf.index',['page_slug'=>request('page_slug')]) }}" class="w-auto! py-2!">
                     <flux:icon name="arrow-left"
                         class="w-4 h-4 stroke-text-btn-primary group-hover:stroke-text-btn-secondary" />
                     {{ __('Back') }}
@@ -71,7 +71,7 @@
                     <x-ui.input-error :messages="$errors->get('form.page')" />
                 </div>
             </div>
-
+ 
             <!-- Form Actions -->
             <div class="flex items-center justify-end gap-4 mt-6">
                 <x-ui.button wire:click="resetForm" variant="tertiary" class="w-auto! py-2!">

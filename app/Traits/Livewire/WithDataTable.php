@@ -15,14 +15,14 @@ trait WithDataTable
     public $sortDirection = 'desc';
     public $selectedIds = [];
     public $selectAll = false;
-    public string $page = PdfPage::CONTACT_US->value;
+    public string $page_slug = PdfPage::CONTACT_US->value;
 
     protected $queryString = [
         'search' => ['except' => ''],
         'perPage' => ['except' => 15],
         'sortField' => ['except' => 'created_at'],
         'sortDirection' => ['except' => 'desc'],
-        'page' => ['except' => PdfPage::CONTACT_US->value],
+        'page_slug' => ['except' => PdfPage::CONTACT_US->value],
     ];
 
     public function updatingSearch(): void

@@ -20,16 +20,19 @@
     <section class="my-20">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-20 items-center">
-                <div class="flex flex-col justify-center items-center gap-5">
-                    <div class="w-full h-full">
-                        <img src="{{ asset('assets/images/methods/image-1.png') }}" alt=""
-                            class="w-full h-full">
+                @foreach ($pdfs as $pdf)
+                    <div class="flex flex-col justify-center items-center gap-5">
+                        <div class="w-full h-full">
+                            <img src="{{ storage_url($pdf->cover_image) }}" alt="{{ $pdf->title }}"
+                                class="w-full h-full">
+                        </div>
+                        <x-ui.button href="{{ route('method.reader', ['slug' => 1]) }}" variant="orange-tertiary"
+                            class="w-auto! py-2!">
+                            {{ __('Learn More') }}
+                        </x-ui.button>
                     </div>
-                    <x-ui.button href="{{ route('method.reader', ['slug' => 1]) }}" variant="orange-tertiary" class="w-auto! py-2!">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
-                <div class="flex flex-col justify-between items-center gap-5">
+                @endforeach
+                {{-- <div class="flex flex-col justify-between items-center gap-5">
                     <div class="w-full h-full">
                         <img src="{{ asset('assets/images/methods/image-2.png') }}" alt=""
                             class="w-full h-full">
@@ -46,7 +49,7 @@
                     <x-ui.button href="{{ route('method.reader', ['slug' => 3]) }}" variant="orange-tertiary" class="w-auto! py-2!">
                         {{ __('Learn More') }}
                     </x-ui.button>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
