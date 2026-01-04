@@ -119,7 +119,7 @@ class AboutUs extends Component
              * ==================================
              */
             $newData['created_by'] = admin()->id;
-            
+
             if ($about) {
                 $about->update($newData);
             } else {

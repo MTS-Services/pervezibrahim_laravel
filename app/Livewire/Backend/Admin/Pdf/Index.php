@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Backend\Admin\UserManagement\User;
+namespace App\Livewire\Backend\Admin\Pdf;
 
-use App\Enums\UserStatus;
+use App\Enums\ActiveInactive;
 use App\Models\Admin;
-use App\Services\UserService;
+use App\Services\PdfService;
 use App\Traits\Livewire\WithDataTable;
 use App\Traits\Livewire\WithNotification;
 use Illuminate\Support\Facades\Log;
@@ -22,40 +22,36 @@ class Index extends Component
 
     protected $listeners = ['userCreated' => '$refresh', 'userUpdated' => '$refresh'];
 
-    protected UserService $service;
+    protected PdfService $service;
 
-    public function boot(UserService $service)
+    public function boot(PdfService $service)
     {
         $this->service = $service;
     }
 
     public function render()
     {
-        $datas = $this->service->getPaginatedData(
-            perPage: $this->perPage,
-            filters: $this->getFilters()
-        );
+        $query = $this->service->getAllData();
+        
+        if ($this->page) {
+            $query->where('page', $this->page);
+        }
 
-        $datas->load(['creater']);
+        $datas = $query->paginate($this->perPage);
 
         $columns = [
             [
-                'key' => 'avatar',
-                'label' => 'Avatar',
+                'key' => 'cover_image',
+                'label' => 'Cover Image',
                 'format' => function ($data) {
-                    return $data->avatar_url
-                        ? '<img src="' . $data->avatar_url . '" alt="' . $data->name . '" class="w-10 h-10 rounded-full object-cover shadow-sm">'
-                        : '<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 font-semibold">' . strtoupper(substr($data->name, 0, 2)) . '</div>';
+                    return $data->cover_image_url
+                        ? '<img src="' . $data->cover_image_url . '" alt="' . $data->title . '" class="w-10 h-10 rounded-full object-cover shadow-sm">'
+                        : '<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 font-semibold">' . strtoupper(substr($data->title, 0, 2)) . '</div>';
                 }
             ],
             [
-                'key' => 'name',
-                'label' => 'Name',
-                'sortable' => true
-            ],
-            [
-                'key' => 'email',
-                'label' => 'Email',
+                'key' => 'title',
+                'label' => 'Title',
                 'sortable' => true
             ],
             [
@@ -92,13 +88,13 @@ class Index extends Component
             [
                 'key' => 'id',
                 'label' => 'View',
-                'route' => 'admin.um.user.view',
+                'route' => 'admin.pdf.view',
                 'encrypt' => true
             ],
             [
                 'key' => 'id',
                 'label' => 'Edit',
-                'route' => 'admin.um.user.edit',
+                'route' => 'admin.pdf.edit',
                 'encrypt' => true
             ],
             [
@@ -115,9 +111,9 @@ class Index extends Component
             ['value' => 'inactive', 'label' => 'Inactive'],
         ];
 
-        return view('livewire.backend.admin.user-management.user.index', [
+        return view('livewire.backend.admin.pdf.index', [
             'datas' => $datas,
-            'statuses' => UserStatus::options(),
+            'statuses' => ActiveInactive::options(),
             'columns' => $columns,
             'actions' => $actions,
             'bulkActions' => $bulkActions,
@@ -137,10 +133,7 @@ class Index extends Component
                 return;
             }
 
-            $this->service->deleteData(id: $this->deleteId, actioner: [
-                'id' => admin()->id,
-                'type' => Admin::class,
-            ]);
+            $this->service->deleteData(encrypt($this->deleteId));
 
             $this->showDeleteModal = false;
             $this->deleteId = null;
@@ -180,8 +173,8 @@ class Index extends Component
         try {
             match ($this->bulkAction) {
                 'delete' => $this->bulkDelete(),
-                'activate' => $this->bulkUpdateStatus(UserStatus::ACTIVE),
-                'inactive' => $this->bulkUpdateStatus(UserStatus::INACTIVE),
+                'activate' => $this->bulkUpdateStatus(ActiveInactive::ACTIVE),
+                'inactive' => $this->bulkUpdateStatus(ActiveInactive::INACTIVE),
                 default => null,
             };
 
@@ -193,24 +186,24 @@ class Index extends Component
         }
     }
 
-    protected function bulkDelete(): void
-    {
-        $count = $this->service->bulkDeleteData(ids: $this->selectedIds, actioner: [
-            'id' => admin()->id,
-            'type' => Admin::class,
-        ]);
+    // protected function bulkDelete(): void
+    // {
+    //     $count = $this->service->bulkDeleteData(ids: $this->selectedIds, actioner: [
+    //         'id' => admin()->id,
+    //         'type' => Admin::class,
+    //     ]);
 
-        $this->success("{$count} Datas deleted successfully");
-    }
+    //     $this->success("{$count} Datas deleted successfully");
+    // }
 
-    protected function bulkUpdateStatus(UserStatus $status): void
-    {
-        $count = $this->service->bulkUpdateStatus(ids: $this->selectedIds, status: $status, actioner: [
-            'id' => admin()->id,
-            'type' => Admin::class,
-        ]);
-        $this->success("{$count} Datas updated successfully");
-    }
+    // protected function bulkUpdateStatus(ActiveInactive $status): void
+    // {
+    //     $count = $this->service->bulkUpdateStatus(ids: $this->selectedIds, status: $status, actioner: [
+    //         'id' => admin()->id,
+    //         'type' => Admin::class,
+    //     ]);
+    //     $this->success("{$count} Datas updated successfully");
+    // }
 
     protected function getFilters(): array
     {
@@ -224,10 +217,7 @@ class Index extends Component
 
     protected function getSelectableIds(): array
     {
-        $ids =  $this->service->getPaginatedData(
-            perPage: $this->perPage,
-            filters: $this->getFilters()
-        )->pluck('id')->toArray();
+        $ids =  $this->service->getAllData()->pluck('id')->toArray();
         return $ids;
     }
 
