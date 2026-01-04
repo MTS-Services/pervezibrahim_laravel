@@ -17,7 +17,7 @@ class Method extends Component
     }
     public function render()
     {
-        $pdfs = $this->service->getAllData()->pdfPage(PdfPage::METHOD)->active()->paginate(10);
+        $pdfs = $this->service->getAllData()->pdfPage(PdfPage::METHOD)->active()->notFeatured()->paginate(10);
         return view('livewire.frontend.method', [
             'pdfs' => $pdfs,
         ]);

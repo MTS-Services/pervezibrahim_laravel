@@ -24,6 +24,13 @@ class Edit extends Component
 
     protected PdfService $service;
 
+    public string $page_slug = PdfPage::CONTACT_US->value;
+
+    protected $queryString = [
+        'page_slug' => ['except' => PdfPage::CONTACT_US->value],
+    ];
+
+
     public function boot(PdfService $service)
     {
         $this->service = $service;
@@ -49,11 +56,18 @@ class Edit extends Component
     {
         $validated = $this->form->validate();
         try {
+            if ($this->page_slug == PdfPage::CONTACT_US->value) {
+                $validated['page'] = PdfPage::CONTACT_US->value;
+            } elseif ($this->page_slug == PdfPage::METHOD->value) {
+                $validated['page'] = PdfPage::METHOD->value;
+            }
+            $validated['updated_by'] = admin()->id;
+
             $this->service->updateData($this->model->id, $validated);
 
             $this->dispatch('PdfUpdated');
             $this->success('Data updated successfully');
-            return $this->redirect(route('admin.pdf.index'), navigate: true);
+            return $this->redirect(route('admin.pdf.index', ['page_slug' => $this->page_slug]), navigate: true);
         } catch (\Throwable $e) {
             Log::error('Failed to update pdf', [
                 'pdf_id' => $this->model->id,

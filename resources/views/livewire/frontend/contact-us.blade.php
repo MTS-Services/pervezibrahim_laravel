@@ -19,79 +19,39 @@
 
     <section class="py-12">
         <div class="container">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39.png') }}" alt="Where Are We Today"
-                        class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
-                <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (1).png') }}" alt="Where Are We Today"
-                        class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
-                <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (3).png') }}" alt="Where Are We Today"
-                        class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
-                <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (3).png') }}" alt="Where Are We Today"
-                        class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
-                <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (4).png') }}" alt="Where Are We Today"
-                        class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
-                <div class="bg-white rounded-lg">
-                    <img src="{{ asset('assets/images/contact-us/Rectangle 39 (5).png') }}" alt="Where Are We Today"
-                        class="w-full object-cover rounded-md">
-                    <h3 class="text-lg font-medium text-second-500 mt-4">Where Are We Today?</h3>
-                    <x-ui.button variant="orange-tertiary" class="w-auto! py-2! mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                @foreach ($pdfs as $pdf)
+                    <div class="bg-white rounded-lg flex flex-col p-4">
+                        <div class="w-full h-[300px] overflow-hidden rounded-md">
+                            <img src="{{ storage_url($pdf->cover_image) }}" alt="{{ $pdf->title }}"
+                                class="w-full h-full">
+                        </div>
+                        <h3 class="text-lg font-medium text-second-500 mt-4">
+                            {{ $pdf->title }}
+                        </h3>
+                        <div class="mt-auto pt-4">
+                            <x-ui.button href="{{ $pdf->action }}" variant="orange-tertiary" class="w-auto! py-2!">
+                                {{ __('Learn More') }}
+                            </x-ui.button>
+                        </div>
+
+                    </div>
+                @endforeach
             </div>
 
             <div class="mt-16 flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20">
-                <div class="w-full lg:w-1/2 flex flex-col items-center">
-                    <div class="w-full max-h-[35rem] overflow-hidden rounded-lg">
-                        <img src="{{ asset('assets/images/contact-us/1.png') }}" alt="Contact us illustration"
-                            class="w-full h-[35rem] object-cover" loading="lazy">
+                @foreach ($featuredPdfs as $featuredPdf)
+                    <div class="w-full lg:w-1/2 flex flex-col items-center">
+                        <div class="w-full max-h-[38rem] overflow-hidden rounded-lg">
+                            <img src="{{ storage_url($featuredPdf->cover_image) }}" alt="{{ $featuredPdf->title }}"
+                                class="w-full max-h-[38rem] object-cover" loading="lazy">
+                        </div>
+
+                        <x-ui.button href="{{ $featuredPdf->action }}" variant="orange-tertiary" class="!w-auto !py-2 mt-4">
+                            {{ __('Learn More') }}
+                        </x-ui.button>
                     </div>
-
-                    <x-ui.button variant="orange-tertiary" class="!w-auto !py-2 mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
-
-                <div class="w-full lg:w-1/2 flex flex-col items-center">
-                    <div class="w-full max-h-[35rem] overflow-hidden rounded-lg">
-                        <img src="{{ asset('assets/images/contact-us/3.png') }}" alt="Customer support illustration"
-                            class="w-full h-[35rem] object-cover" loading="lazy">
-                    </div>
-
-                    <x-ui.button variant="orange-tertiary" class="!w-auto !py-2 mt-4">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
