@@ -23,12 +23,13 @@
     'resetFiltersAction' => 'resetFilters',
 ])
 
-<div class="glass-card rounded-2xl p-4 lg:p-6 mb-6 {{ $class }}">
+<div class="bg-white border border-gray-300 rounded-2xl p-4 lg:p-6 mb-6 {{ $class }}">
 
     {{-- FILTERS & SEARCH SECTION --}}
     <div class="space-y-4 mb-6">
         {{-- Top Row: Per Page, Status, Reset --}}
-        <div class="glass-card p-4 rounded-lg flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <div
+            class="bg-gray-50 border border-gray-200 p-4 rounded-lg flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {{-- Per Page --}}
             @if ($showPerPage)
                 <div class="w-full sm:w-auto">
@@ -113,7 +114,7 @@
     {{-- DESKTOP TABLE VIEW (lg and above) --}}
     <div class="hidden lg:block">
         <table class="min-w-full divide-y divide-accent/30">
-            <thead class="glass-card shadow-none rounded-t-lg">
+            <thead class="bg-white border border-gray-200 shadow-none rounded-t-lg">
                 <tr>
                     {{-- Bulk Select Checkbox --}}
                     @if ($showBulkActions)

@@ -1,7 +1,7 @@
 <header class="sticky top-0 z-30 pt-2 px-2">
-    <div class="glass-card rounded-xl">
-        <div class="flex items-center justify-between p-4 lg:p-6">
-            <div class="flex items-center gap-4">
+    <div class="bg-white  border border-gray-200 rounded-2xl shadow-sm">
+        <div class="flex items-center justify-between p-4 lg:p-6 ">
+            <div class="flex items-center gap-4 ">
                 <button @click="toggleSidebar()"
                     class="p-2 rounded-xl hover:bg-bg-black/10 dark:hover:bg-bg-white/10 text-text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/20 group"
                     :aria-label="desktop ? (sidebar_expanded ? '{{ __('Collapse sidebar') }}' : '{{ __('Expand sidebar') }}') : (
@@ -28,10 +28,10 @@
                 @endphp
 
                 <div class="hidden sm:block">
-                    <h1 class="text-xl lg:text-2xl font-bold dark:text-text-white text-text-light-primary">
+                    <h1 class="text-xl lg:text-2xl font-bold text-dark">
                         {{ $greeting }}, {{ admin()->name }}!
                     </h1>
-                    <p class="text-text-light-secondary dark:text-text-dark-primary text-sm">
+                    <p class="text-gray-600  text-sm">
                         {{ $subText }}
                     </p>
                 </div>
@@ -96,20 +96,20 @@
                             name="{{ __('Sign Out') }}" /> --}}
 
                         <a href="{{ route('admin.um.admin.view', encrypt(admin()->id)) }}"
-                            class="block px-4 py-2 text-text-primary hover:bg-bg-white/10 transition-colors">Profile</a>
+                            class="block px-4 py-2 text-white hover:bg-bg-white/10 transition-colors">Profile</a>
                         <div class="border-t border-white/10 my-2"></div>
                         <button wire:click="logout"
-                            class="block px-4 py-2 text-text-primary hover:bg-bg-white/10 transition-colors">{{ __('Sign out') }}</button>
+                            class="block px-4 py-2 text-white hover:bg-bg-white/10 transition-colors">{{ __('Sign out') }}</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="px-4 lg:px-6 pb-4">
-            <nav class="flex items-center gap-2 text-sm text-text-secondary">
+            <nav class="flex items-center gap-2 text-sm text-gray-500 ">
                 <a href="{{ route('admin.dashboard') }}">{{ __('Admin Dashboard') }}</a>
                 <flux:icon name="chevron-right" class="w-4 h-4" />
-                <span class="text-text-muted capitalize"> {{ $breadcrumb }}</span>
+                <span class="text-gray-500 capitalize"> {{ $breadcrumb }}</span>
             </nav>
         </div>
     </div>

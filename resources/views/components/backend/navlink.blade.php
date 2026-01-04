@@ -143,7 +143,7 @@
                         x-transition:leave="transition-all duration-200"
                         x-transition:leave-start="opacity-100 translate-x-0"
                         x-transition:leave-end="opacity-0 -translate-x-4"
-                        class="font-medium {{ $isMainActive ? 'text-accent-content ' : 'text-text-secondary ' }}">{{ __($name) }}</span>
+                        class="font-medium {{ $isMainActive ? 'text-dark ' : 'text-dark' }}">{{ __($name) }}</span>
                     <div x-show="(desktop && sidebar_expanded) || (!desktop && mobile_menu_open)"
                         class="ml-auto {{ $isMainActive ? 'block' : 'hidden' }}">
                         <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
@@ -182,7 +182,7 @@
                     x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition-all duration-200"
                     x-transition:leave-start="opacity-100 translate-x-0"
                     x-transition:leave-end="opacity-0 -translate-x-4"
-                    class="font-medium text-left {{ $isAnyActive ? 'text-accent-content ' : 'text-text-secondary ' }}">{{ __($name) }}</span>
+                    class="font-medium text-left {{ $isAnyActive ? 'text-accent-content ' : 'text-dark ' }}">{{ __($name) }}</span>
 
                 <!-- Dropdown Arrow for expanded state -->
                 <div x-show="(desktop && sidebar_expanded) || (!desktop && mobile_menu_open)"
@@ -211,20 +211,20 @@
                         const triggerRect = $el.previousElementSibling.getBoundingClientRect();
                         const viewportHeight = window.innerHeight;
                         const dropdownHeight = 400; // approximate max height
-                
+
                         // Position to the right of the trigger
                         $el.style.left = (triggerRect.right + 8) + 'px';
-                
+
                         // Position vertically - center with trigger, but ensure it stays in viewport
                         let topPosition = triggerRect.top + (triggerRect.height / 2) - (dropdownHeight / 2);
-                
+
                         // Adjust if dropdown would go off screen
                         if (topPosition < 20) {
                             topPosition = 20;
                         } else if (topPosition + dropdownHeight > viewportHeight - 20) {
                             topPosition = viewportHeight - dropdownHeight - 20;
                         }
-                
+
                         $el.style.top = topPosition + 'px';
                     }
                 })"
@@ -287,8 +287,8 @@
                                             class="{{ $subitemIcon }} text-sm {{ isset($item['active']) && $page_slug == $item['active'] ? 'text-zinc-500' : 'text-text-secondary' }}"></i>
                                     @else
                                         <flux:icon name="{{ $subitemIcon }}"
-                                            class="w-5 h-5 text-black dark:text-white flex-shrink-0"
-                                            class="w-4 h-4 {{ isset($item['active']) && $page_slug == $item['active'] ? 'text-zinc-500' : 'text-text-secondary' }}" />
+                                            class="w-5 h-5 text-black dark:text-dark flex-shrink-0"
+                                            class="w-4 h-4 {{ isset($item['active']) && $page_slug == $item['active'] ? 'text-zinc-500' : 'text-text-secondary' }}" />  
                                     @endif
                                 </div>
                                 <div class="flex-1">

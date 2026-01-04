@@ -42,7 +42,7 @@
     @stack('styles')
 </head>
 
-<body x-data="dashboardData();" class="h-full max-h-screen antialiased animated-bg">
+<body x-data="dashboardData();" class="bg-whitelights">
     <div x-show="mobile_menu_open && !desktop" x-transition:enter="transition-all duration-300 ease-out"
         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
         x-transition:leave="transition-all duration-300 ease-in" x-transition:leave-start="opacity-100"
