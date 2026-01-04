@@ -67,15 +67,6 @@ class PdfService
             $data['file'] = $data['file']
                 ->store('pdfs/files', 'public');
         }
-
-        /**
-         * ================================
-         * DEFAULTS & AUDIT
-         * ================================
-         */
-        $data['created_by'] = admin()->id ?? null;
-        $data['is_featured'] = $data['is_featured'] ?? false;
-
         return Pdf::create($data);
     }
 
@@ -127,13 +118,6 @@ class PdfService
         } else {
             unset($data['file']); // keep old
         }
-
-        /**
-         * ================================
-         * AUDIT
-         * ================================
-         */
-        $data['updated_by'] = admin()->id ?? null;
 
         $pdf->update($data);
 

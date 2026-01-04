@@ -111,6 +111,18 @@ class Pdf extends Model
     {
         return $query->where('status', ActiveInactive::INACTIVE);
     }
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', 1);
+    }
+    public function scopeNotFeatured($query)
+    {
+        return $query->where('is_featured', 0);
+    }
+    public function scopePdfPage($query, PdfPage $page)
+    {
+        return $query->where('page', $page);
+    }
 
     /* =#=#=#=#=#=#=#=#=#=#==#=#=#=#= =#=#=#=#=#=#=#=#=#=#==#=#=#=#=
                 End of Scopes

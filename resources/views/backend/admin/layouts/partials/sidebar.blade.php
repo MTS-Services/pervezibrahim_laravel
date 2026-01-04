@@ -106,13 +106,13 @@
                 :items="[
                     [
                         'name' => 'Contract PDF',
-                        'route' => route('admin.pdf.index', ['page' => App\Enums\PdfPage::CONTACT_US->value]),
+                        'route' => route('admin.pdf.index', ['page_slug' => App\Enums\PdfPage::CONTACT_US->value]),
                         'icon' => 'document-text',
                         'active' => App\Enums\PdfPage::CONTACT_US->value,
                     ],
                     [
                         'name' => 'Method PDF',
-                        'route' => route('admin.pdf.index', ['page' => App\Enums\PdfPage::METHOD->value]),
+                        'route' => route('admin.pdf.index', ['page_slug' => App\Enums\PdfPage::METHOD->value]),
                         'icon' => 'document-text',
                         'active' => App\Enums\PdfPage::METHOD->value,
                     ],

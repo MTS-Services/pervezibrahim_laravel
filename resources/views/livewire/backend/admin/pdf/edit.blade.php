@@ -16,13 +16,13 @@
             <!-- Add other form fields here -->
             <div class="mt-6 space-y-4 grid grid-cols-2 gap-5">
                 <div class="w-full">
-                    <x-ui.file-input wire:model="form.cover_image" label="{{ __('Thumbnail') }}" accept="image/*" :existingFiles="$existingCoverImage"
-                        removeModel="form.remove_file" hint="Upload a profile picture (Max: 2MB)" />
+                    <x-ui.file-input wire:model="form.cover_image" label="{{ __('Thumbnail') }}" accept="image/*"
+                        :existingFiles="$existingCoverImage" removeModel="form.remove_file" hint="Upload a profile picture (Max: 2MB)" />
                     <x-ui.input-error :messages="$errors->get('form.cover_image')" />
                 </div>
                 <div class="w-full">
-                    <x-ui.file-input wire:model="form.file" label="{{ __('PDF File') }}" accept="application/pdf" :existingFiles="$existingFile"
-                        removeModel="form.remove_file" hint="Upload a PDF file (Max: 10MB)" />
+                    <x-ui.file-input wire:model="form.file" label="{{ __('PDF File') }}" accept="application/pdf"
+                        :existingFiles="$existingFile" removeModel="form.remove_file" hint="Upload a PDF file (Max: 10MB)" />
                     <x-ui.input-error :messages="$errors->get('form.file')" />
                 </div>
                 <div class="w-full">
@@ -46,22 +46,18 @@
                     </x-ui.select>
                     <x-ui.input-error :messages="$errors->get('form.status')" />
                 </div>
-                <div class="w-full">
-                    <x-ui.label value="{{ __('Select Featured') }}" class="mb-1" />
-                    <x-ui.select wire:model="form.is_featured">
-                        <option value="true">{{ __('Yes') }}</option>
-                        <option value="false">{{ __('No') }}</option>
-                    </x-ui.select>
-                    <x-ui.input-error :messages="$errors->get('form.is_featured')" />
-                </div>
-
-                <div class="w-full">
-                    <x-ui.label value="{{ __('Description') }}" class="mb-1" />
-                    <x-ui.textarea placeholder="{{ __('Description') }}" wire:model="form.description"
-                        rows="4" />
-                    <x-ui.input-error :messages="$errors->get('form.description')" />
-                </div>
-                <div class="w-full">
+                @if (request('page_slug') == App\Enums\PdfPage::CONTACT_US->value)
+                    <div class="w-full">
+                        <x-ui.label value="{{ __('Select Featured') }}" class="mb-1" />
+                        <x-ui.select wire:model="form.is_featured">
+                            <option value="1">{{ __('Yes') }}</option>
+                            <option value="0">{{ __('No') }}</option>
+                        </x-ui.select>
+                        <x-ui.input-error :messages="$errors->get('form.is_featured')" />
+                    </div>
+                @endif
+                
+                {{-- <div class="w-full">
                     <x-ui.label value="{{ __('Page') }}" class="mb-1" />
                     <x-ui.select wire:model="form.page">
                         @foreach ($pages as $page)
@@ -69,8 +65,14 @@
                         @endforeach
                     </x-ui.select>
                     <x-ui.input-error :messages="$errors->get('form.page')" />
-                </div>
+                </div> --}}
             </div>
+
+            {{-- <div class="w-full mt-8">
+                <x-ui.label value="{{ __('Description') }}" class="mb-1" />
+                <x-ui.textarea placeholder="{{ __('Description') }}" wire:model="form.description" rows="4" />
+                <x-ui.input-error :messages="$errors->get('form.description')" />
+            </div> --}}
 
             <!-- Form Actions -->
             <div class="flex items-center justify-end gap-4 mt-6">
