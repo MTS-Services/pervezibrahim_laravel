@@ -13,7 +13,7 @@
             <div class="relative group w-full h-full">
                 <!-- Video Container -->
                 <div>
-                    <x-video-player :video="$video" />
+                    <x-video-player :thumbnail="$video->thumbnail" :file="$video->file" />
                 </div>
             </div>
 
