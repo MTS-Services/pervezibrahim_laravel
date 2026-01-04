@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Frontend;
 
+use App\Enums\PdfPage;
 use Livewire\Component;
 use App\Services\PdfService;
 
@@ -16,7 +17,7 @@ class Method extends Component
     }
     public function render()
     {
-        $pdfs = $this->service->getAllData()->active()->paginate(10);
+        $pdfs = $this->service->getAllData()->pdfPage(PdfPage::METHOD)->active()->paginate(10);
         return view('livewire.frontend.method', [
             'pdfs' => $pdfs,
         ]);

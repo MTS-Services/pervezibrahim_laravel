@@ -17,42 +17,46 @@
         </main>
     </section>
 
-    <section class="my-20">
+    {{-- <section class="my-20">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-20 items-center">
                 @foreach ($pdfs as $pdf)
-                    <div class="flex flex-col justify-center items-center gap-5">
-                        <div class="w-full h-full">
-                            <img src="{{ storage_url($pdf->cover_image) }}" alt="{{ $pdf->title }}"
-                                class="w-full h-full">
-                        </div>
-                        <x-ui.button href="{{ route('method.reader', ['slug' => 1]) }}" variant="orange-tertiary"
-                            class="w-auto! py-2!">
-                            {{ __('Learn More') }}
-                        </x-ui.button>
-                    </div>
-                @endforeach
-                {{-- <div class="flex flex-col justify-between items-center gap-5">
+                <div class="flex flex-col justify-between items-center gap-5  shadow-2xl rounded-xl pb-4 overflow-hidden">
                     <div class="w-full h-full">
-                        <img src="{{ asset('assets/images/methods/image-2.png') }}" alt=""
+                        <img src="{{ storage_url($pdf->cover_image) }}" alt="{{ $pdf->title }}"
                             class="w-full h-full">
                     </div>
-                    <x-ui.button href="{{ route('method.reader', ['slug' => 2]) }}" variant="orange-tertiary" class="w-auto! py-2!">
+                    <x-ui.button href="{{ route('method.reader', ['slug' => 2]) }}" variant="orange-tertiary"
+                        class="w-auto! py-2!">
                         {{ __('Learn More') }}
                     </x-ui.button>
                 </div>
-                <div class="flex flex-col justify-center items-center gap-5">
-                    <div class="w-full h-full">
-                        <img src="{{ asset('assets/images/methods/image-3.png') }}" alt=""
-                            class="w-full h-full">
+                @endforeach
+            </div>
+        </div>
+    </section> --}}
+    <section class="my-20">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+                @foreach ($pdfs as $pdf)
+                    <div class="flex flex-col h-[550px]">
+
+                        <div class="h-[450px] w-full">
+                            <img src="{{ storage_url($pdf->cover_image) }}" alt="{{ $pdf->title }}"
+                                class="w-full h-full">
+                        </div>
+
+                        <div class="flex justify-center mt-auto pb-4">
+                            <x-ui.button href="{{ $pdf->action }}" variant="orange-tertiary" class="py-2! w-auto!">
+                                {{ __('Learn More') }}
+                            </x-ui.button>
+                        </div>
                     </div>
-                    <x-ui.button href="{{ route('method.reader', ['slug' => 3]) }}" variant="orange-tertiary" class="w-auto! py-2!">
-                        {{ __('Learn More') }}
-                    </x-ui.button>
-                </div> --}}
+                @endforeach
             </div>
         </div>
     </section>
+
 
     <section class="my-20 space-y-12">
         <div

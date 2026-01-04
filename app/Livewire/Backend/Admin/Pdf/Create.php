@@ -42,7 +42,7 @@ class Create extends Component
 
             $this->dispatch('PdfCreated');
             $this->success('Data created successfully');
-            return $this->redirect(route('admin.pdf.index'), navigate: true);
+            return $this->redirect(route('admin.pdf.index', ['page_slug' => request('page_slug')]), navigate: true);
         } catch (\Exception $e) {
             Log::error('Failed to create pdf: ' . $e->getMessage());
             $this->error('Failed to create pdf.');
