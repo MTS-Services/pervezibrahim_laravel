@@ -31,7 +31,13 @@ class Index extends Component
 
     public function render()
     {
-        $datas = $this->service->getAllData()->paginate($this->perPage);
+        $query = $this->service->getAllData();
+        
+        if ($this->page) {
+            $query->where('page', $this->page);
+        }
+
+        $datas = $query->paginate($this->perPage);
 
         $columns = [
             [

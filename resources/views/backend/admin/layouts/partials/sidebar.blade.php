@@ -105,21 +105,21 @@
             <x-backend.navlink type="dropdown" icon="document" name="PDF Management" :page_slug="$active"
                 :items="[
                     [
-                        'name' => 'PDF',
-                        'route' => route('admin.pdf.index'),
+                        'name' => 'Contract PDF',
+                        'route' => route('admin.pdf.index', ['page' => App\Enums\PdfPage::CONTACT_US->value]),
                         'icon' => 'document-text',
-                        'active' => 'pdf',
+                        'active' => App\Enums\PdfPage::CONTACT_US->value,
                     ],
                     [
-                        'name' => 'About-Us',
-                        'route' => route('admin.video.about-us'),
+                        'name' => 'Method PDF',
+                        'route' => route('admin.pdf.index', ['page' => App\Enums\PdfPage::METHOD->value]),
                         'icon' => 'document-text',
-                        'active' => 'about-us',
+                        'active' => App\Enums\PdfPage::METHOD->value,
                     ],
                 ]" />
             <x-backend.navlink type="single" icon="question-mark-circle" name="Faq" :route="route('admin.faq.index')"
                 active="admin-faq" :page_slug="$active" />
-                
+
             <div class="space-y-2">
                 <flux:separator class="bg-accent!" />
                 {{-- <x-backend.navlink type="single" icon="user" name="Profile" active="profile" :page_slug="$active" /> --}}
