@@ -30,6 +30,8 @@
     --color-PrimaryBlue: #2563EB;
     --color-LightGray: #F3F4F6;
     --color-SlateGray: #4B5563;
+    --color-grays-50: #1b142d;
+    --color-whitelights: #F8FAFC!important;
 
     --color-start: #FFFCF0;
     --color-end: #FFEBEE;
@@ -149,7 +151,8 @@
     --color-red: var(--color-red);
     --color-PrimaryBlue: var(--color-PrimaryBlue);
     --color-LightGray: var(--color-LightGray);
-
+    --color-grays-50: var(--color-gray-50);
+    --color-whitelights: var(--color-whitelights)!important;
 
 
     --color-text-new: var(--color-text-new-light);

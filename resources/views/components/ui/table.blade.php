@@ -23,17 +23,18 @@
     'resetFiltersAction' => 'resetFilters',
 ])
 
-<div class="glass-card rounded-2xl p-4 lg:p-6 mb-6 {{ $class }}">
+<div class="bg-white border border-gray-300 rounded-2xl p-4 lg:p-6 mb-6 {{ $class }}">
 
     {{-- FILTERS & SEARCH SECTION --}}
     <div class="space-y-4 mb-6">
         {{-- Top Row: Per Page, Status, Reset --}}
-        <div class="glass-card p-4 rounded-lg flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <div
+            class="bg-gray-50 border border-gray-200 p-4 rounded-lg flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {{-- Per Page --}}
             @if ($showPerPage)
                 <div class="w-full sm:w-auto">
                     <select wire:model.live="{{ $perPageProperty }}"
-                        class="select w-full sm:w-auto min-w-[140px] shadow-shadow-primary">
+                        class="select  w-full sm:w-auto min-w-[140px] shadow-shadow-white">
                         @foreach ($perPageOptions as $option)
                             <option value="{{ $option }}">{{ $option }} {{ __('per page') }}</option>
                         @endforeach
@@ -113,7 +114,7 @@
     {{-- DESKTOP TABLE VIEW (lg and above) --}}
     <div class="hidden lg:block">
         <table class="min-w-full divide-y divide-accent/30">
-            <thead class="glass-card shadow-none rounded-t-lg">
+            <thead class="bg-white border border-gray-200 shadow-none rounded-t-lg">
                 <tr>
                     {{-- Bulk Select Checkbox --}}
                     @if ($showBulkActions)
@@ -165,7 +166,7 @@
                     {{-- Actions Column --}}
                     @if (count($actions) > 0)
                         <th scope="col"
-                            class="w-24 px-4 py-3 text-center text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                            class="w-24 px-4 py-3 text-center text-xs font-semibold text-gray-100 dark:text-gray-400 uppercase tracking-wider">
                             {{ __('Actions') }}
                         </th>
                     @endif
@@ -181,7 +182,7 @@
                                 : $loop->iteration);
                     @endphp
                     <tr wire:key="desktop-row-{{ $item->id ?? $loop->index }}"
-                        class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-150">
+                        class=" -50 dark:hover:bg-gray-100 transition-colors duration-150">
 
                         {{-- Bulk Select Checkbox --}}
                         @if ($showBulkActions)
@@ -203,7 +204,7 @@
                             @if ($column['key'] === 'id')
                                 @continue
                             @endif
-                            <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                            <td class="px-4 py-3 text-sm text-gray-700 dark:text-gray-900">
                                 @if (isset($column['format']) && is_callable($column['format']))
                                     {!! $column['format']($item) !!}
                                 @else
@@ -230,7 +231,7 @@
                                             x-transition:leave="transition ease-in duration-75"
                                             x-transition:leave-start="transform opacity-100 scale-100"
                                             x-transition:leave-end="transform opacity-0 scale-95"
-                                            class="absolute z-10 mt-2 min-w-32 w-fit max-w-52 origin-top-right right-0 rounded-md shadow-lg text-center"
+                                            class="absolute z-10 mt-2 min-w-32 w-fit max-w-52 origin-top-right right-0 rounded-md shadow-lg bg-white text-center"
                                             @click.outside="open = false">
                                             <div class="rounded-md bg-card shadow-shadow-primary">
                                                 <div class="py-1">
