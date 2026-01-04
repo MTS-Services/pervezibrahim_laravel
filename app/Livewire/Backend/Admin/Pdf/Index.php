@@ -33,8 +33,8 @@ class Index extends Component
     {
         $query = $this->service->getAllData();
         
-        if ($this->page) {
-            $query->where('page', $this->page);
+        if ($this->page_slug) {
+            $query->where('page', $this->page_slug);
         }
 
         $datas = $query->paginate($this->perPage);
