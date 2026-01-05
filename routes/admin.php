@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Admin\UserManagement\UserController;
 use App\Http\Controllers\Backend\Admin\UserManagement\AdminController;
 use App\Http\Controllers\Backend\Admin\ApplicationSettings\ApplicationSettingsController;
+use App\Http\Controllers\Backend\Admin\ContactFormController;
 use App\Http\Controllers\Backend\Admin\FaqController;
 use App\Http\Controllers\Backend\Admin\PdfController;
 use App\Http\Controllers\Backend\Admin\VideoController;
@@ -69,6 +70,10 @@ Route::middleware(['auth:admin', 'admin', 'adminVerify'])->name('admin.')->prefi
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::get('/view/{id}', 'view')->name('view');
+    });
+    Route::controller(ContactFormController::class)->name('contact-form.')->prefix('contact-form')->group(function () {
+        Route::get('/', 'index')->name('index');
         Route::get('/view/{id}', 'view')->name('view');
     });
 });
