@@ -1,18 +1,24 @@
 <div>
-    <section
-        class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container flex items-center justify-start">
+    <section class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container mx-auto">
         <!-- Background Pattern Overlay -->
-        <div class="absolute inset-0 opacity-80 pointer-events-none">
-            <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
-                class="w-full h-full object-none" />
+        <div class="absolute inset-0 opacity-100 pointer-events-none">
+            <img src="{{ asset('assets/images/home_page/Union (1).png') }}" alt=""
+                class="w-full h-full object-cover" />
         </div>
 
+        <!-- Header / Navigation -->
+        <header class="relative z-10 flex items-center justify-between px-6 lg:px-16 py-8">
+
+        </header>
+
         <!-- Hero Content -->
-        <main class="releative z-10 w-full md:w-1/2 md:px-8 mt-20 py-4">
-            <div class="flex flex-col space-y-8">
-                {{-- line height text --}}
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wrap text-white leading-tight">Innovative <br>
-                    Solution</h1>
+        <main class="relative z-10 container mx-auto px-6 lg:px-16 mt-12 grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Right: Text Section -->
+            <div class="flex flex-col mt-32">
+                <h1 class="text-3xl space-8 font-bold text-wrap text-white">
+                    Innovative<br> Solution
+
+                </h1>
             </div>
         </main>
     </section>
@@ -100,6 +106,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="my-20 space-y-12">
+        <div
+            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
+            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs">
+            <h2 class="text-white text-56px font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-white text-lg font-bold max-w-2xl mx-auto">Business Process Management (BPM) software that
+                can capture the organisational "Value Chain," which is the Business "DNA."</p>
         </div>
     </section>
 </div>
