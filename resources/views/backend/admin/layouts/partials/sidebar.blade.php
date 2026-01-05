@@ -119,6 +119,8 @@
                 ]" />
             <x-backend.navlink type="single" icon="question-mark-circle" name="Faq" :route="route('admin.faq.index')"
                 active="admin-faq" :page_slug="$active" />
+            <x-backend.navlink type="single" icon="mail" name="Contact Form" :route="route('admin.contact-form.index')"
+                active="contact-form" :page_slug="$active" />
 
             <div class="space-y-2">
                 <flux:separator class="bg-accent!" />

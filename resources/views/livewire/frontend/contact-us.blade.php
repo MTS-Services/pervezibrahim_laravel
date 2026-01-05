@@ -47,7 +47,8 @@
                                 class="w-full max-h-[38rem] object-cover" loading="lazy">
                         </div>
 
-                        <x-ui.button href="{{ $featuredPdf->action }}" variant="orange-tertiary" class="!w-auto !py-2 mt-4">
+                        <x-ui.button href="{{ $featuredPdf->action }}" variant="orange-tertiary"
+                            class="!w-auto !py-2 mt-4">
                             {{ __('Learn More') }}
                         </x-ui.button>
                     </div>
@@ -73,24 +74,27 @@
                 <!-- Right Form Card -->
                 <div class="w-full lg:w-1/2">
                     <div class="bg-gradient-to-br from-blue-500 to-blue-900 rounded-2xl p-8 shadow-xl">
-                        <form class="space-y-4">
+                        <form wire:submit="submit" class="space-y-4">
 
-                            <input type="text" placeholder="First Name"
+                            <input type="text" placeholder="First Name" wire:model="form.name"
                                 class="w-full px-4 py-3 rounded-md outline-none text-gray-700 bg-white">
 
-                            <input type="text" placeholder="Organisation"
+                            <input type="text" placeholder="Organization" wire:model="form.organization"
                                 class="w-full px-4 py-3 rounded-md outline-none text-gray-700 bg-white">
 
-                            <input type="email" placeholder="Your Email"
+                            <input type="email" placeholder="Your Email" wire:model="form.email"
                                 class="w-full px-4 py-3 rounded-md outline-none text-gray-700 bg-white">
 
                             <label class="flex items-center gap-2 text-white text-sm">
-                                <input type="checkbox" class="accent-white bg-white">
+                                <input type="checkbox" wire:model="form.is_receive_email" class="accent-white bg-white">
                                 <span class="text-white">I am interested to receive updates</span>
                             </label>
 
-                            <x-ui.button variant="orange-tertiary" class="!w-auto !py-2 mt-4">
-                                {{ __('Send Us') }}
+                            <x-ui.button class="w-auto! py-2!" type="submit">
+                                <span wire:loading.remove wire:target="save"
+                                    class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Create User') }}</span>
+                                <span wire:loading wire:target="save"
+                                    class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Creating...') }}</span>
                             </x-ui.button>
                         </form>
                     </div>
