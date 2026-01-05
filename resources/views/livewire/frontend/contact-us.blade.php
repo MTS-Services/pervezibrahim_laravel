@@ -7,21 +7,20 @@
         </div>
 
         <!-- Header / Navigation -->
-        <header class="relative z-10 flex items-center justify-between px-6 lg:px-16 py-8">
-
+        <header class="relative z-10 flex items-center justify-between px-6 py-8">
         </header>
 
         <!-- Hero Content -->
-        <main class="relative z-10 container mx-auto px-6 lg:px-16 mt-12 grid lg:grid-cols-2 gap-12 items-center">
+        <main class="relative z-10 container mx-auto px-6 mt-12 grid grid-cols-1 gap-12 items-center">
             <!-- Right: Text Section -->
             <div class="flex flex-col mt-32">
-                <h1 class="text-3xl space-8 font-bold text-wrap text-white">
+                <h1 class="text-3xl font-bold text-wrap text-white">
                     Innovative<br> Solution
-
                 </h1>
             </div>
         </main>
     </section>
+
 
     <section class="py-12">
         <div class="container">
