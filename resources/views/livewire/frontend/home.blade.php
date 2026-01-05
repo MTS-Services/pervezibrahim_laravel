@@ -1,8 +1,8 @@
 <div>
     <section class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container mx-auto">
         <!-- Background Pattern Overlay -->
-        <div class="absolute inset-0 opacity-40 pointer-events-none">
-            <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
+        <div class="absolute inset-0 opacity-90 pointer-events-none">
+            <img src="{{ asset('assets/images/home_page/Union (1).png') }}" alt=""
                 class="w-full h-full object-cover" />
         </div>
 
@@ -129,7 +129,7 @@
 
                 <!-- Right Content -->
                 <div class="w-full lg:w-[60%] p-6 lg:p-12 rounded-3xl">
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                    <h2 class="text-3xl md:text-3xl font-bold text-gray-900 mb-8">
                         I'm excited to share some fantastic news that will truly inspire you.
                     </h2>
                     <p class="text-gray-700 text-lg leading-relaxed mb-8">
@@ -162,7 +162,7 @@
 
                 <!-- Right Content -->
                 <div class="w-full lg:w-[40%]">
-                    <h3 class="text-3xl md:text-5xl font-bold text-gray-900 md:mb-8">
+                    <h3 class="text-3xl md:text-3xl font-bold text-gray-900 md:mb-8">
                         Let's embark on this thrilling journey together and explore the possibilities! For more on this
                         story, check out the next slide!
                     </h3>

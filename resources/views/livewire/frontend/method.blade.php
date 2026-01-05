@@ -2,8 +2,8 @@
     <section
         class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container flex items-center justify-start">
         <!-- Background Pattern Overlay -->
-        <div class="absolute inset-0 opacity-80 pointer-events-none">
-            <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
+        <div class="absolute inset-0 opacity-100 pointer-events-none">
+            <img src="{{ asset('assets/images/home_page/Union (1).png') }}" alt=""
                 class="w-full h-full object-cover" />
         </div>
 
