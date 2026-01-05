@@ -2,8 +2,8 @@
     <section
         class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container flex items-center justify-start">
         <!-- Background Pattern Overlay -->
-        <div class="absolute inset-0 opacity-80 pointer-events-none">
-            <img src="{{ asset('assets/images/home_page/background_images.png') }}" alt=""
+        <div class="absolute inset-0 opacity-100 pointer-events-none">
+            <img src="{{ asset('assets/images/home_page/Union (1).png') }}" alt=""
                 class="w-full h-full object-cover" />
         </div>
 
@@ -21,17 +21,21 @@
         <div class="max-w-6xl mx-auto px-6" x-data="{ open: 1 }">
             <div class="space-y-4">
                 @forelse ($faqs as $faq)
-                    <div :class="open === {{ $loop->iteration }} ? 'bg-second-500' : 'bg-light-blue'" class="p-6 rounded-2xl shadow-lg">
+                    <div :class="open === {{ $loop->iteration }} ? 'bg-second-500' : 'bg-light-blue'"
+                        class="p-6 rounded-2xl shadow-lg">
                         <button @click="open === {{ $loop->iteration }} ? open = null : open = {{ $loop->iteration }}"
                             class="w-full text-left font-semibold flex items-center justify-between focus:outline-none">
-                            <span :class="open === {{ $loop->iteration }} ? 'text-white' : ''">{{ $loop->iteration }}. {{ $faq->question }}</span>
+                            <span :class="open === {{ $loop->iteration }} ? 'text-white' : ''">{{ $loop->iteration }}.
+                                {{ $faq->question }}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path :class="open === {{ $loop->iteration }} ? 'rotate-180 text-white' : ''" d="M6 9l6 6 6-6">
+                                <path :class="open === {{ $loop->iteration }} ? 'rotate-180 text-white' : ''"
+                                    d="M6 9l6 6 6-6">
                                 </path>
                             </svg>
                         </button>
-                        <div x-show="open === {{ $loop->iteration }}" x-transition class="mt-4 text-white text-sm">{{ $faq->answer }}</div>
+                        <div x-show="open === {{ $loop->iteration }}" x-transition class="mt-4 text-white text-sm">
+                            {{ $faq->answer }}</div>
                     </div>
                 @empty
                     <p class="text-center text-gray-500">No FAQs available at the moment.</p>
