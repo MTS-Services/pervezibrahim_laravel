@@ -15,7 +15,7 @@
             <!-- Right: Text Section -->
             <div class="flex flex-col mt-32">
                 <h1 class="text-3xl font-bold text-wrap text-white">
-                    Innovative<br> Solution
+                    Terms & <br>Conditions
                 </h1>
             </div>
         </main>
@@ -25,39 +25,53 @@
     <section class="py-12">
         <div class="container">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-                @foreach ($pdfs as $pdf)
-                    <div class="bg-white rounded-lg flex flex-col p-4">
-                        <div class="w-full h-[300px] overflow-hidden rounded-md">
-                            <img src="{{ storage_url($pdf->cover_image) }}" alt="{{ $pdf->title }}"
-                                class="w-full h-full">
-                        </div>
-                        <h3 class="text-lg font-medium text-second-500 mt-4">
-                            {{ $pdf->title }}
-                        </h3>
-                        <div class="mt-auto pt-4">
-                            <x-ui.button href="{{ $pdf->action }}" variant="orange-tertiary" class="w-auto! py-2!">
-                                {{ __('Learn More') }}
-                            </x-ui.button>
-                        </div>
+                <h1 class="text-[#002060] font-bold text-20px">Terms of Service & Usage Policy</h1>
 
-                    </div>
-                @endforeach
+
             </div>
 
-            <div class="mt-16 flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20">
-                @foreach ($featuredPdfs as $featuredPdf)
-                    <div class="w-full lg:w-1/2 flex flex-col items-center">
-                        <div class="w-full max-h-[38rem] overflow-hidden rounded-lg">
-                            <img src="{{ storage_url($featuredPdf->cover_image) }}" alt="{{ $featuredPdf->title }}"
-                                class="w-full max-h-[38rem] object-cover" loading="lazy">
-                        </div>
-
-                        <x-ui.button href="{{ $featuredPdf->action }}" variant="orange-tertiary"
-                            class="!w-auto !py-2 mt-4">
-                            {{ __('Learn More') }}
-                        </x-ui.button>
-                    </div>
-                @endforeach
+            <div class="mt-16 flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20 font-medium">
+                <p>
+                    By accessing and using the ebSixOne website, digital platforms, and related services, you
+                    acknowledge that you have read, understood, and agreed to these Terms and Conditions. Our services
+                    include Business Process Management (BPM), AI-driven analytics, automation tools, consulting, and
+                    technology-based insights designed to support business decision-making. All services are provided on
+                    an “as-is” and “as-available” basis, and while we aim to deliver accurate, reliable, and up-to-date
+                    information, ebSixOne makes no warranties or guarantees regarding performance, outcomes, or
+                    suitability for any specific business purpose.
+                    <br>
+                    <br>
+                    The insights, predictions, reports, and recommendations generated through our AI and technology
+                    solutions are intended for informational and strategic support only. Final decisions,
+                    implementations, and outcomes remain solely the responsibility of the user. ebSixOne shall not be
+                    liable for any financial loss, operational impact, or business decisions made based on the use of
+                    our services, tools, or data outputs.
+                    <br>
+                    <br>
+                    All content available on this platform, including text, visuals, graphics, dashboards, software
+                    components, system designs, AI models, trademarks, and logos, is the exclusive intellectual property
+                    of ebSixOne. Any unauthorized copying, reproduction, modification, redistribution, or commercial use
+                    of our materials without prior written consent is strictly prohibited. Users must not attempt to
+                    access restricted systems, interfere with platform functionality, or engage in any activity that may
+                    compromise security or service integrity.
+                    <br>
+                    <br>
+                    Users are responsible for maintaining the confidentiality of their account credentials and for all
+                    activities conducted under their access. ebSixOne reserves the right to suspend, restrict, or
+                    terminate access to its services at any time if misuse, violation of these terms, or unlawful
+                    activity is suspected, with or without prior notice.
+                    <br>
+                    <br>
+                    Our platform may contain links to or integrations with third-party websites, tools, or services.
+                    ebSixOne does not control and is not responsible for the content, policies, security, or practices
+                    of any third-party platforms. Use of such services is at the user’s own discretion and risk.
+                    <br>
+                    <br>
+                    ebSixOne reserves the right to update, modify, or replace these Terms and Conditions at any time to
+                    reflect changes in services, technology, or legal requirements. Any updates will become effective
+                    immediately upon publication. Continued use of the website or services after such changes
+                    constitutes acceptance of the revised terms.
+                </p>
             </div>
         </div>
     </section>

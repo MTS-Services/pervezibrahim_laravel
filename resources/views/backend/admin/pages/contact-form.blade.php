@@ -5,6 +5,7 @@
         @case('admin.contact-form.view')
             <x-slot name="title">{{ __('Contact Form View') }}</x-slot>
             <x-slot name="breadcrumb">{{ __('Contact Form / View') }}</x-slot>
+            <livewire:backend.admin.contact-form.view :model="$data" />
         @break
 
         @default
