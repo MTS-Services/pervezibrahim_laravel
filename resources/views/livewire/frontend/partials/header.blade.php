@@ -1,8 +1,16 @@
-<header x-data="{ mobileMenuOpen: false }" x-cloak class="fixed top-0 left-0 right-0 z-50 bg-transparent pt-4">
+<header x-data="{
+    mobileMenuOpen: false,
+    isScrolled: false
+}" x-init="window.addEventListener('scroll', () => {
+    isScrolled = window.scrollY > 20
+})" :class="{ 'glass pt-0!': isScrolled }" x-cloak
+    class="fixed top-0 left-0 right-0 z-50 bg-transparent pt-4 transition-all duration-300">
+
     <div class="container flex items-center justify-between py-3 px-6">
         <!-- Logo Section -->
         <a href="{{ route('home') }}" title="{{ __('ebSixOne') }}" wire:navigate class="flex items-center">
-            <div class="flex items-center justify-center w-32 h-12 sm:w-36 sm:h-14 lg:w-48 lg:h-16">
+            <div class="flex items-center justify-center w-32 sm:w-36 lg:w-48 p-2"
+                :class="{ ' bg-second-900/90 rounded-full': isScrolled }">
                 <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="{{ __('ebSixOne') }}"
                     class="h-6 sm:h-8 lg:h-10 object-contain" />
             </div>
@@ -73,7 +81,7 @@
         <!-- Mobile Menu Button -->
         <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-white"
             aria-label="{{ __('Toggle menu') }}">
-            <flux:icon name="menu" class="w-6 h-6 stroke-white" />
+            <flux:icon name="menu" class="w-8 h-8 stroke-white bg-second-900/90 rounded-md p-1" />
         </button>
     </div>
 
@@ -86,41 +94,17 @@
 
         <nav class="flex flex-col gap-4">
             <a href="{{ route('home') }}" wire:navigate
-                class="text-white text-lg font-medium hover:text-second-500 transition">
-                {{ __('Home') }}
-            </a>
-            <a href="#" wire:navigate class="text-white text-lg font-medium hover:text-second-500 transition">
-                {{ __('About Us') }}
-            </a>
-            <a href="#" wire:navigate class="text-white text-lg font-medium hover:text-second-500 transition">
-                {{ __('Services') }}
-            </a>
-
-            <!-- Pages Dropdown -->
-            <div x-data="{ open: false }" class="flex flex-col">
-                <button type="button" @click="open = !open"
-                    class="flex items-center justify-between text-white text-lg font-medium hover:text-second-500 transition">
-                    <span class="text-white">{{ __('Pages') }}</span>
-                    <svg class="w-4 h-4 transition-transform duration-200 " :class="{ 'rotate-180': open }"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-                <div x-show="open" x-transition:enter="transition ease-out duration-200"
-                    x-transition:enter-start="opacity-0 -translate-y-1"
-                    x-transition:enter-end="opacity-100 translate-y-0"
-                    x-transition:leave="transition ease-in duration-150"
-                    x-transition:leave-start="opacity-100 translate-y-0"
-                    x-transition:leave-end="opacity-0 -translate-y-1" class="mt-2 ml-4 flex flex-col gap-3"
-                    style="display: none;">
-                    <a href="#" @click="mobileMenuOpen = false"
-                        class="text-white hover:text-second-500 transition">{{ __('Gallery') }}</a>
-                    <a href="#" @click="mobileMenuOpen = false"
-                        class="text-white hover:text-second-500 transition">{{ __('Methods') }}</a>
-                    <a href="#" @click="mobileMenuOpen = false"
-                        class="text-white hover:text-second-500 transition">{{ __('FAQ') }}</a>
-                </div>
-            </div>
+                class="{{ request()->routeIs('home') ? 'text-second-500!': '' }} text-white text-lg font-medium hover:text-second-500 rounded-md pl-2 transition">{{ __('Home') }}</a>
+            <a href="{{ route('about') }}" wire:navigate
+                class="{{ request()->routeIs('about') ? 'text-second-500!': '' }} text-white text-lg font-medium hover:text-second-500 rounded-md pl-2 transition">{{ __('About Us') }}</a>
+            <a href="{{ route('services') }}" wire:navigate
+                class="{{ request()->routeIs('services') ? 'text-second-500!': '' }} text-white text-lg font-medium hover:text-second-500 rounded-md pl-2 transition">{{ __('Services') }}</a>
+            <a href="{{ route('gallery') }}" wire:navigate
+                class="{{ request()->routeIs('gallery') ? 'text-second-500!': '' }} text-white text-lg font-medium hover:text-second-500 rounded-md pl-2 transition">{{ __('Gallery') }}</a>
+            <a href="{{ route('method') }}" wire:navigate
+                class="{{ request()->routeIs('method') ? 'text-second-500!': '' }} text-white text-lg font-medium hover:text-second-500 rounded-md pl-2 transition">{{ __('Methods') }}</a>
+            <a href="{{ route('faq') }}" wire:navigate
+                class="{{ request()->routeIs('faq') ? 'text-second-500!': '' }} text-white text-lg font-medium hover:text-second-500 rounded-md pl-2 transition">{{ __('FAQ') }}</a>
 
             <!-- Mobile Contact Button -->
             <x-ui.button href="{{ route('contact-us') }}" class="w-full py-2 mt-4" variant="secondary">

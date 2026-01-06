@@ -40,7 +40,7 @@
 
 
 
-        <div class="flex items-center justify-center bg-gray-50 p-4">
+        <div class="flex items-center justify-center p-4">
             <div class="flex flex-col items-start sm:items-end max-w-2xl w-full">
                 <h1
                     class="text-PrussianBlue text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-balance">
@@ -56,36 +56,47 @@
 
 
         <!-- Right Side: Logo Container -->
-        <div
-            class="bg-LightGray lg:rounded-full px-8 md:px-16 py-8 md:py-10 flex flex-wrap items-center justify-center gap-4 md:gap-12 flex-1 max-w-2xl">
-            <!-- Logo 1 -->
-            <div class="flex items-center gap-1">
-                <div class="w-5 h-5 border-4 border-muted rounded-sm opacity-80"></div>
-                <span class="text-muted font-black text-xl tracking-tighter opacity-80">LOGO</span>
-            </div>
+        <div x-data="logoScroller()" x-init="start()" @mouseenter="pause()" @mouseleave="resume()"
+            class="overflow-hidden bg-LightGray rounded-full w-full lg:w-1/2">
+            <div class="px-4 md:px-16 py-4 md:py-10
+               flex items-center gap-12 w-max" x-ref="track"
+                :style="`transform: translateX(-${position}px)`">
 
-            <!-- Logo 2 -->
-            <div class="flex items-center gap-1.5">
-                <div class="w-5 h-5 bg-SlateGray rounded-full flex items-center justify-center opacity-80">
-                    <div class="w-2 h-2 bg-LightGray rounded-full"></div>
-                </div>
-                <span class="text-muted font-bold text-lg opacity-80">Logoipsum</span>
-            </div>
+                <!-- DUPLICATE LOGOS (for seamless loop) -->
+                <template x-for="i in 2">
+                    <div class="flex items-center gap-12">
 
-            <!-- Logo 3 -->
-            <div class="text-muted font-black text-2xl tracking-widest opacity-80">
-                IPSUM
-            </div>
+                        <!-- Logo 1 -->
+                        <div class="flex items-center gap-1">
+                            <div class="w-5 h-5 border-4 border-muted rounded-sm opacity-80"></div>
+                            <span class="text-muted font-black text-xl tracking-tighter opacity-80">LOGO</span>
+                        </div>
 
-            <!-- Logo 4 -->
-            <div class="flex items-center gap-1 opacity-80">
-                <div class="grid grid-cols-2 gap-0.5">
-                    <div class="w-2 h-2 bg-SlateGray"></div>
-                    <div class="w-2 h-2 bg-SlateGray"></div>
-                    <div class="w-2 h-2 bg-SlateGray"></div>
-                    <div class="w-2 h-2 border border-SlateGray"></div>
-                </div>
-                <span class="text-muted font-bold text-xl tracking-tight">LOGO</span>
+                        <!-- Logo 2 -->
+                        <div class="flex items-center gap-1.5">
+                            <div class="w-5 h-5 bg-SlateGray rounded-full flex items-center justify-center opacity-80">
+                                <div class="w-2 h-2 bg-LightGray rounded-full"></div>
+                            </div>
+                            <span class="text-muted font-bold text-lg opacity-80">Logoipsum</span>
+                        </div>
+
+                        <!-- Logo 3 -->
+                        <div class="text-muted font-black text-2xl tracking-widest opacity-80">
+                            IPSUM
+                        </div>
+
+                        <!-- Logo 4 -->
+                        <div class="flex items-center gap-1 opacity-80">
+                            <div class="grid grid-cols-2 gap-0.5">
+                                <div class="w-2 h-2 bg-SlateGray"></div>
+                                <div class="w-2 h-2 bg-SlateGray"></div>
+                                <div class="w-2 h-2 bg-SlateGray"></div>
+                                <div class="w-2 h-2 border border-SlateGray"></div>
+                            </div>
+                            <span class="text-muted font-bold text-xl tracking-tight">LOGO</span>
+                        </div>
+                    </div>
+                </template>
             </div>
         </div>
     </section>
@@ -93,9 +104,9 @@
     <section
         class="container bg-[linear-gradient(135deg,_#9BBBF4_0%,_#EAF1FF_45%,_#FFFFFF_100%)] rounded-2xl shadow-md mt-6 py-2">
         <div class="px-6 lg:px-16 py-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="flex flex-col lg:flex-row gap-12 justify-between items-center">
                 <!-- Left Content -->
-                <div>
+                <div class="w-full max-w-1/2">
                     <img src="{{ asset('assets/images/home_page/logo_black.png') }}" alt="" class="w-72">
                     <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Business Process
                         Management (BPM) for the New Era of Technology!
@@ -103,8 +114,8 @@
                 </div>
 
                 <!-- Right Images -->
-                <div class="order-first lg:order-last w-40%">
-                    <img src="{{ asset('assets/images/home_page/Group 17694.png') }}" alt="" class="w-full">
+                <div class="order-first lg:order-last w-full max-w-96 mx-h-96">
+                    <img src="{{ asset('assets/images/home_page/Group 17694.png') }}" alt="" class="max-w-96 mx-h-96">
                 </div>
             </div>
         </div>
@@ -121,14 +132,14 @@
                 class="w-full h-full" />
         </div>
         <div class="container mx-auto">
-            <div class="flex flex-col lg:flex-row gap-12 items-start">
+            <div class="flex flex-col lg:flex-row gap-12 justify-between items-center">
                 <!-- Left Images -->
-                <div class="w-full lg:w-[40%]">
-                    <img src="{{ asset('assets/images/home_page/Group 17693.png') }}" alt="" class="w-full">
+                <div class="w-full max-w-96 mx-h-96">
+                    <img src="{{ asset('assets/images/home_page/Group 17693.png') }}" alt="" class="max-w-96 mx-h-96">
                 </div>
 
                 <!-- Right Content -->
-                <div class="w-full lg:w-[60%] p-6 lg:p-12 rounded-3xl">
+                <div class="w-full p-6 lg:p-12 rounded-3xl">
                     <h2 class="text-3xl md:text-3xl font-bold text-gray-900 mb-8">
                         I'm excited to share some fantastic news that will truly inspire you.
                     </h2>
@@ -170,3 +181,40 @@
             </div>
         </div>
     </section>
+    @push('scripts')
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('logoScroller', () => ({
+                    position: 0,
+                    speed: 0.4,
+                    paused: false,
+                    width: 0,
+
+                    start() {
+                        this.$nextTick(() => {
+                            this.width = this.$refs.track.scrollWidth / 2;
+                            this.loop();
+                        });
+                    },
+
+                    loop() {
+                        if (!this.paused) {
+                            this.position += this.speed;
+                            if (this.position >= this.width) {
+                                this.position = 0;
+                            }
+                        }
+                        requestAnimationFrame(() => this.loop());
+                    },
+
+                    pause() {
+                        this.paused = true;
+                    },
+
+                    resume() {
+                        this.paused = false;
+                    }
+                }));
+            });
+        </script>
+    @endpush
