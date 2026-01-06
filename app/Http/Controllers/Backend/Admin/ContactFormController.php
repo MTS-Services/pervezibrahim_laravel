@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactForm;
 
 class ContactFormController extends Controller
 {
@@ -10,15 +11,24 @@ class ContactFormController extends Controller
 
     public function __construct()
     {
-        // 
+        // $this->middleware('auth:admin');
     }
+
     public function index()
     {
         return view($this->masterView);
     }
 
-    public function view()
+    public function view($id)
     {
-        return view($this->masterView);
+        $contact = ContactForm::findOrFail(decrypt($id));
+
+        if (! $contact) {
+            return abort(404);
+        }
+
+        return view($this->masterView, [
+            'data' => $contact,
+        ]);
     }
 }

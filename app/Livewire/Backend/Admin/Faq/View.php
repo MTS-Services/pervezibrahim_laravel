@@ -8,6 +8,7 @@ use Livewire\Component;
 class View extends Component
 {
     public Faq $model;
+
     public function mount(Faq $model): void
     {
         $this->model = $model;

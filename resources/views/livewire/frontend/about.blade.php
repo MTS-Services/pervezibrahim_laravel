@@ -27,17 +27,18 @@
         <div class="#">
             <!-- Grid Container -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                    <div>
-                        <x-video-player :thumbnail="$aboutVideos->thumbnail_one" :file="$aboutVideos->file_one" />
-                    </div>
-                    <div>
-                        <x-video-player :thumbnail="$aboutVideos->thumbnail_two" :file="$aboutVideos->file_two" />
-                    </div>
+                <div>
+                    <x-video-player :thumbnail="$aboutVideos->thumbnail_one" :file="$aboutVideos->file_one" />
+                </div>
+                <div>
+                    <x-video-player :thumbnail="$aboutVideos->thumbnail_two" :file="$aboutVideos->file_two" />
+                </div>
             </div>
 
             <!-- Text Content -->
             <div class=" bg-opacity-60 backdrop-blur-sm  p-8 text-center">
-                <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">{{ $aboutVideos->description }}</p>
+                <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">{{ $aboutVideos->description }}
+                </p>
             </div>
         </div>
     </section>

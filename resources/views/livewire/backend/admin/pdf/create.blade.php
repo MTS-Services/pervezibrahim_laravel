@@ -72,6 +72,7 @@
                 <x-ui.textarea placeholder="{{ __('Description') }}" wire:model="form.description" rows="4" />
                 <x-ui.input-error :messages="$errors->get('form.description')" />
             </div> --}}
+
             <!-- Form Actions -->
             <div class="flex items-center justify-end gap-4 mt-6">
                 <x-ui.button wire:click="resetForm" variant="tertiary" class="w-auto! py-2!">
@@ -85,7 +86,7 @@
 
                 <x-ui.button class="w-auto! py-2!" type="submit">
                     <span wire:loading.remove wire:target="save"
-                        class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Create User') }}</span>
+                        class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Create') }}</span>
                     <span wire:loading wire:target="save"
                         class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Creating...') }}</span>
                 </x-ui.button>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\GalleryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\MethodController;
 use App\Http\Controllers\Frontend\ServicesController;
+use App\Livewire\Frontend\Terms;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -20,3 +21,4 @@ Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/terms', Terms::class)->name('terms');
