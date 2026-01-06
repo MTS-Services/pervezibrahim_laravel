@@ -108,7 +108,7 @@
         </div>
     </section>
 
-    <section class="my-20 space-y-12">
+    <section class="mb-12">
         <div
             class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
             <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs">
