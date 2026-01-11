@@ -56,7 +56,7 @@
                         <x-ui.input-error :messages="$errors->get('form.is_featured')" />
                     </div>
                 @endif
-                
+
                 {{-- <div class="w-full">
                     <x-ui.label value="{{ __('Page') }}" class="mb-1" />
                     <x-ui.select wire:model="form.page">
@@ -87,7 +87,7 @@
 
                 <x-ui.button class="w-auto! py-2!" type="submit">
                     <span wire:loading.remove wire:target="save"
-                        class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Update User') }}</span>
+                        class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Update ') }}</span>
                     <span wire:loading wire:target="save"
                         class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Updating...') }}</span>
                 </x-ui.button>
