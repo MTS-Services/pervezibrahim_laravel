@@ -73,12 +73,12 @@
                     <x-ui.button class="w-auto! py-2!" type="submit">
                         @if ($editMode)
                             <span wire:loading.remove wire:target="update"
-                                class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Update User') }}</span>
+                                class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Update ') }}</span>
                             <span wire:loading wire:target="update"
                                 class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Updating...') }}</span>
                         @else
                             <span wire:loading.remove wire:target="save"
-                                class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Create User') }}</span>
+                                class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Create ') }}</span>
                             <span wire:loading wire:target="save"
                                 class="text-text-btn-primary group-hover:text-text-btn-secondary">{{ __('Creating...') }}</span>
                         @endif
