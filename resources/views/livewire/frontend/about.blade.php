@@ -92,6 +92,8 @@
             </div>
         </div>
 
+        
+
         <!-- CTA Banner -->
         <div
             class="bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
