@@ -2,25 +2,22 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class VideoPlayer extends Component
 {
-    public $video;
-    /**
-     * Create a new component instance.
-     */
-    public function __construct($video = null)
-    {
-        $this->video = $video;
+    public function __construct(
+        public mixed $video = null,
+        public ?string $thumbnail = null,
+        public ?string $file = null
+    ) {
+        // If a video model is passed, try to get attributes
+        $this->thumbnail = $thumbnail ?? ($video->thumbnail_path ?? '');
+        $this->file = $file ?? ($video->file_path ?? '');
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render(): View
     {
         return view('components.video-player');
     }
