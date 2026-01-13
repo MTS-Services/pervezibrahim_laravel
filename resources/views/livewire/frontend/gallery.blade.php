@@ -24,18 +24,7 @@
         </main>
     </section>
 
-    {{-- <section class="pt-20">
-        <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                @foreach ($videos as $video)
-                    <x-video-player :thumbnail="$video->thumbnail" :file="$video->file" />
-                @endforeach
-            </div>
-            @if ($videos->isEmpty())
-                <p class="text-center text-second-500 text-xl font-bold">No videos available at the moment.</p>
-            @endif
-        </div>
-    </section> --}}
+
 
     <div class="container w-6xl">
         <p class="text-center text-black text-xl font-medium text-wrap p-8">
@@ -103,7 +92,7 @@
                     width="80" height="80" viewBox="0 0 116 116" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
 
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" fill="#002060" />
+                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900" />
                 </svg>
 
                 <!-- Arrow: Card 2 → Card 3 -->
@@ -112,7 +101,7 @@
                     width="80" height="80" viewBox="0 0 116 116" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
 
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" fill="#002060" />
+                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900" />
                 </svg>
 
             </div>
@@ -184,7 +173,7 @@
                     width="80" height="80" viewBox="0 0 116 116" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
 
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" fill="#002060"></path>
+                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
                 </svg>
 
                 <!-- Arrow: Card 2 → Card 3 -->
@@ -193,7 +182,7 @@
                     width="80" height="80" viewBox="0 0 116 116" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
 
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" fill="#002060"></path>
+                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
                 </svg>
 
             </div>
@@ -202,155 +191,34 @@
     </div>
 
 
-    <section class=" rounded-xl container px-1 mt-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
+    <section class=" rounded-xl container mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-10">
+            @foreach ($videos as $video)
+                <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
                     <div>
-                        <img src="{{ asset('assets/images/gallery/screenshots37.png') }}" alt=""
-                            class="w-full h-full object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="width: 0%"></div>
+                        <div>
+                            <x-video-player :thumbnail="$video->thumbnail" :file="$video->file" />
                         </div>
                     </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Keys symbolise business
-                            processes, teamwork,
-                            and
-                            strategic planning. </span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/images/gallery/screenshots38.png') }}" alt=""
-                            class="w-full h-full object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="width: 0%"></div>
-                        </div>
+                    <!-- Text Content -->
+                    <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
+                        <p class="text-black text-lg md:text-xl leading-relaxed font-medium">
+                            <span class="font-bold">{{ $video->title }}
+                            </span>
+                        </p>
                     </div>
                 </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">The value chain is essential for optimising efficiency and driving
-                            innovation. </span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/images/gallery/screenshots39.png') }}" alt=""
-                            class="w-full h-full object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="width: 0%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Crucial steps of the supply chain
-                            process, emphasising the flow
-                            from suppliers to customers</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/images/gallery/screenshots40.png') }}" alt=""
-                            class="w-full h-full object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="width: 0%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Agricultural production Bread-
-                            making set. Process of bread
-                            baking in a factory.</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/images/gallery/screenshots44.png') }}" alt=""
-                            class="w-full h-full object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="width: 0%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Business people on workflow</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/images/gallery/screenshpts32.png') }}" alt=""
-                            class="w-full h-full object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="width: 0%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Creating a Value Stream</span>
-                    </p>
-                </div>
-            </div>
+            @endforeach
         </div>
+        @if ($videos->isEmpty())
+            <p class="text-center text-second-500 text-xl font-bold">No videos available at the moment.</p>
+        @endif
     </section>
 
     <section class="my-20 space-y-12">
         <div
             class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
-            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
-                class="mx-auto w-full max-w-xs">
+            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs">
             <h2 class="text-white text-56px font-bold mb-4">Ready to Get Started?</h2>
             <p class="text-white text-lg font-bold max-w-2xl mx-auto">Business Process Management (BPM) software that
                 can capture the organisational "Value Chain," which is the Business "DNA."</p>

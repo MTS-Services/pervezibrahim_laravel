@@ -18,9 +18,9 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Card 1: Business Process Management -->
                         <div
-                            class="border-2 border-#868686-500 rounded-2xl overflow-hidden bg-[#002060] from-blue-950  p-3">
+                            class="border-2 border-Medium-gray rounded-2xl overflow-hidden bg-PrussianBlue from-blue-950  p-3">
                             <div
-                                class="h-64 bg-gradient-to-b from-blue-400   flex items-center justify-center overflow-hidden">
+                                class="h-64 bg-gradient-to-b from-blue-400 flex items-center justify-center overflow-hidden">
                                 <div class="text-center">
                                     <img src="{{ asset('assets/images/services/business.png') }}" alt="">
                                 </div>
@@ -37,7 +37,7 @@
 
                         <!-- Card 2: Future Quote -->
                         <div
-                            class="border-2 border-#868686-500 rounded-2xl overflow-hidden bg-[#002060] from-blue-950  p-3">
+                            class="border-2 border-Medium-gray rounded-2xl overflow-hidden bg-PrussianBlue from-blue-950  p-3">
                             <div
                                 class="h-64 bg-gradient-to-b from-blue-400   flex items-center justify-center overflow-hidden">
                                 <div class="text-center">
@@ -55,7 +55,7 @@
 
                         <!-- Card 3: AI & Technology -->
                         <div
-                            class="border-2 border-#868686-500 rounded-2xl overflow-hidden bg-[#002060] from-blue-950  p-3">
+                            class="border-2 border-Medium-gray rounded-2xl overflow-hidden bg-PrussianBlue from-blue-950  p-3">
                             <div
                                 class="h-64 bg-gradient-to-b from-blue-400   flex items-center justify-center overflow-hidden">
                                 <div class="text-center">
@@ -74,15 +74,13 @@
                     </div>
                 </main>
             </div>
-
         </main>
 
     </section>
 
-
     <div class="container mx-auto">
         <div class=" flex items-center justify-center p-8">
-            <div class="w-full  rounded-3xl p-8 sm:p-10 lg:p-12 bg-[#DCE7FB]">
+            <div class="w-full  rounded-3xl p-8 sm:p-10 lg:p-12 bg-light-blue">
 
                 <!-- Images Section -->
                 <div class="flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-10">
@@ -145,126 +143,31 @@
         </div>
     </div>
 
-
     <section class=" rounded-xl container mt-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-10">
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
+            @foreach ($videos as $video)
+                <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
                     <div>
-                        <img src="http://localhost:8000/assets/images/services/ligts.png" alt=""
-                            class="w-full h-83 object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="undefined"></div>
+                        <div>
+                            <x-video-player :thumbnail="$video->thumbnail" :file="$video->file" />
                         </div>
                     </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Keys symbolise business
-                            processes, teamwork,
-                            and
-                            strategic planning. </span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="http://localhost:8000/assets/images/services/BPM.png" alt=""
-                            class="w-full h-83 object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="undefined"></div>
-                        </div>
+                    <!-- Text Content -->
+                    <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
+                        <p class="text-black text-lg md:text-xl leading-relaxed font-medium">
+                            <span class="font-bold">Keys symbolise business processes, teamwork, and strategic planning.
+                            </span>
+                        </p>
                     </div>
                 </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">The value chain is essential for optimising efficiency and driving
-                            innovation. </span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="http://localhost:8000/assets/images/services/billt.png" alt=""
-                            class="w-full h-83 object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="undefined"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Crucial steps of the supply chain
-                            process, emphasising the flow
-                            from suppliers to customers</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6">
-                <div>
-                    <div>
-                        <img src="http://localhost:8000/assets/images/services/over.png" alt=""
-                            class="w-full h-83 object-cover rounded-md">
-                    </div>
-
-                    <div class="controls">
-                        <div class="progress-bar mb-3">
-                            <div class="progress-fill" :style="`width: ${progress}%`" style="undefined"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
-                    <p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-                        <span class="font-bold">Agricultural production Bread-
-                            making set. Process of bread
-                            baking in a factory.</span>
-                    </p>
-                </div>
-            </div>
-
+            @endforeach
         </div>
+        @if ($videos->isEmpty())
+            <p class="text-center text-second-500 text-xl font-bold">No videos available at the moment.</p>
+        @endif
     </section>
 
-
-    {{-- <section class="pt-20">
-        <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                @foreach ($videos as $video)
-                    <x-video-player :thumbnail="$video->thumbnail" :file="$video->file" />
-                @endforeach
-            </div>
-            @if ($videos->isEmpty())
-                <p class="text-center text-second-500 text-xl font-bold">No videos available at the moment.</p>
-            @endif
-        </div>
-    </section> --}}
-
-
-
-
-    <div class="max-w-7xl mx-auto bg-[#DCE7FB] rounded-2xl border border-blue-100 shadow-sm mt-12 p-4">
+    <div class="max-w-7xl mx-auto bg-light-blue rounded-2xl border border-blue-100 shadow-sm mt-12 p-4">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
 
@@ -291,14 +194,11 @@
     <section class="my-20 space-y-12">
         <div
             class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
-            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
-                class="mx-auto w-full max-w-xs">
+            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs">
             <h2 class="text-white text-56px font-bold mb-4">Ready to Get Started?</h2>
             <p class="text-white text-lg font-bold max-w-2xl mx-auto">Business Process Management (BPM) software
                 that
                 can capture the organisational "Value Chain," which is the Business "DNA."</p>
         </div>
     </section>
-
-
 </div>
