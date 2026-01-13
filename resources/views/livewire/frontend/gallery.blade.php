@@ -48,7 +48,7 @@
                         class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
         flex flex-col border-4 border-white/20 p-1 m-6 h-full">
 
-                        <img src="http://localhost:8000/assets/images/gallery/screenshots34.png" alt="Supply Chain"
+                        <img src="{{ asset('assets/images/gallery/screenshots34.png') }}" alt="Supply Chain"
                             class="w-full h-52 object-cover rounded">
 
                         <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
@@ -62,7 +62,7 @@
                         class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
         flex flex-col border-4 border-white/20 p-1 m-6 h-full">
 
-                        <img src="http://localhost:8000/assets/images/gallery/inner.png" alt="Production Process"
+                        <img src="{{ asset('assets/images/gallery/inner.png') }}" alt="Production Process"
                             class="w-full h-52 object-cover rounded">
 
                         <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
@@ -76,7 +76,7 @@
                         class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
         flex flex-col border-4 border-white/20 p-1 m-6 h-full">
 
-                        <img src="http://localhost:8000/assets/images/gallery/alinements.jpg" alt="Collaboration"
+                        <img src="{{ asset('assets/images/gallery/alinements.jpg') }}" alt="Collaboration"
                             class="w-full h-52 object-cover rounded">
 
                         <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
@@ -116,7 +116,7 @@
                         class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
         flex flex-col border-4 border-white/20 p-1 m-6 h-full">
 
-                        <img src="http://localhost:8000/assets/images/gallery/plan.jpg" alt="Supply Chain"
+                        <img src="{{ asset('assets/images/gallery/plan.jpg') }}" alt="Supply Chain"
                             class="w-full h-52 object-cover rounded">
 
                         <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
@@ -133,7 +133,7 @@
                         class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
         flex flex-col border-4 border-white/20 p-1 m-6 h-full">
 
-                        <img src="http://localhost:8000/assets/images/gallery/database.png" alt="Production Process"
+                        <img src="{{ asset('assets/images/gallery/database.png') }}" alt="Production Process"
                             class="w-full h-52 object-cover rounded">
 
                         <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
@@ -153,7 +153,7 @@
                         class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
         flex flex-col border-4 border-white/20 p-1 m-6 h-full">
 
-                        <img src="http://localhost:8000/assets/images/gallery/process.png" alt="Collaboration"
+                        <img src="{{ asset('assets/images/gallery/process.png') }}" alt="Collaboration"
                             class="w-full h-52 object-cover rounded">
 
                         <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
