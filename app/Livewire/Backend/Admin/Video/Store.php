@@ -38,17 +38,18 @@ class Store extends Component
     {
         $this->service = $service;
     }
-    public function mount(Video $model): void
+    public function mount(): void
     {
-        $this->model = $model;
-        // $this->form->setData($model);
+        $this->model = Video::first();
+        $this->form->setData($this->model);
+        $this->existingThumbnail = $this->model?->thumbnail;
+        $this->existingFile = $this->model?->file;
     }
 
     public function render()
     {
         return view('livewire.backend.admin.video.store', [
-            'statuses' => ActiveInactive::options(),
-            'pages' => Page::options(),
+            'statuses' => ActiveInactive::options()
         ]);
     }
     public function save()

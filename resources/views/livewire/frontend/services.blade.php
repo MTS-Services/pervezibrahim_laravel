@@ -155,8 +155,7 @@
                     <!-- Text Content -->
                     <div class="bg-opacity-60 backdrop-blur-sm p-6 text-wrap ">
                         <p class="text-black text-lg md:text-xl leading-relaxed font-medium">
-                            <span class="font-bold">Keys symbolise business processes, teamwork, and strategic planning.
-                            </span>
+                            <span class="font-bold">{{ $video->title }}</span>
                         </p>
                     </div>
                 </div>

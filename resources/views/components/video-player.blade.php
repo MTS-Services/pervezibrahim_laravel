@@ -60,13 +60,19 @@
                 <div class="flex items-center gap-2 group/volume">
                     <button @click="toggleMute">
                         <template x-if="muted || volume == 0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+                            <svg class="w-5 h-5 fill-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" />
+                            </svg>
                         </template>
                         <template x-if="!muted && volume > 0">
-                            <svg class="w-5 h-5" fill="white" viewBox="0 0 20 20"><path d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414z" /></svg>
+                            <svg class="w-5 h-5 fill-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" />
+                            </svg>
                         </template>
                     </button>
-                    <input type="range" min="0" max="1" step="0.1" x-model="volume" @input="updateVolume" class="w-0 group-hover/volume:w-20 transition-all accent-white outline-none">
+                    <input type="range" min="0" max="1" step="0.1" x-model="volume" @input="updateVolume" class="w-20 transition-all accent-white outline-none">
                 </div>
 
                 {{-- Fullscreen --}}
@@ -137,6 +143,7 @@ function videoPlayer() {
             this.muted = !this.muted;
             this.$refs.video.muted = this.muted;
             if (!this.muted && this.volume === 0) this.volume = 0.5;
+            else this.volume = 0;
         },
 
         formatTime(seconds) {

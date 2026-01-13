@@ -30,19 +30,19 @@
                             :existingFiles="$existingFile" removeModel="form.remove_file" hint="Upload a video file (Max: 10MB)" />
                         <x-ui.input-error :messages="$errors->get('form.file')" />
                     </div>
-                    @if ($page === App\Enums\Page::ABOUT_GALLERY->value)
+                    {{-- @if ($model->page === App\Enums\Page::ABOUT_GALLERY->value || $model->page === App\Enums\Page::SERVICE->value) --}}
                         <div class="w-full">
                             <x-ui.label value="{{ __('Title') }}" class="mb-1" />
                             <x-ui.input type="text" placeholder="{{ __('Title') }}" wire:model="form.title" />
                             <x-ui.input-error :messages="$errors->get('form.title')" />
                         </div>
-                        <div class="w-full">
+                        {{-- <div class="w-full">
                             <x-ui.label value="{{ __('Description') }}" class="mb-1" />
                             <x-ui.textarea placeholder="{{ __('Description') }}" wire:model="form.description"
                                 rows="4" />
                             <x-ui.input-error :messages="$errors->get('form.description')" />
                         </div>
-                    @endif
+                    @endif --}}
                     {{-- <div class="w-full">
                         <x-ui.label value="{{ __('Action') }}" class="mb-1" />
                         <x-ui.input type="text" placeholder="{{ __('Action') }}" wire:model="form.action" accept="url" />
