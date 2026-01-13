@@ -5,7 +5,7 @@
         <div class="mx-auto">
             <div class="glass-card rounded-2xl p-4 lg:p-6 mb-6">
                 <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <h2 class="text-xl lg:text-2xl font-bold text-text-black dark:text-white">
+                    <h2 class="text-xl lg:text-2xl font-bold text-text-white">
                         {{ __('Video Details') }}
                     </h2>
                     <div class="flex items-center gap-2 w-full sm:w-auto">
@@ -33,20 +33,20 @@
                 <div class="px-8 py-8">
                     <div class="mb-10">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
-                                <p class="text-white text-xs font-semibold mb-2 uppercase">{{ __('Title') }}
+                            <div class="bg-slate-50 dark:bg-shadow-glass rounded-lg p-4 border border-slate-200">
+                                <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Title') }}
                                 </p>
-                                <p class="text-slate-400 text-lg font-bold">{{ $model->title }}</p>
+                                <p class="text-text-white text-lg font-bold">{{ $model->title }}</p>
                             </div>
-                            <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
-                                <p class="text-white text-xs font-semibold mb-2 uppercase">{{ __('Action') }}
+                            <div class="bg-slate-50 dark:bg-shadow-glass rounded-lg p-4 border border-slate-200">
+                                <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Action') }}
                                 </p>
-                                <p class="text-slate-400 text-lg font-bold">{{ $model->action }}</p>
+                                <p class="text-text-white text-lg font-bold">{{ $model->action }}</p>
                             </div>
-                            <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
-                                <p class="text-white text-xs font-semibold mb-2 uppercase">{{ __('Status') }}
+                            <div class="bg-slate-50 dark:bg-shadow-glass rounded-lg p-4 border border-slate-200">
+                                <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Status') }}
                                 </p>
-                                <p class="text-slate-400 text-lg font-bold">{{ $model->status }}</p>
+                                <p class="text-text-white text-lg font-bold">{{ $model->status }}</p>
                             </div>
                         </div>
                     </div>

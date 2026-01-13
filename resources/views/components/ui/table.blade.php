@@ -272,7 +272,7 @@
                                                             <a href="{{ $href }}"
                                                                 title="{{ $action['label'] }}"
                                                                 target="{{ $action['target'] ?? '_self' }}"
-                                                                class="block px-4 py-2 w-full text-sm text-left dark:text-zinc-100! dark:hover:text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
+                                                                class="block px-4 py-2 w-full text-left text-sm text-zinc-500! text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
                                                                 wire:navigate>
                                                                 {{ $action['label'] }}
                                                             </a>
@@ -282,7 +282,7 @@
                                                             <a href="{{ route($action['route'], $actionValue) }}"
                                                                 title="{{ $action['label'] }}"
                                                                 target="{{ $action['target'] ?? '_self' }}"
-                                                                class="block px-4 py-2 w-full text-sm text-left dark:text-zinc-100! dark:hover:text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
+                                                                class="block px-4 py-2 w-full text-left text-sm text-zinc-500! text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
                                                                 wire:navigate>
                                                                 {{ $action['label'] }}
                                                             </a>
@@ -291,7 +291,7 @@
                                                         @elseif (!empty($action['method']))
                                                             <button type="button"
                                                                 wire:click="{{ $action['method'] }}({{ $actionParam }})"
-                                                                class="block px-4 py-2 w-full text-left text-sm dark:text-zinc-100! dark:hover:text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
+                                                                class="block px-4 py-2 w-full text-left text-sm text-zinc-500! text-zinc-900! hover:bg-zinc-300 hover:text-gray-900"
                                                                 @click="open = false">
                                                                 {{ $action['label'] }}
                                                             </button>
@@ -308,7 +308,7 @@
                                                             @endphp
 
                                                             <button type="button" x-on:click="{{ $xClick }}"
-                                                                class="block px-4 py-2 w-full text-left text-sm dark:text-zinc-100! dark:hover:text-zinc-900! hover:bg-zinc-300 hover:text-gray-900">
+                                                                class="block px-4 py-2 w-full text-left text-sm text-zinc-500! text-zinc-900! hover:bg-zinc-300 hover:text-gray-900">
                                                                 {{ $action['label'] }}
                                                             </button>
                                                         @endif
