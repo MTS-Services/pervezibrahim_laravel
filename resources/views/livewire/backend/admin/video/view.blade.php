@@ -33,20 +33,20 @@
                 <div class="px-8 py-8">
                     <div class="mb-10">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div class="bg-slate-50 dark:bg-gray-500 rounded-lg p-4 border border-slate-200">
-                                <p class="text-white text-xs font-semibold mb-2 uppercase">{{ __('Title') }}
+                            <div class="bg-slate-50 dark:bg-shadow-glass rounded-lg p-4 border border-slate-200">
+                                <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Title') }}
                                 </p>
-                                <p class="text-slate-800 text-lg font-bold">{{ $model->title }}</p>
+                                <p class="text-text-white text-lg font-bold">{{ $model->title }}</p>
                             </div>
-                            <div class="bg-slate-50 dark:bg-gray-500 rounded-lg p-4 border border-slate-200">
-                                <p class="text-white text-xs font-semibold mb-2 uppercase">{{ __('Action') }}
+                            <div class="bg-slate-50 dark:bg-shadow-glass rounded-lg p-4 border border-slate-200">
+                                <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Action') }}
                                 </p>
-                                <p class="text-slate-800 text-lg font-bold">{{ $model->action }}</p>
+                                <p class="text-text-white text-lg font-bold">{{ $model->action }}</p>
                             </div>
-                            <div class="bg-slate-50 dark:bg-gray-500 rounded-lg p-4 border border-slate-200">
-                                <p class="text-white text-xs font-semibold mb-2 uppercase">{{ __('Status') }}
+                            <div class="bg-slate-50 dark:bg-shadow-glass rounded-lg p-4 border border-slate-200">
+                                <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Status') }}
                                 </p>
-                                <p class="text-slate-800 text-lg font-bold">{{ $model->status }}</p>
+                                <p class="text-text-white text-lg font-bold">{{ $model->status }}</p>
                             </div>
                         </div>
                     </div>
