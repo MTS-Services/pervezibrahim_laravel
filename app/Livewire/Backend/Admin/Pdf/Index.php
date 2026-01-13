@@ -66,7 +66,7 @@ class Index extends Component
             ],
             [
                 'key' => 'created_at',
-                'label' => 'Created',
+                'label' => 'Created At',
                 'sortable' => true,
                 'format' => function ($data) {
                     return $data->created_at_formatted;
@@ -77,7 +77,7 @@ class Index extends Component
                 'label' => 'Created By',
                 'format' => function ($data) {
                     return optional($data->creater)->name
-                        ? '<span class="text-sm font-medium text-gray-900 dark:text-gray-100">' . e($data->creater->name) . '</span>'
+                        ? '<span class="text-sm font-medium text-gray-900">' . e($data->creater->name) . '</span>'
                         : '<span class="text-sm text-gray-500 dark:text-gray-400 italic">System</span>';
                 },
                 'sortable' => true,
