@@ -3,9 +3,9 @@
 namespace App\Livewire\Frontend;
 
 use App\Enums\Page;
+use App\Services\VideoService;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Services\VideoService;
 
 class Gallery extends Component
 {
@@ -24,6 +24,7 @@ class Gallery extends Component
             perPage: 10,
             filters: ['page' => Page::GALLERY->value]
         );
+
         return view('livewire.frontend.gallery', [
             'videos' => $videos,
         ]);
