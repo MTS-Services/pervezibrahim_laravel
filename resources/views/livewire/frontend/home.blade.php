@@ -115,7 +115,8 @@
 
                 <!-- Right Images -->
                 <div class="order-first lg:order-last w-full max-w-96 mx-h-96">
-                    <img src="{{ asset('assets/images/home_page/Group 17694.png') }}" alt="" class="max-w-96 mx-h-96">
+                    <img src="{{ asset('assets/images/home_page/Group 17694.png') }}" alt=""
+                        class="max-w-96 mx-h-96">
                 </div>
             </div>
         </div>
@@ -135,7 +136,8 @@
             <div class="flex flex-col lg:flex-row gap-12 justify-between items-center">
                 <!-- Left Images -->
                 <div class="w-full max-w-96 mx-h-96">
-                    <img src="{{ asset('assets/images/home_page/Group 17693.png') }}" alt="" class="max-w-96 mx-h-96">
+                    <img src="{{ asset('assets/images/home_page/Group 17693.png') }}" alt=""
+                        class="max-w-96 mx-h-96">
                 </div>
 
                 <!-- Right Content -->
@@ -181,6 +183,94 @@
             </div>
         </div>
     </section>
+
+
+    <section class="bg-light-blue p-12 font-sans">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+
+            <div class="flex flex-col items-center space-y-4">
+                <div class="  rounded-lg overflow-hidden shadow-lg   w-full">
+                    <div class="h-42 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
+                        style="background-image:  url('{{ asset('assets/images/home_page/home1.jpg') }}')">
+                    </div>
+                </div>
+
+                <div class="text-blue-900">
+                    <svg class="  rounded-full rotate-90" width="80" height="80" viewBox="0 0 116 116"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
+                    </svg>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg w-full">
+                    <div class="h-42 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
+                        style="background-image: url('{{ asset('assets/images/home_page/home2.png') }}')">
+                    </div>
+                </div>
+
+
+                <div class="text-blue-900">
+                    <svg class="  rounded-full rotate-90" width="80" height="80" viewBox="0 0 116 116"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
+                    </svg>
+                </div>
+
+
+                <div class="  rounded-lg overflow-hidden shadow-lg   w-full">
+                    <div class="h-42 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
+                        style="background-image:  url('{{ asset('assets/images/home_page/home1.jpg') }}')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 relative flex flex-col items-center">
+                <div class="  rounded-lg overflow-hidden shadow-lg  w-full">
+                    <div class="h-150 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
+                        style="background-image:  url('{{ asset('assets/images/home_page/home_header.png') }}')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center space-y-4">
+                <div class="  rounded-lg overflow-hidden shadow-lg  w-full">
+                    <div class="h-42 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
+                        style="background-image:  url('{{ asset('assets/images/home_page/side2.png') }}')">
+                    </div>
+                </div>
+
+                <div class="text-blue-900">
+                    <svg class="  rounded-full rotate-90" width="80" height="80" viewBox="0 0 116 116"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
+                    </svg>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg  w-full">
+                    <div class="h-42 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
+                        style="background-image: url('{{ asset('assets/images/home_page/side2.png') }}')">
+                    </div>
+                </div>
+
+
+                <div class="text-blue-900">
+                    <svg class="  rounded-full rotate-90" width="80" height="80" viewBox="0 0 116 116"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
+                    </svg>
+                </div>
+
+
+                <div class="  rounded-lg overflow-hidden shadow-lg  w-full">
+                    <div class="h-42 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
+                        style="background-image:  url('{{ asset('assets/images/home_page/side2.png') }}')">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     @push('scripts')
         <script>
             document.addEventListener('alpine:init', () => {
