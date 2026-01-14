@@ -1,6 +1,6 @@
 <section>
     {{-- Page Header --}}
-    <div class="glass-card rounded-2xl p-4 lg:p-6 mb-6">
+    <div class=" rounded-2xl p-4 lg:p-6 mb-6">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <h2 class="text-xl lg:text-2xl font-bold text-text-primary">
                 {{ __('Admin List') }}

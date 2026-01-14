@@ -36,36 +36,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="glass-card shadow-glass-card rounded-xl p-6 min-h-[500px]">
+                <div class=" shadow-glass-card rounded-xl p-6 min-h-[500px]">
                     <!-- Product Data Section -->
                     <div class="px-8 py-8">
                         <div class="mb-10">
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Name') }}
                                     </p>
                                     <p class="text-slate-400 text-lg font-bold">{{ $model->name }}</p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Email') }}
                                     </p>
                                     <p class="text-slate-400 text-lg font-bold">{{ $model->email }}</p>
                                 </div>
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">{{ __('Status') }}
                                     </p>
                                     <p class="text-slate-400 text-lg font-bold">{{ $model->status }}</p>
                                 </div>
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Last Login IP') }}</p>
                                     <p class="text-slate-400 text-lg font-bold">{{ $model->last_login_ip ?? 'N/A' }}
                                     </p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Last Login At') }}
                                     </p>
@@ -74,7 +74,7 @@
                                     </p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Created At') }}
                                     </p>
@@ -83,7 +83,7 @@
                                     </p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Updated At') }}
                                     </p>
@@ -92,7 +92,7 @@
                                     </p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Deleted At') }}
                                     </p>
@@ -101,7 +101,7 @@
                                     </p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Restored At') }}
                                     </p>
@@ -110,7 +110,7 @@
                                     </p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Created By') }}
                                     </p>
@@ -118,7 +118,7 @@
                                         {{ $model->creater_admin->name ?? 'N/A' }}</p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Updated By') }}
                                     </p>
@@ -126,14 +126,14 @@
                                         {{ $model->updater_admin->name ?? 'N/A' }}</p>
                                 </div>
 
-                                <div class="bg-slate-50 dark:bg-gray-700 rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200 rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Deleted By') }}
                                     </p>
                                     <p class="text-slate-400 text-lg font-bold">
                                         {{ $model->deleter_admin->name ?? 'N/A' }}</p>
                                 </div>
-                                <div class="bg-slate-50 dark:bg-gray-700  rounded-lg p-4 border border-slate-200">
+                                <div class=" dark:bg-gray-200  rounded-lg p-4 border border-slate-200">
                                     <p class="text-text-white text-xs font-semibold mb-2 uppercase">
                                         {{ __('Restored By') }}
                                     </p>

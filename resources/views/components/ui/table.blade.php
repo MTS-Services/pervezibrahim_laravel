@@ -166,7 +166,7 @@
                     {{-- Actions Column --}}
                     @if (count($actions) > 0)
                         <th scope="col"
-                            class="w-24 px-4 py-3 text-center text-xs font-semibold text-gray-100 dark:text-gray-400 uppercase tracking-wider">
+                            class="w-24 px-4 py-3 text-center text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                             {{ __('Actions') }}
                         </th>
                     @endif
