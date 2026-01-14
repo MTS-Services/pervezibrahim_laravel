@@ -119,7 +119,7 @@
                 <a href="{{ $route }}" {{ isset($wire) && $wire == false ? '' : 'wire:navigate' }}
                     class="sidebar-item flex items-center gap-4 p-3 rounded-xl hover:bg-bg-black/8 dark:hover:bg-bg-white/8 text-text-primary transition-all duration-200 group {{ $isMainActive ? 'bg-bg-black/5 dark:bg-bg-white/5' : '' }}">
                     <div
-                        class="w-8 h-8 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                        class="w-8 h-8  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
                         @if ($boxicon)
                             <i
                                 class="{{ $defaultParentIcon }} {{ $isMainActive ? 'text-zinc-500' : ' text-text-secondary' }}"></i>
@@ -157,7 +157,7 @@
                 class="sidebar-item flex items-center gap-4 p-3 rounded-xl hover:bg-bg-black/8 dark:hover:bg-bg-white/8 text-text-primary transition-all duration-200 group w-full {{ $isAnyActive ? 'bg-bg-black/5 dark:bg-bg-white/5' : '' }}">
                 {{-- relative --}}
                 <div
-                    class="w-8 h-8 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                    class="w-8 h-8  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
                     @if ($boxicon)
                         <i
                             class="{{ $defaultParentIcon }} {{ $isAnyActive ? 'text-zinc-500' : 'text-text-secondary' }}"></i>
@@ -211,20 +211,20 @@
                         const triggerRect = $el.previousElementSibling.getBoundingClientRect();
                         const viewportHeight = window.innerHeight;
                         const dropdownHeight = 400; // approximate max height
-
+                
                         // Position to the right of the trigger
                         $el.style.left = (triggerRect.right + 8) + 'px';
-
+                
                         // Position vertically - center with trigger, but ensure it stays in viewport
                         let topPosition = triggerRect.top + (triggerRect.height / 2) - (dropdownHeight / 2);
-
+                
                         // Adjust if dropdown would go off screen
                         if (topPosition < 20) {
                             topPosition = 20;
                         } else if (topPosition + dropdownHeight > viewportHeight - 20) {
                             topPosition = viewportHeight - dropdownHeight - 20;
                         }
-
+                
                         $el.style.top = topPosition + 'px';
                     }
                 })"
@@ -253,7 +253,7 @@
                 <div class="px-4 pb-3 border-b border-zinc-50 dark:border-zinc-950">
                     <div class="flex items-center gap-3">
                         <div
-                            class="w-8 h-8 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relativer">
+                            class="w-8 h-8  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relativer">
                             @if ($boxicon)
                                 <i class="{{ $defaultParentIcon }} text-accent"></i>
                             @else
@@ -288,7 +288,7 @@
                                     @else
                                         <flux:icon name="{{ $subitemIcon }}"
                                             class="w-5 h-5 text-black dark:text-dark flex-shrink-0"
-                                            class="w-4 h-4 {{ isset($item['active']) && $page_slug == $item['active'] ? 'text-zinc-500' : 'text-text-secondary' }}" />  
+                                            class="w-4 h-4 {{ isset($item['active']) && $page_slug == $item['active'] ? 'text-zinc-500' : 'text-text-secondary' }}" />
                                     @endif
                                 </div>
                                 <div class="flex-1">
@@ -314,7 +314,7 @@
                                 <button @click="subOpen = !subOpen"
                                     class="flex items-center gap-3 p-3 rounded-lg hover:bg-bg-black/8 dark:hover:bg-bg-white/8 transition-all duration-200 w-full group">
                                     <div
-                                        class="w-8 h-8 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                                        class="w-8 h-8  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
                                         @if ($subitemBoxicon)
                                             <i
                                                 class="{{ $subitemIcon }} text-sm {{ (function () use ($item, $page_slug) {
@@ -381,7 +381,7 @@
                                             {{ isset($wire) && $wire == false ? '' : 'wire:navigate' }}
                                             class="flex items-center gap-3 p-2 rounded-lg hover:bg-bg-black/8 dark:hover:bg-bg-white/8 transition-all duration-200 group {{ isset($subitem['active']) && $page_slug == $subitem['active'] ? 'bg-bg-black/5 dark:bg-bg-white/5' : '' }}">
                                             <div
-                                                class="w-6 h-6 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                                                class="w-6 h-6  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
                                                 @if ($multiSubitemBoxicon)
                                                     <i
                                                         class="{{ $multiSubitemIcon }} text-xs {{ isset($subitem['active']) && $page_slug == $subitem['active'] ? 'text-zinc-500' : 'text-text-secondary' }}"></i>
@@ -407,7 +407,7 @@
                                 {{ isset($wire) && $wire == false ? '' : 'wire:navigate' }}
                                 class="flex items-center gap-3 p-3 mx-2 rounded-lg hover:bg-bg-black/8 dark:hover:bg-bg-white/8 transition-all duration-200 group {{ isset($item['active']) && $page_slug == $item['active'] ? 'bg-bg-black/5 dark:bg-bg-white/5' : '' }}">
                                 <div
-                                    class="w-8 h-8 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                                    class="w-8 h-8  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
                                     @if ($subitemBoxicon)
                                         <i
                                             class="{{ $subitemIcon }} text-sm {{ isset($item['active']) && $page_slug == $item['active'] ? 'text-zinc-500' : 'text-text-secondary' }}"></i>
@@ -455,7 +455,7 @@
                             {{ isset($wire) && $wire == false ? '' : 'wire:navigate' }}
                             class="sidebar-item flex items-center gap-4 p-2 rounded-lg hover:bg-bg-black/8 dark:hover:bg-bg-white/8 transition-all duration-200 group {{ isset($item['active']) && $page_slug == $item['active'] ? 'bg-black/5 dark:bg-white/5 text-text-primary' : ' text-text-muted' }}">
                             <div
-                                class="w-6 h-6 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                                class="w-6 h-6 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
 
                                 @if ($subitemBoxicon)
                                     <i
@@ -490,7 +490,7 @@
                                     return '';
                                 })() }}">
                                 <div
-                                    class="w-6 h-6 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                                    class="w-6 h-6  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
                                     @if ($subitemBoxicon)
                                         <i
                                             class="{{ $subitemIcon }} text-xs {{ (function () use ($item, $page_slug) {
@@ -572,7 +572,7 @@
                             {{ isset($wire) && $wire == false ? '' : 'wire:navigate' }}
                             class="flex items-center gap-3 p-2 rounded-lg hover:bg-bg-black/8 dark:hover:bg-bg-white/8 transition-all duration-200 group {{ isset($item['active']) && $page_slug == $item['active'] ? 'bg-bg-black/5 dark:bg-bg-white/5' : '' }}">
                             <div
-                                class="w-6 h-6 glass-card rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                                class="w-6 h-6 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform relative">
                                 @if ($subitemBoxicon)
                                     <i
                                         class="{{ $subitemIcon }} text-xs {{ isset($item['active']) && $page_slug == $item['active'] ? 'text-zinc-500' : 'text-text-secondary' }}"></i>
