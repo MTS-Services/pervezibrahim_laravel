@@ -185,7 +185,7 @@
     </section>
 
 
-    <section class="bg-[#E9F0FC]   p-8 font-sans">
+    <section class="bg-light-blue p-12 font-sans">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
 
             <div class="flex flex-col items-center space-y-4">
