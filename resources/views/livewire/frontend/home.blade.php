@@ -185,7 +185,7 @@
     </section>
 
 
-    <section class="bg-light-blue p-12 font-sans">
+    {{-- <section class="bg-light-blue p-12 font-sans">
         <div class="container grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
 
             <div class="flex flex-col items-center space-y-4">
@@ -226,7 +226,6 @@
 
             <div class="md:col-span-2 relative flex flex-col items-center w-full">
                 <div class="w-full max-w-[550px] mx-auto">
-                    {{-- Updated Video Player Component --}}
                     <x-video-player :thumbnail="$video->footer_thumbnail" :file="$video->footer_file" :class="'xl:h-[450px]'" />
                 </div>
             </div>
@@ -268,7 +267,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
 
     @push('scripts')
         <script>
