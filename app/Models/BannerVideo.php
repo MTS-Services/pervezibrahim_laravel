@@ -15,6 +15,9 @@ class BannerVideo extends Model
         'title',
         'action',
 
+        'footer_thumbnail',
+        'footer_file',
+
         'created_by',
         'updated_by',
         'deleted_by',
