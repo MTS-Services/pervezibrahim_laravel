@@ -26,6 +26,8 @@ class HomeBanner extends Component
 
     public $existingThumbnail;
     public $existingFile;
+    public $existingFooterThumbnail;
+    public $existingFooterFile;
 
     public BannerVideoForm $form;
 
@@ -37,6 +39,8 @@ class HomeBanner extends Component
         $this->form->setData($model);
         $this->existingThumbnail = $model?->thumbnail;
         $this->existingFile = $model?->file;
+        $this->existingFooterThumbnail = $model?->footer_thumbnail;
+        $this->existingFooterFile = $model?->footer_file;
     }
 
     public function save()
@@ -45,7 +49,7 @@ class HomeBanner extends Component
 
         try {
             $video = BannerVideo::first();
-            
+
             $oldData = $video->getAttributes();
             $newData = $validated;
 
@@ -100,6 +104,56 @@ class HomeBanner extends Component
             $this->error('Banner data upload failed. Please try again.');
         }
     }
+
+    public function updateFooterBanner()
+    {
+        $validated = $this->form->validate([
+            'footer_thumbnail' => 'nullable|image|max:10240',
+            'footer_file' => 'nullable|mimes:mp4,mov,avi|max:51200',
+        ]);
+
+        try {
+            $video = BannerVideo::firstOrFail();
+
+            // Footer Thumbnail
+            if (!empty($validated['footer_thumbnail']) && $validated['footer_thumbnail'] instanceof UploadedFile) {
+                if ($video->footer_thumbnail && Storage::disk('public')->exists($video->footer_thumbnail)) {
+                    Storage::disk('public')->delete($video->footer_thumbnail);
+                }
+
+                $validated['footer_thumbnail'] = Storage::disk('public')
+                    ->putFile('footer/thumbnails', $validated['footer_thumbnail']);
+            } else {
+                $validated['footer_thumbnail'] = $video->footer_thumbnail;
+            }
+
+            // Footer Video
+            if (!empty($validated['footer_file']) && $validated['footer_file'] instanceof UploadedFile) {
+                if ($video->footer_file && Storage::disk('public')->exists($video->footer_file)) {
+                    Storage::disk('public')->delete($video->footer_file);
+                }
+
+                $validated['footer_file'] = Storage::disk('public')
+                    ->putFile('footer/videos', $validated['footer_file']);
+            } else {
+                $validated['footer_file'] = $video->footer_file;
+            }
+
+            $validated['updated_by'] = admin()->id;
+
+            $video->update($validated);
+
+            $this->success('Footer banner updated successfully.');
+            return redirect()->route('admin.video.home-banner');
+        } catch (\Exception $e) {
+            Log::error('Footer Banner Update Error', [
+                'message' => $e->getMessage(),
+            ]);
+
+            $this->error('Footer banner update failed.');
+        }
+    }
+
 
 
     public function render()

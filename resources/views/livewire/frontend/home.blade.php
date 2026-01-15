@@ -186,7 +186,7 @@
 
 
     <section class="bg-light-blue p-12 font-sans">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+        <div class="container grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
 
             <div class="flex flex-col items-center space-y-4">
                 <div class="  rounded-lg overflow-hidden shadow-lg   w-full">
@@ -224,11 +224,10 @@
                 </div>
             </div>
 
-            <div class="md:col-span-2 relative flex flex-col items-center">
-                <div class="  rounded-lg overflow-hidden shadow-lg  w-full">
-                    <div class="h-150 flex items-center justify-center text-center p-4 text-gray-900 text-xs font-bold uppercase tracking-wider bg-cover bg-center"
-                        style="background-image:  url('{{ asset('assets/images/home_page/home_header.png') }}')">
-                    </div>
+            <div class="md:col-span-2 relative flex flex-col items-center w-full">
+                <div class="w-full max-w-[550px] mx-auto">
+                    {{-- Updated Video Player Component --}}
+                    <x-video-player :thumbnail="$video->footer_thumbnail" :file="$video->footer_file" :class="'xl:h-[450px]'" />
                 </div>
             </div>
 
