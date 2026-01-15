@@ -19,7 +19,7 @@
             </div>
             <!-- Main Card -->
             <div class="bg-bg-primary rounded-2xl shadow-lg overflow-hidden border border-gray-500/20">
-                <div class="glass-card shadow-glass-card rounded-xl p-6 min-h-[500px]">
+                <div class=" shadow-glass-card rounded-xl p-6 min-h-[500px]">
                     <!-- Product Data Section -->
                     <div class="px-8 py-8">
                         <div class="mb-10">

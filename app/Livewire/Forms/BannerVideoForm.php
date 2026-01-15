@@ -19,6 +19,9 @@ class BannerVideoForm extends Form
     public ?UploadedFile $file = null;
     public ?UploadedFile $thumbnail = null;
 
+    public ?UploadedFile $footer_file = null;
+    public ?UploadedFile $footer_thumbnail = null;
+
     public function rules(): array
     {
         return [
@@ -26,6 +29,9 @@ class BannerVideoForm extends Form
             'file' => 'nullable|file',
             'title' => 'required|string|max:255',
             'action' => 'nullable|string|max:255',
+
+            'footer_thumbnail' => 'nullable|image',
+            'footer_file' => 'nullable|file',
         ];
     }
 
@@ -43,6 +49,8 @@ class BannerVideoForm extends Form
         $this->file = null;
         $this->title = '';
         $this->action = null;
+        $this->footer_thumbnail = null;
+        $this->footer_file = null;
         $this->resetValidation();
     }
 

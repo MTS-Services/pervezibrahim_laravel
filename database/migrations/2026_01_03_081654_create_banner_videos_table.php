@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('action')->nullable();
 
+            $table->string('footer_thumbnail')->nullable();
+            $table->string('footer_file')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
             $this->addAdminAuditColumns($table);

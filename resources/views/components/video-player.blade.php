@@ -1,14 +1,14 @@
-@props(['video', 'thumbnail', 'file'])
+@props(['video', 'thumbnail', 'file', 'class'])
 
 <div x-data="videoPlayer()" 
      @play-video.window="pauseOthers($event.detail.id)"
      @keydown.window.prevent.space="togglePlay"
      @keydown.window.f="toggleFullscreen"
-     class="video-container group aspect-video relative bg-black rounded-xl overflow-hidden shadow-2xl"
+     class="{{ $class }} video-container group aspect-video w-full aspect-square relative bg-black rounded-xl overflow-hidden shadow-2xl"
      :class="{ 'fixed inset-0 z-50': theaterMode }">
 
     <video x-ref="video" 
-           class="w-full h-full cursor-pointer" 
+           class="w-full h-full {{ $class }}  cursor-pointer" 
            poster="{{ $thumbnail ? Storage::url($thumbnail) : '' }}"
            @click="togglePlay"
            @timeupdate="updateProgress" 
@@ -30,7 +30,7 @@
         
         {{-- Custom Progress Bar --}}
         <div class="relative h-1.5 w-full bg-white/30 rounded-full mb-4 cursor-pointer overflow-hidden" @click="seek">
-            <div class="absolute top-0 left-0 h-full bg-blue-500 transition-all duration-100" :style="`width: ${progress}%`"></div>
+            <div class="absolute top-0 left-0 h-full bg-red-500 transition-all duration-100" :style="`width: ${progress}%`"></div>
         </div>
 
         <div class="flex items-center justify-between text-white">
