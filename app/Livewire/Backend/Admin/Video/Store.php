@@ -40,10 +40,13 @@ class Store extends Component
     }
     public function mount(): void
     {
-        $this->model = Video::first();
-        $this->form->setData($this->model);
-        $this->existingThumbnail = $this->model?->thumbnail;
-        $this->existingFile = $this->model?->file;
+        if($this->videoId){
+            $this->model = Video::findOrFail($this->videoId); 
+            $this->form->setData($this->model);
+            $this->existingThumbnail = $this->model?->thumbnail;
+            $this->existingFile = $this->model?->file;
+        }
+
     }
 
     public function render()
@@ -69,7 +72,7 @@ class Store extends Component
                 'isLoading',
                 'page',
             ]);
-            return redirect()->back();
+            return redirect(url()->previous());
         } catch (\Exception $e) {
             Log::error('Failed to create video: ' . $e->getMessage());
             $this->error('Failed to create video.');
