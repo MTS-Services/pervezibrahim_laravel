@@ -18,7 +18,7 @@
                 </div>
             </div>
             <!-- Main Card -->
-            <div class="glass-card rounded-2xl shadow-lg overflow-hidden border border-gray-500/20 min-h-[500px]">
+            <div class=" rounded-2xl shadow-lg overflow-hidden border border-gray-500/20 min-h-[500px]">
                 {{-- @dd($model->file) --}}
                 <div class="w-full max-w-md px-8 pt-8">
                     <x-video-player :video="$model" />
@@ -55,5 +55,5 @@
         </div>
     </div>
 
-    
+
 </div>
