@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms\Backend\Admin;
+namespace App\Livewire\Forms;
 
 use Livewire\Form;
 use App\Models\ApplicationSetting;
@@ -81,14 +81,14 @@ class ApplicationSettings extends Form
             if (in_array($key, ['app_logo', 'favicon']) && $value && is_object($value)) {
                 // Upload new file
                 $uploadedPath = $this->handleFileUpload($value, 'application_settings', $key);
-                
+
                 // Delete old file if exists
                 if ($key === 'app_logo' && $this->oldAppLogo) {
                     $this->fileDelete($this->oldAppLogo);
                 } elseif ($key === 'favicon' && $this->oldFavicon) {
                     $this->fileDelete($this->oldFavicon);
                 }
-                
+
                 // Use the uploaded path for storage
                 $value = $uploadedPath;
             }

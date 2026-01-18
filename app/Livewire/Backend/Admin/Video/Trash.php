@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Backend\Admin\video;
+namespace App\Livewire\Backend\Admin\Video;
 
 use Livewire\Component;
 use App\Enums\ActiveInactive;
