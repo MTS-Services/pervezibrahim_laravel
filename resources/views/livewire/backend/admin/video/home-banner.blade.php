@@ -56,7 +56,7 @@
         </div>
     </div>
     
-    <div class="bg-white border border-gray-200 rounded-2xl p-4 lg:p-6 mb-6">
+    {{-- <div class="bg-white border border-gray-200 rounded-2xl p-4 lg:p-6 mb-6">
         <div class="">
             <h2 class="text-xl lg:text-2xl font-bold text-text-primary">
                 {{ __('Update Footer Video') }}
@@ -98,5 +98,5 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> --}}
 </section>

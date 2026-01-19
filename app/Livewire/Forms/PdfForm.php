@@ -20,7 +20,7 @@ class PdfForm extends Form
     public ?string $description = null;
     public ?string $action = null;
     public string $status = ActiveInactive::ACTIVE->value;
-    public bool $is_featured = false;
+    public $is_featured = false;
     public ?UploadedFile $file = null;
     public ?UploadedFile $cover_image = null;
 

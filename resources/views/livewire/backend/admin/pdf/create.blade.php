@@ -1,5 +1,5 @@
 <section>
-    <div class=" rounded-2xl p-6 mb-6">
+    <div class="bg-white glass rounded-2xl p-6 mb-6">
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('PDF Create') }}</h2>
             <div class="flex items-center gap-2">
@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-    <div class=" rounded-2xl p-6 mb-6">
+    <div class="glass bg-white rounded-2xl p-6 mb-6">
         <form wire:submit="save">
             <!-- Add other form fields here -->
             <div class="mt-6 space-y-4 grid grid-cols-2 gap-5">
