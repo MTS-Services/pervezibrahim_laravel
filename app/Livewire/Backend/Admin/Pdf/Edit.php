@@ -62,6 +62,7 @@ class Edit extends Component
                 $validated['page'] = PdfPage::METHOD->value;
             }
             $validated['updated_by'] = admin()->id;
+            $validated['is_featured'] = $validated['is_featured'] ? 1 : 0;
 
             $this->service->updateData($this->model->id, $validated);
 

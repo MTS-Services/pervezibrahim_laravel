@@ -142,12 +142,12 @@ class AboutUsGallery extends Component
 
             $this->success('Data deleted successfully');
         } catch (\Throwable $e) {
-            Log::error('Failed to delete user', [
-                'user_id' => $this->deleteId,
+            Log::error('Failed to delete', [
+                'id' => $this->deleteId,
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString()
             ]);
-            $this->error('Failed to delete user.');
+            $this->error('Failed to delete.');
         }
     }
 

@@ -1,5 +1,5 @@
 <section>
-    <div class="glass-card rounded-2xl p-6 mb-6">
+    <div class=" rounded-2xl p-6 mb-6">
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('Admin Create') }}</h2>
             <div class="flex items-center gap-2">
@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <div class="glass-card rounded-2xl p-6 mb-6">
+    <div class=" rounded-2xl p-6 mb-6">
         <form wire:submit="save">
             <div>
                 <x-ui.file-input wire:model="form.avatar" label="Profile Picture" accept="image/*" :error="$errors->first('form.avatar')"

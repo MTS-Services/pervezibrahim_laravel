@@ -76,7 +76,7 @@ class Store extends Component
                 'isLoading',
                 'page',
             ]);
-            return redirect()->back();
+            return redirect(url()->previous());
         } catch (\Exception $e) {
             Log::error('Failed to create video: ' . $e->getMessage());
             $this->error('Failed to create video.');

@@ -36,18 +36,18 @@
                             <x-ui.input type="text" placeholder="{{ __('Title') }}" wire:model="form.title" />
                             <x-ui.input-error :messages="$errors->get('form.title')" />
                         </div>
-                        {{-- <div class="w-full">
+                        <div class="w-full">
                             <x-ui.label value="{{ __('Description') }}" class="mb-1" />
                             <x-ui.textarea placeholder="{{ __('Description') }}" wire:model="form.description"
                                 rows="4" />
                             <x-ui.input-error :messages="$errors->get('form.description')" />
                         </div>
-                    @endif --}}
-                    {{-- <div class="w-full">
+                    {{-- @endif --}}
+                    <div class="w-full">
                         <x-ui.label value="{{ __('Action') }}" class="mb-1" />
                         <x-ui.input type="text" placeholder="{{ __('Action') }}" wire:model="form.action" accept="url" />
                         <x-ui.input-error :messages="$errors->get('form.action')" />
-                    </div> --}}
+                    </div>
                     <div class="w-full">
                         <x-ui.label value="{{ __('Select Status') }}" class="mb-1" />
                         <x-ui.select wire:model="form.status">

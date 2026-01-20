@@ -52,6 +52,8 @@ class Create extends Component
                 $validated['page'] = PdfPage::METHOD->value;
             }
 
+            $validated['is_featured'] = $validated['is_featured'] ? 1 : 0;
+
             $this->service->createData($validated);
 
             $this->dispatch('PdfCreated');

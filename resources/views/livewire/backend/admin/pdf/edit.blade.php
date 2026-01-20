@@ -1,5 +1,5 @@
 <section>
-    <div class="glass-card rounded-2xl p-6 mb-6">
+    <div class="glass bg-white rounded-2xl p-6 mb-6">
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-bold text-text-black dark:text-text-white">{{ __('PDF Edit') }}</h2>
             <div class="flex items-center gap-2">
@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <div class="glass-card rounded-2xl p-6 mb-6">
+    <div class="glass bg-white rounded-2xl p-6 mb-6">
         <form wire:submit="save">
             <!-- Add other form fields here -->
             <div class="mt-6 space-y-4 grid grid-cols-2 gap-5">
@@ -46,7 +46,7 @@
                     </x-ui.select>
                     <x-ui.input-error :messages="$errors->get('form.status')" />
                 </div>
-                @if (request('page_slug') == App\Enums\PdfPage::CONTACT_US->value)
+                @if (request('page_slug') !== App\Enums\PdfPage::METHOD->value)
                     <div class="w-full">
                         <x-ui.label value="{{ __('Select Featured') }}" class="mb-1" />
                         <x-ui.select wire:model="form.is_featured">

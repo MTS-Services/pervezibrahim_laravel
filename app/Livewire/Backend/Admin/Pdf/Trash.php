@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Backend\Admin\Faq;
+namespace App\Livewire\Backend\Admin\Pdf;
 
 use Livewire\Component;
 use App\Enums\ActiveInactive;
