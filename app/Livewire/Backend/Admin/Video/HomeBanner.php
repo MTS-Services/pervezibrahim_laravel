@@ -43,6 +43,12 @@ class HomeBanner extends Component
         $this->existingFooterFile = $model?->footer_file;
     }
 
+    // Realtime form validation
+    public function updated($propertyName)
+    {
+        $this->form->validateOnly($propertyName);
+    }
+
     public function save()
     {
         $validated = $this->form->validate();

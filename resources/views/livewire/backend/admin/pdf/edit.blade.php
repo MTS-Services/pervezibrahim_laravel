@@ -16,12 +16,12 @@
             <!-- Add other form fields here -->
             <div class="mt-6 space-y-4 grid grid-cols-2 gap-5">
                 <div class="w-full">
-                    <x-ui.file-input wire:model="form.cover_image" label="{{ __('Thumbnail') }}" accept="image/*"
+                    <x-ui.file-input wire:model.live="form.cover_image" label="{{ __('Thumbnail') }}" accept="image/*"
                         :existingFiles="$existingCoverImage" removeModel="form.remove_file" hint="Upload a profile picture (Max: 2MB)" />
                     <x-ui.input-error :messages="$errors->get('form.cover_image')" />
                 </div>
                 <div class="w-full">
-                    <x-ui.file-input wire:model="form.file" label="{{ __('PDF File') }}" accept="application/pdf"
+                    <x-ui.file-input wire:model.live="form.file" label="{{ __('PDF File') }}" accept="application/pdf"
                         :existingFiles="$existingFile" removeModel="form.remove_file" hint="Upload a PDF file (Max: 10MB)" />
                     <x-ui.input-error :messages="$errors->get('form.file')" />
                 </div>

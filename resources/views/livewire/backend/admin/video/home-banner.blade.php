@@ -11,13 +11,13 @@
                 <!-- Add other form fields here -->
                 <div class="mt-6 space-y-4 grid grid-cols-2 gap-5">
                     <div class="w-full">
-                        <x-ui.file-input wire:model="form.thumbnail" label="{{ __('Thumbnail') }}" accept="image/*"
+                        <x-ui.file-input wire:model.live="form.thumbnail" label="{{ __('Thumbnail') }}" accept="image/*"
                             :existingFiles="$existingThumbnail" removeModel="form.remove_file"
                             hint="Upload a profile picture (Max: 2MB)" />
                         <x-ui.input-error :messages="$errors->get('form.thumbnail')" />
                     </div>
                     <div class="w-full">
-                        <x-ui.file-input wire:model="form.file" label="{{ __('Video File') }}" accept="video/*"
+                        <x-ui.file-input wire:model.live="form.file" label="{{ __('Video File') }}" accept="video/*"
                             :existingFiles="$existingFile" removeModel="form.remove_file" hint="Upload a video file (Max: 10MB)" />
                         <x-ui.input-error :messages="$errors->get('form.file')" />
                     </div>

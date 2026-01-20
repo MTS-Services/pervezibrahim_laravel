@@ -27,7 +27,7 @@ class BannerVideoForm extends Form
         return [
             'thumbnail' => 'nullable|image',
             'file' => 'nullable|file',
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'action' => 'nullable|string|max:255',
 
             'footer_thumbnail' => 'nullable|image',
