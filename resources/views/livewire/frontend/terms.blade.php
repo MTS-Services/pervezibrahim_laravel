@@ -1,21 +1,16 @@
 <div>
     <section class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container mx-auto">
         <!-- Background Pattern Overlay -->
-        <div class="absolute inset-0 opacity-100 pointer-events-none">
+        <div class="absolute inset-0 opacity-100 pointer-events-none scroll-animate-y">
             <img src="{{ asset('assets/images/home_page/Union (1).png') }}" alt=""
                 class="w-full h-full object-cover" />
         </div>
-
-        <!-- Header / Navigation -->
-        <header class="relative z-10 flex items-center justify-between px-6 py-8">
-        </header>
-
         <!-- Hero Content -->
         <main class="relative z-10 container mx-auto px-6 mt-12 grid grid-cols-1 gap-12 items-center">
             <!-- Right: Text Section -->
-            <div class="flex flex-col mt-32">
-                <h1 class="text-3xl font-bold text-wrap text-white">
-                    Terms & <br>Conditions
+            <div class="flex flex-col mt-40">
+                <h1 class="text-3xl font-bold text-wrap text-white scroll-animate-x-reverse">
+                    Terms & Conditions
                 </h1>
             </div>
         </main>
@@ -25,12 +20,11 @@
     <section class="py-12">
         <div class="container">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-                <h1 class="text-[#002060] font-bold text-20px">Terms of Service & Usage Policy</h1>
-
-
+                <h1 class="text-[#002060] font-bold text-20px scroll-animate-x-reverse">Terms of Service & Usage Policy</h1>
             </div>
 
-            <div class="mt-16 flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20 font-medium">
+            <div
+                class="mt-16 flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20 font-medium scroll-animate-x translate-y-0!">
                 <p>
                     By accessing and using the ebSixOne website, digital platforms, and related services, you
                     acknowledge that you have read, understood, and agreed to these Terms and Conditions. Our services
@@ -82,7 +76,7 @@
 
                 <!-- Left Content -->
                 <div class="w-full lg:w-1/2">
-                    <h2 class="text-4xl lg:text-5xl font-bold text-second-500 leading-tight">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-second-500 leading-tight scroll-animate-x-reverse">
                         Download a free <br>
                         copy of our <br>
                         enforcement of <br>
@@ -92,7 +86,7 @@
 
                 <!-- Right Form Card -->
                 <div class="w-full lg:w-1/2">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-900 rounded-2xl p-8 shadow-xl">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-900 rounded-2xl p-8 shadow-xl scroll-animate-x">
                         <form wire:submit="submit" class="space-y-4">
 
                             <input type="text" placeholder="First Name" wire:model="form.name"
@@ -124,11 +118,35 @@
 
     <section class="mb-12">
         <div
-            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
-            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs">
-            <h2 class="text-white text-56px font-bold mb-4">Ready to Get Started?</h2>
-            <p class="text-white text-lg font-bold max-w-2xl mx-auto">Business Process Management (BPM) software that
+            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-xl border-4 border-zinc-100 hover:shadow-2xl duration-300">
+            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
+                class="mx-auto w-full max-w-xs scroll-animate-y-reverse duration-1500!">
+            <h2 class="text-white text-56px font-bold mb-4 scroll-animate-y-reverse">Ready to Get Started?</h2>
+            <p class="text-white text-lg font-bold max-w-2xl mx-auto scroll-animate-y-reverse duration-700!">Business
+                Process Management (BPM) software that
                 can capture the organisational "Value Chain," which is the Business "DNA."</p>
         </div>
     </section>
 </div>
+
+@push('scripts')
+    <script>
+        // Scroll animation
+        const elements = document.querySelectorAll(
+            '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+@endpush

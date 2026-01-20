@@ -97,7 +97,10 @@
         document.addEventListener('livewire:navigated', () => {
             document.getElementById('navigation-loader').classList.add('hidden');
         });
+
+        
     </script>
+
     @stack('scripts')
 </body>
 

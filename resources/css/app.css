@@ -461,3 +461,31 @@ textarea:focus[data-flux-control],
 select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
+
+.scroll-animate-x {
+    @apply transform translate-x-10 opacity-0 transition-all duration-1000 ease-in-out;
+}
+.scroll-animate-x.show {
+    @apply translate-x-0 opacity-100;
+}
+
+.scroll-animate-x-reverse {
+    @apply transform -translate-x-8 opacity-0 transition-all duration-1000 ease-in-out;
+}
+.scroll-animate-x-reverse.show {
+    @apply translate-x-0 opacity-100;
+}
+
+.scroll-animate-y {
+    @apply transform translate-y-8 opacity-0 transition-all duration-1000 ease-in-out;
+}
+.scroll-animate-y.show {
+    @apply translate-y-0 opacity-100;
+}
+
+.scroll-animate-y-reverse {
+    @apply transform -translate-y-8 opacity-0 transition-all duration-1000 ease-in-out;
+}
+.scroll-animate-y-reverse.show {
+    @apply translate-y-0 opacity-100;
+}
