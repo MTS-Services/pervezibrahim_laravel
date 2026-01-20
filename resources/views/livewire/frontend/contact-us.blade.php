@@ -42,7 +42,8 @@
             <div class="mt-16 flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20">
                 @foreach ($featuredPdfs as $featuredPdf)
                     <div class="w-full lg:w-1/2 flex flex-col items-center">
-                        <div class="w-full max-h-[38rem] overflow-hidden rounded-lg {{ $loop->odd ? 'scroll-animate-x-reverse' : 'scroll-animate-x' }}">
+                        <div
+                            class="w-full max-h-[38rem] overflow-hidden rounded-lg {{ $loop->odd ? 'scroll-animate-x-reverse' : 'scroll-animate-x' }}">
                             <img src="{{ storage_url($featuredPdf->cover_image) }}" alt="{{ $featuredPdf->title }}"
                                 class="w-full max-h-[38rem] object-cover" loading="lazy">
                         </div>
@@ -106,9 +107,11 @@
     <section class="mb-12">
         <div
             class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-xl border-4 border-zinc-100 hover:shadow-2xl duration-300">
-            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs scroll-animate-y-reverse duration-1500!">
+            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
+                class="mx-auto w-full max-w-xs scroll-animate-y-reverse duration-1500!">
             <h2 class="text-white text-56px font-bold mb-4 scroll-animate-y-reverse">Ready to Get Started?</h2>
-            <p class="text-white text-lg font-bold max-w-2xl mx-auto scroll-animate-y-reverse duration-700!">Business Process Management (BPM) software that
+            <p class="text-white text-lg font-bold max-w-2xl mx-auto scroll-animate-y-reverse duration-700!">Business
+                Process Management (BPM) software that
                 can capture the organisational "Value Chain," which is the Business "DNA."</p>
         </div>
     </section>
@@ -116,22 +119,33 @@
 
 @push('scripts')
     <script>
-        // Scroll animation
-        const elements = document.querySelectorAll(
-            '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
-        );
+        function initScrollAnimations() {
+            const elements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
+            );
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        obs.unobserve(entry.target);
+                    }
+                    if (!entry.target.classList.contains('show')) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, {
+                threshold: 0.15
             });
-        }, {
-            threshold: 0.15
-        });
 
-        elements.forEach(el => observer.observe(el));
+            elements.forEach(el => observer.observe(el));
+
+        }
+
+        // First load
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+        // Livewire navigation fix
+        document.addEventListener('livewire:navigated', initScrollAnimations);
     </script>
 @endpush
