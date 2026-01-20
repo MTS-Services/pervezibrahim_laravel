@@ -154,8 +154,6 @@ class HomeBanner extends Component
         }
     }
 
-
-
     public function render()
     {
 
