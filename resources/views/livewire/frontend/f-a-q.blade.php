@@ -2,17 +2,16 @@
     <section
         class="rounded-3xl relative bg-black text-white min-h-[50vh] overflow-hidden container flex items-center justify-start">
         <!-- Background Pattern Overlay -->
-        <div class="absolute inset-0 opacity-100 pointer-events-none">
+        <div class="absolute inset-0 opacity-100 pointer-events-none scroll-animate-x">
             <img src="{{ asset('assets/images/home_page/Union (1).png') }}" alt=""
                 class="w-full h-full object-cover" />
         </div>
 
         <!-- Hero Content -->
         <main class="releative z-10 w-full md:w-1/2 md:px-8 mt-20 py-4">
-            <div class="flex flex-col space-y-8">
+            <div class="flex flex-col space-y-8 scroll-animate-x-reverse">
                 {{-- line height text --}}
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wrap text-white leading-tight">Freequently
-                    Asked Questions</h1>
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-wrap text-white leading-tight">Freequently Asked Questions</h1>
             </div>
         </main>
     </section>
@@ -22,7 +21,7 @@
             <div class="space-y-4">
                 @forelse ($faqs as $faq)
                     <div :class="open === {{ $loop->iteration }} ? 'bg-second-500' : 'bg-light-blue'"
-                        class="p-6 rounded-2xl shadow-lg">
+                        class="p-6 rounded-2xl shadow-lg scroll-animate-y">
                         <button @click="open === {{ $loop->iteration }} ? open = null : open = {{ $loop->iteration }}"
                             class="w-full text-left font-semibold flex items-center justify-between focus:outline-none">
                             <span :class="open === {{ $loop->iteration }} ? 'text-white' : ''">{{ $loop->iteration }}.
@@ -44,13 +43,37 @@
         </div>
     </section>
 
-    <section class="my-20 space-y-12">
+    <section class="my-12">
         <div
-            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-2xl border-4 border-zinc-100">
-            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="" class="mx-auto w-full max-w-xs">
-            <h2 class="text-white text-56px font-bold mb-4">Ready to Get Started?</h2>
-            <p class="text-white text-lg font-bold max-w-2xl mx-auto">Business Process Management (BPM) software that
+            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-xl border-4 border-zinc-100 hover:shadow-2xl duration-300">
+            <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
+                class="mx-auto w-full max-w-xs scroll-animate-y-reverse duration-1500!">
+            <h2 class="text-white text-56px font-bold mb-4 scroll-animate-y-reverse">Ready to Get Started?</h2>
+            <p class="text-white text-lg font-bold max-w-2xl mx-auto scroll-animate-y-reverse duration-700!">Business
+                Process Management (BPM) software that
                 can capture the organisational "Value Chain," which is the Business "DNA."</p>
         </div>
     </section>
 </div>
+
+@push('scripts')
+    <script>
+        // Scroll animation
+        const elements = document.querySelectorAll(
+            '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+@endpush
