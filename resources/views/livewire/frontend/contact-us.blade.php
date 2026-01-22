@@ -22,9 +22,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                 @foreach ($pdfs as $pdf)
                     <div class="bg-white rounded-lg flex flex-col p-4">
-                        <div class="w-full h-[300px] overflow-hidden rounded-md scroll-animate-y">
+                        <div class="w-full h-[300px] overflow-hidden rounded-md scroll-animate-y hover:shadow-2xl">
                             <img src="{{ storage_url($pdf->cover_image) }}" alt="{{ $pdf->title }}"
-                                class="w-full h-full">
+                                class="w-full h-full  transform transition-transform duration-300 ease-in hover:scale-105">
                         </div>
                         <h3 class="text-lg font-medium text-second-500 mt-4 scroll-animate-y">
                             {{ $pdf->title }}
@@ -45,7 +45,8 @@
                         <div
                             class="w-full max-h-[38rem] overflow-hidden rounded-lg {{ $loop->odd ? 'scroll-animate-x-reverse' : 'scroll-animate-x' }}">
                             <img src="{{ storage_url($featuredPdf->cover_image) }}" alt="{{ $featuredPdf->title }}"
-                                class="w-full max-h-[38rem] object-cover" loading="lazy">
+                                class="w-full max-h-[38rem] object-cover transform transition-transform duration-300 ease-in hover:scale-105"
+                                loading="lazy">
                         </div>
 
                         <x-ui.button href="{{ $featuredPdf->action }}" variant="orange-tertiary"
@@ -74,7 +75,8 @@
 
                 <!-- Right Form Card -->
                 <div class="w-full lg:w-1/2">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-900 rounded-2xl p-8 shadow-xl scroll-animate-x">
+                    <div
+                        class="bg-gradient-to-br from-blue-500 to-blue-900 rounded-2xl p-8 shadow-xl scroll-animate-x hover:shadow-2xl">
                         <form wire:submit="submit" class="space-y-4">
 
                             <input type="text" placeholder="First Name" wire:model="form.name"
@@ -106,7 +108,7 @@
 
     <section class="mb-12">
         <div
-            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-xl border-4 border-zinc-100 hover:shadow-2xl duration-300">
+            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-lg border-4 border-zinc-100 hover:shadow-2xl scroll-animate-y-reverse">
             <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
                 class="mx-auto w-full max-w-xs scroll-animate-y-reverse duration-1500!">
             <h2 class="text-white text-56px font-bold mb-4 scroll-animate-y-reverse">Ready to Get Started?</h2>
@@ -124,14 +126,11 @@
                 '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
             );
 
-            const observer = new IntersectionObserver((entries, obs) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('show');
-                        obs.unobserve(entry.target);
-                    }
-                    if (!entry.target.classList.contains('show')) {
-                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
@@ -139,13 +138,12 @@
             });
 
             elements.forEach(el => observer.observe(el));
-
         }
 
         // First load
         document.addEventListener('DOMContentLoaded', initScrollAnimations);
 
-        // Livewire navigation fix
+        // Livewire wire:navigate page change
         document.addEventListener('livewire:navigated', initScrollAnimations);
     </script>
 @endpush

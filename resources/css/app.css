@@ -421,7 +421,6 @@
 
 @utility container {
     margin-inline: auto;
-    padding-inline: var(--container-padding-inline, 1rem);
     width: var(--container-width, 100%);
 
     @variant 2xl {

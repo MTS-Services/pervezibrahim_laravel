@@ -16,9 +16,6 @@
             </div>
         </main> --}}
     </section>
-
-
-
     <div class="container w-6xl scroll-animate-y">
         <p class="text-center text-black text-xl font-medium text-wrap p-8">
             Showing the mechanics of ebSixOne™, an innovative technology BPM platform, highlighting its functionality
@@ -26,175 +23,129 @@
             inviting users to explore further.
         </p>
     </div>
+    <div class="container px-0 mx-auto font-sans mb-4">
+        <div class="w-full">
+            <div class="flex flex-col xl:flex-row items-center justify-between gap-4">
 
-    <div class="container flex justify-center items-center font-sans">
-
-        <div class="max-w-6xl w-full">
-
-            <div class="relative max-w-7xl mx-auto px-4">
-
-                <!-- Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-20 mb-12 auto-rows-fr">
-
-                    <div class="scroll-animate-x-reverse">
-                        <!-- Card 1 -->
-                        <div
-                            class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
-        flex flex-col border-4 border-white/20 p-1 m-6 h-full">
-
-                            <img src="{{ asset('assets/images/gallery/screenshots34.png') }}" alt="Supply Chain"
-                                class="w-full h-52 object-cover rounded">
-
-                            <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
-                                Supply Chain Cycle, showcasing the interconnected roles of various players
-                                from manufacturers to consumers!
-                            </div>
-                        </div>
+                <!-- Card -->
+                <div
+                    class="hover:shadow-2xl scroll-animate-x-reverse bg-blue-900! rounded-xl overflow-hidden shadow-lg border-4 border-white/20 w-full md:w-72 flex flex-col">
+                    <div class="w-full max-h-52 min-h-44 overflow-hidden">
+                        <img src="{{ asset('assets/images/gallery/screenshots34.png') }}" alt=""
+                            class="w-full max-h-52 min-h-44 object-cover rounded transition-transform hover:scale-105 duration-300 ease-in">
                     </div>
-                    <div class="scroll-animate-x-reverse duration-700!">
-                        <!-- Card 2 -->
-                        <div
-                            class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
-        flex flex-col border-4 border-white/20 p-1 m-6 h-full">
-
-                            <img src="{{ asset('assets/images/gallery/inner.png') }}" alt="Production Process"
-                                class="w-full h-52 object-cover rounded">
-
-                            <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
-                                The process of producing medical supplies involves research, testing,
-                                manufacturing, packaging, boxing, and delivery.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scroll-animate-x-reverse duration-500!">
-                        <!-- Card 3 -->
-                        <div
-                            class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
-        flex flex-col border-4 border-white/20 p-1 m-6 h-full">
-
-                            <img src="{{ asset('assets/images/gallery/alinements.jpg') }}" alt="Collaboration"
-                                class="w-full h-52 object-cover rounded">
-
-                            <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
-                                Collaboration in business processes is a key factor for success.
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-white text-sm text-center py-3 flex-grow">Supply Chain Cycle, showcasing the
+                        interconnected roles of various
+                        players.</p>
                 </div>
 
-                <!-- Arrow: Card 1 → Card 2 -->
-                <svg class="hidden md:block absolute top-1/2 left-[28%]
-               -translate-y-1/2 p-2 m-2  rounded-full scroll-animate-x-reverse ease-in!"
-                    width="80" height="80" viewBox="0 0 116 116" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900" />
-                </svg>
-
-                <!-- Arrow: Card 2 → Card 3 -->
-                <svg class="hidden md:block absolute top-1/2 left-[63%]
-               -translate-y-1/2 p-2 m-2  rounded-full scroll-animate-x-reverse duration-700!"
-                    width="80" height="80" viewBox="0 0 116 116" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900" />
-                </svg>
-
-            </div>
-
-            <div class="relative max-w-7xl mx-auto px-4">
-
-                <!-- Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-20 mb-12 auto-rows-fr">
-
-                    <div class="scroll-animate-x-reverse">
-                        <!-- Card 1 -->
-                        <div
-                            class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
-        flex flex-col border-4 border-white/20 p-1 m-6 h-full">
-
-                            <img src="{{ asset('assets/images/gallery/plan.jpg') }}" alt="Supply Chain"
-                                class="w-full h-52 object-cover rounded">
-
-                            <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
-                                Strategy concept
-                                Business Improvement
-                                Circle Plan: Develop,
-                                integrate, deploy,
-                                implement, evaluate!
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="scroll-animate-x-reverse duration-700!">
-                        <!-- Card 2 -->
-                        <div
-                            class="bg-blue-900 rounded-xl overflow-hidden shadow-xl flex flex-col border-4 border-white/20 p-1 m-6 h-full">
-
-                            <img src="{{ asset('assets/images/gallery/database.png') }}" alt="Production Process"
-                                class="w-full h-52 object-cover rounded">
-
-                            <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
-                                Key concepts such as
-                                databases, cloud
-                                computing, data
-                                management,
-                                programming, software
-                                engineering, user
-                                interfaces, and graphic
-                                design.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="scroll-animate-x-reverse duration-500!">
-                        <!-- Card 3 -->
-                        <div
-                            class="bg-blue-900 rounded-xl overflow-hidden shadow-xl
-        flex flex-col border-4 border-white/20 p-1 m-6 h-full">
-
-                            <img src="{{ asset('assets/images/gallery/process.png') }}" alt="Collaboration"
-                                class="w-full h-52 object-cover rounded">
-
-                            <div class="py-3 text-white text-center text-sm leading-relaxed flex-grow">
-                                A Process Owner
-                                discussing data on the
-                                computer screen and
-                                comparing it with a bar
-                                graph.
-                            </div>
-                        </div>
-                    </div>
+                <!-- Arrow -->
+                <div class="hidden xl:flex items-center">
+                    <svg class="w-8 h-8 fill-zinc-100" class="scroll-animate-x-reverse" viewBox="0 0 94 86"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 18 H50 V0 L94 43 L50 86 V68 H0 Z" />
+                    </svg>
                 </div>
 
-                <!-- Arrow: Card 1 → Card 2 -->
-                <svg class="hidden md:block absolute top-1/2 left-[28%]
-               -translate-y-1/2 p-2 m-2  rounded-full scroll-animate-x-reverse ease-in!"
-                    width="80" height="80" viewBox="0 0 116 116" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+                <!-- Card -->
+                <div
+                    class="hover:shadow-2xl scroll-animate-x-reverse bg-blue-900! rounded-xl overflow-hidden shadow-lg border-4 border-white/20 w-full md:w-72 flex flex-col">
+                    <div class="w-full max-h-52 min-h-44 overflow-hidden">
+                        <img src="{{ asset('assets/images/gallery/inner.png') }}" alt=""
+                            class="w-full max-h-52 min-h-44 object-cover rounded transition-transform hover:scale-105 duration-300 ease-in">
+                    </div>
+                    <p class="text-white text-sm text-center py-3 flex-grow">The process of producing medical supplies
+                        from research to
+                        delivery.</p>
+                </div>
 
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
-                </svg>
+                <!-- Arrow -->
+                <div class="hidden xl:flex items-center">
+                    <svg class="w-8 h-8 fill-zinc-100" class="scroll-animate-x-reverse" viewBox="0 0 94 86"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 18 H50 V0 L94 43 L50 86 V68 H0 Z" />
+                    </svg>
+                </div>
+                <!-- Card -->
+                <div
+                    class="hover:shadow-2xl scroll-animate-x-reverse bg-blue-900! rounded-xl overflow-hidden shadow-lg border-4 border-white/20 w-full md:w-72 flex flex-col">
+                    <div class="w-full max-h-52 min-h-44 overflow-hidden">
+                        <img src="{{ asset('assets/images/gallery/alinements.jpg') }}" alt=""
+                            class="w-full max-h-52 min-h-44 object-cover rounded transition-transform hover:scale-105 duration-300 ease-in">
+                    </div>
+                    <p class="text-white text-sm text-center py-3 flex-grow">Supply Chain Cycle, showcasing the
+                        interconnected roles of various
+                        players.</p>
+                </div>
 
-                <!-- Arrow: Card 2 → Card 3 -->
-                <svg class="hidden md:block absolute top-1/2 left-[63%]
-               -translate-y-1/2 p-2 m-2  rounded-full scroll-animate-x-reverse duration-700!"
-                    width="80" height="80" viewBox="0 0 116 116" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+                <!-- Arrow -->
+                <div class="hidden xl:flex items-center">
+                    <svg class="w-8 h-8 fill-zinc-100" class="scroll-animate-x-reverse" viewBox="0 0 94 86"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 18 H50 V0 L94 43 L50 86 V68 H0 Z" />
+                    </svg>
+                </div>
 
-                    <path d="M19.3326 72.5V43.5H58V20.1L96.7 58 58 95.9V72.5H19.3Z" class="fill-zinc-900"></path>
-                </svg>
+                <!-- Card -->
+                <div
+                    class="hover:shadow-2xl scroll-animate-x-reverse bg-blue-900! rounded-xl overflow-hidden shadow-lg border-4 border-white/20 w-full md:w-72 flex flex-col">
+                    <div class="w-full max-h-52 min-h-44 overflow-hidden">
+                        <img src="{{ asset('assets/images/gallery/plan.jpg') }}" alt=""
+                            class="w-full max-h-52 min-h-44 object-cover rounded transition-transform hover:scale-105 duration-300 ease-in">
+                    </div>
+                    <p class="text-white text-sm text-center py-3 flex-grow">The process of producing medical supplies
+                        from research to
+                        delivery.</p>
+                </div>
 
+                <!-- Arrow -->
+                <div class="hidden xl:flex items-center">
+                    <svg class="w-8 h-8 fill-zinc-100" class="scroll-animate-x-reverse" viewBox="0 0 94 86"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 18 H50 V0 L94 43 L50 86 V68 H0 Z" />
+                    </svg>
+                </div>
+                <!-- Card -->
+                <div
+                    class="hover:shadow-2xl scroll-animate-x-reverse bg-blue-900! rounded-xl overflow-hidden shadow-lg border-4 border-white/20 w-full md:w-72 flex flex-col">
+                    <div class="w-full max-h-52 min-h-44 overflow-hidden">
+                        <img src="{{ asset('assets/images/gallery/database.png') }}" alt=""
+                            class="w-full max-h-52 min-h-44 object-cover rounded transition-transform hover:scale-105 duration-300 ease-in">
+                    </div>
+                    <p class="text-white text-sm text-center py-3 flex-grow">Supply Chain Cycle, showcasing the
+                        interconnected roles of various
+                        players.</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden xl:flex items-center">
+                    <svg class="w-8 h-8 fill-zinc-100" class="scroll-animate-x-reverse" viewBox="0 0 94 86"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 18 H50 V0 L94 43 L50 86 V68 H0 Z" />
+                    </svg>
+                </div>
+
+                <!-- Card -->
+                <div
+                    class="hover:shadow-2xl scroll-animate-x-reverse bg-blue-900! rounded-xl overflow-hidden shadow-lg border-4 border-white/20 w-full md:w-72 flex flex-col">
+                    <div class="w-full max-h-52 min-h-44 overflow-hidden">
+                        <img src="{{ asset('assets/images/gallery/process.png') }}" alt=""
+                            class="w-full max-h-52 min-h-44 object-cover rounded transition-transform hover:scale-105 duration-300 ease-in">
+                    </div>
+                    <p class="text-white text-sm text-center py-3 flex-grow">The process of producing medical supplies
+                        from research to
+                        delivery.</p>
+                </div>
             </div>
 
         </div>
     </div>
 
-
-    <section class=" rounded-xl container mt-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-10">
+    <section class="rounded-xl container px-0 mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @foreach ($videos as $video)
-                <div class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6 hover:shadow-2xl duration-300">
+                <div
+                    class="bg-light-blue rounded-2xl relative overflow-hidden gap-2 p-6 hover:shadow-2xl duration-300 scroll-animate-y-reverse">
                     <div>
                         <div class="{{ $loop->odd ? 'scroll-animate-x-reverse' : 'scroll-animate-x' }}">
                             <x-video-player :thumbnail="$video->thumbnail" :file="$video->file" />
@@ -217,7 +168,7 @@
 
     <section class="my-20 space-y-12">
         <div
-            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-xl border-4 border-zinc-100 hover:shadow-2xl duration-300">
+            class="container bg-gradient-to-r from-second-500 to-zinc-900 rounded-3xl p-12 text-center shadow-lg border-4 border-zinc-100 hover:shadow-2xl scroll-animate-y-reverse">
             <img src="{{ asset('assets/images/home_page/logo.png') }}" alt=""
                 class="mx-auto w-full max-w-xs  scroll-animate-y-reverse duration-1500!">
             <h2 class="text-white text-56px font-bold mb-4 scroll-animate-y-reverse">Ready to Get Started?</h2>
@@ -232,22 +183,29 @@
 
 @push('scripts')
     <script>
-        // Scroll animation
-        const elements = document.querySelectorAll(
-            '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
-        );
+        function initScrollAnimations() {
+            const elements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
+            );
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
             });
-        }, {
-            threshold: 0.15
-        });
 
-        elements.forEach(el => observer.observe(el));
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // First load
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+        // Livewire wire:navigate page change
+        document.addEventListener('livewire:navigated', initScrollAnimations);
     </script>
 @endpush
