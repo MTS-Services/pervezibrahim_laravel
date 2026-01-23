@@ -98,7 +98,7 @@
     </section>
 
     <section
-        class="container bg-[linear-gradient(135deg,_#9BBBF4_0%,_#EAF1FF_45%,_#FFFFFF_100%)] rounded-2xl shadow-md mt-6 py-2 scroll-animate-y-reverse+ hover:shadow-2xl group">
+        class="container bg-[linear-gradient(135deg,_#9BBBF4_0%,_#EAF1FF_45%,_#FFFFFF_100%)] rounded-2xl shadow-md mt-6 py-2 scroll-animate-y-reverse hover:shadow-2xl group">
         <div class="px-6 lg:px-16 py-8">
             <div class="flex flex-col lg:flex-row gap-12 justify-between items-center">
                 <!-- Left Content -->
@@ -113,9 +113,9 @@
                 </div>
 
                 <!-- Right Images -->
-                <div class="order-first lg:order-last w-full max-w-96 mx-h-96 scroll-animate-x">
+                <div class="order-first lg:order-last w-full max-w-96 mx-h-96">
                     <img src="{{ asset('assets/images/home_page/Group 17694.png') }}" alt=""
-                        class="max-w-96 mx-h-96  transform transition-transform duration-300 group-hover:scale-105">
+                        class="max-w-96 mx-h-96  transform transition-transform duration-300 group-hover:scale-110 scroll-animate-x5">
                 </div>
             </div>
         </div>
@@ -134,9 +134,9 @@
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row gap-12 justify-between items-center">
                 <!-- Left Images -->
-                <div class="w-full max-w-96 mx-h-96 scroll-animate-x-reverse">
+                <div class="w-full max-w-96 mx-h-96">
                     <img src="{{ asset('assets/images/home_page/Group 17693.png') }}" alt=""
-                        class="max-w-96 mx-h-96 transform transition-transform duration-300 hover:scale-105" />
+                        class="max-w-96 mx-h-96 transform transition-transform duration-300 hover:scale-110 scroll-animate-x-reverse" />
                 </div>
 
                 <!-- Right Content -->
@@ -271,12 +271,14 @@
 
 @push('scripts')
     <script>
+        /* ---------------- Alpine Logo Scroller ---------------- */
         document.addEventListener('alpine:init', () => {
             Alpine.data('logoScroller', () => ({
                 position: 0,
                 speed: 0.4,
                 paused: false,
                 width: 0,
+                rafId: null,
 
                 start() {
                     this.$nextTick(() => {
@@ -292,7 +294,7 @@
                             this.position = 0;
                         }
                     }
-                    requestAnimationFrame(() => this.loop());
+                    this.rafId = requestAnimationFrame(() => this.loop());
                 },
 
                 pause() {
@@ -305,23 +307,36 @@
             }));
         });
 
-
-        // Scroll animation
-        const elements = document.querySelectorAll(
-            '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
-        );
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
+        /* ---------------- Livewire wire:navigate FIX ---------------- */
+        document.addEventListener('livewire:navigated', () => {
+            document.querySelectorAll('[x-data="logoScroller"]').forEach(el => {
+                Alpine.initTree(el);
             });
-        }, {
-            threshold: 0.15
         });
 
-        elements.forEach(el => observer.observe(el));
+        function initScrollAnimations() {
+            const elements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-x, .scroll-animate-x-reverse, .scroll-animate-y, .scroll-animate-y-reverse'
+            );
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
+            });
+
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // First load
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+        // Livewire wire:navigate page change
+        document.addEventListener('livewire:navigated', initScrollAnimations);
     </script>
 @endpush

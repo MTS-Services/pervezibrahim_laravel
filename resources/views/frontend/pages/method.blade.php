@@ -4,7 +4,7 @@
     
     @switch(Route::currentRouteName())
         @case('method.reader')
-        <livewire:frontend.method-reader :slug="request()->segment(count(request()->segments()))" />
+        <livewire:frontend.method-reader :pdf_id="$id" />
         @break
 
         @default

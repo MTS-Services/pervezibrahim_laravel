@@ -421,7 +421,6 @@
 
 @utility container {
     margin-inline: auto;
-    padding-inline: var(--container-padding-inline, 1rem);
     width: var(--container-width, 100%);
 
     @variant 2xl {
@@ -488,4 +487,26 @@ select:focus[data-flux-control] {
 }
 .scroll-animate-y-reverse.show {
     @apply translate-y-0 opacity-100;
+}
+
+.df-ui-btn.df-ui-next.ti-angle-right,
+.df-ui-btn.df-ui-prev.ti-angle-left{
+    @apply bg-second-600! p-2! rounded-full! hover:bg-second-700! w-12! h-12!;
+}
+
+.ti-angle-right:before{
+    @apply text-white! w-5! h-5!;
+}
+.ti-angle-left:before {
+    @apply text-white! w-5! h-5!;
+}
+
+.df-ui-wrapper.df-ui-controls .df-ui-btn.df-ui-prev.df-ui-alt.ti-angle-left:before,
+.df-ui-wrapper.df-ui-controls .df-ui-btn.df-ui-next.df-ui-alt.ti-angle-right:before{
+    @apply text-black!;
+}
+
+.df-ui-wrapper.df-ui-controls .df-ui-btn.df-ui-next.ti-angle-right,
+.df-ui-wrapper.df-ui-controls .df-ui-btn.df-ui-prev.ti-angle-left{
+    @apply bg-transparent! h-auto! w-auto! mt-1! shadow-none! border-none! hover:bg-transparent!;
 }

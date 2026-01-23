@@ -4,13 +4,14 @@
 }" x-init="window.addEventListener('scroll', () => {
     isScrolled = window.scrollY > 20
 })" :class="{ 'glass pt-0!': isScrolled }" x-cloak
-    class="fixed top-0 left-0 right-0 z-50 bg-transparent pt-4 transition-all duration-300">
+    class=" fixed top-0 left-0 right-0 z-50 bg-transparent pt-4 transition-all duration-300">
 
     <div class="container flex items-center justify-between py-3 px-6">
         <!-- Logo Section -->
         <a href="{{ route('home') }}" title="{{ __('ebSixOne') }}" wire:navigate class="flex items-center">
-            <div class="flex items-center justify-center w-32 sm:w-36 lg:w-48 p-2"
-                :class="{ ' bg-second-900/90 rounded-full': isScrolled }">
+            <div class="bg-second-900/90 rounded-full flex items-center justify-center w-32 sm:w-36 lg:w-48 p-2"
+                {{-- :class="{ ' bg-second-900/90 rounded-full': isScrolled }" --}}
+                >
                 <img src="{{ asset('assets/images/home_page/logo.png') }}" alt="{{ __('ebSixOne') }}"
                     class="h-6 sm:h-8 lg:h-10 object-contain" />
             </div>
@@ -26,14 +27,14 @@
             </a>
 
             <!-- About Us -->
-            <a href="{{ route('about') }}"
+            <a href="{{ route('about') }}"  wire:navigate
                 class="px-5 py-2 rounded-full text-base transition-all
                {{ request()->routeIs('about') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
                 {{ __('About Us') }}
             </a>
 
             <!-- Services -->
-            <a href="{{ route('services') }}"
+            <a href="{{ route('services') }}"  wire:navigate
                 class="px-5 py-2 rounded-full text-base transition-all
                {{ request()->routeIs('services') ? 'bg-white text-black shadow' : 'text-zinc-50 hover:bg-white/10 hover:text-white' }}">
                 {{ __('Services') }}
@@ -44,9 +45,9 @@
                 @keydown.escape.window="open = false">
                 <!-- Trigger -->
                 <button type="button" @click="open = !open"
-                    class="px-5 py-2 rounded-full text-base text-zinc-50 transition-all hover:bg-white/10 hover:text-white flex items-center gap-1 {{ request()->routeIs('method') || request()->routeIs('gallery') || request()->routeIs('faq') ? 'bg-white text-black! shadow' : '' }}">
+                    class="group px-5 py-2 rounded-full text-base text-zinc-50 transition-all hover:bg-white/10 hover:text-white! flex items-center gap-1 {{ request()->routeIs('method') || request()->routeIs('gallery') || request()->routeIs('faq') ? 'bg-white text-black! shadow' : '' }}">
                     {{ __('Pages') }}
-                    <svg class="w-4 h-4 transition-transform duration-200 {{ request()->routeIs('method') || request()->routeIs('gallery') || request()->routeIs('faq') ? 'stroke-black' : 'stroke-white' }}"
+                    <svg class="w-4 h-4 transition-transform duration-200 group-hover:stroke-white! {{ request()->routeIs('method') || request()->routeIs('gallery') || request()->routeIs('faq') ? 'stroke-black' : 'stroke-white' }}"
                         :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
@@ -55,15 +56,15 @@
                 <!-- Dropdown -->
                 <div x-show="open" x-transition x-cloak
                     class="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-zinc-950 rounded-2xl px-4 py-3 space-y-2 shadow-xl min-w-[160px]">
-                    <a href="{{ route('gallery') }}" @click="open = false"
+                    <a href="{{ route('gallery') }}" @click="open = false"  wire:navigate
                         class="block text-center px-4 py-1.5 rounded-full text-base {{ request()->routeIs('gallery') ? 'bg-second-500 text-white' : 'bg-white' }}">
                         {{ __('Gallery') }}
                     </a>
-                    <a href="{{ route('method') }}" @click="open = false"
+                    <a href="{{ route('method') }}" @click="open = false"  wire:navigate
                         class="block text-center px-4 py-1.5 rounded-full text-base {{ request()->routeIs('method') ? 'bg-second-500 text-white' : 'bg-white' }} text-black hover:bg-gray-200 transition">
                         {{ __('Methods') }}
                     </a>
-                    <a href="{{ route('faq') }}" @click="open = false"
+                    <a href="{{ route('faq') }}" @click="open = false"  wire:navigate
                         class="block text-center px-4 py-1.5 rounded-full text-base {{ request()->routeIs('faq') ? 'bg-second-500 text-white' : 'bg-white' }} text-black hover:bg-gray-200 transition">
                         {{ __('FAQ') }}
                     </a>

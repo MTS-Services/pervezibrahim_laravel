@@ -1,5 +1,5 @@
 <footer class="bg-gray-50 pb-4">
-    <div class="container px-4 py-8 sm:py-10 lg:py-16">
+    <div class="container py-8 sm:py-10 lg:py-16">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
             <!-- Brand Section -->
             <div class="md:col-span-12 lg:col-span-6">
