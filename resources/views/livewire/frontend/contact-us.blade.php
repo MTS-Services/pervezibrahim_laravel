@@ -30,7 +30,7 @@
                             {{ $pdf->title }}
                         </h3>
                         <div class="mt-auto pt-4 scroll-animate-y">
-                            <x-ui.button href="{{ $pdf->action }}" variant="orange-tertiary" class="w-auto! py-2!">
+                            <x-ui.button href="{{ route('method.reader', encrypt($pdf->id)) }}" variant="orange-tertiary" class="w-auto! py-2!">
                                 {{ __('Learn More') }}
                             </x-ui.button>
                         </div>
@@ -49,7 +49,7 @@
                                 loading="lazy">
                         </div>
 
-                        <x-ui.button href="{{ $featuredPdf->action }}" variant="orange-tertiary"
+                        <x-ui.button href="{{ route('method.reader', encrypt($featuredPdf->id)) }}" variant="orange-tertiary"
                             class="w-auto! py-2! mt-4 {{ $loop->odd ? 'scroll-animate-x-reverse' : 'scroll-animate-x' }} duration-700!">
                             {{ __('Learn More') }}
                         </x-ui.button>

@@ -12,8 +12,10 @@ class MethodController extends Controller
     {
         return view($this->masterView);
     }
-    public function reader($slug = null)
+    public function reader($id)
     {
-        return view($this->masterView);
+        return view($this->masterView, [
+            'id' => $id
+        ]);
     }
 }
