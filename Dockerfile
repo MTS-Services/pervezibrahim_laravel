@@ -55,12 +55,15 @@ RUN chown -R www-data:www-data /var/www
 #     && chown -R www-data:www-data storage bootstrap/cache \
 #     && chmod -R 775 storage bootstrap/cache
 
-RUN mkdir -p storage/framework/{views,sessions,cache} \
-    && mkdir -p storage/logs \
-    && mkdir -p bootstrap/cache \
-    && mkdir -p /var/log/supervisor \
-    && chown -R www-data:www-data storage/framework storage/logs bootstrap/cache \
-    && chmod -R 775 storage/framework storage/logs bootstrap/cache
+# Ensure storage and cache are writable
+RUN mkdir -p /var/www/storage/framework/{cache,sessions,views} \
+    && mkdir -p /var/www/storage/logs \
+    && mkdir -p /var/www/bootstrap/cache \
+    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
+# Remove the nixpacks file if it exists to prevent build interference
+RUN rm -f nixpacks.toml
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
