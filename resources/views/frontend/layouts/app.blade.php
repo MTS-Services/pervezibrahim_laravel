@@ -11,7 +11,6 @@
         {{ isset($title) ? $title : site_name() }}
     </title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    ()
     <style>
         :root {
             --livewire-progress-bar-color: var(--color-secondary-500) !important;
