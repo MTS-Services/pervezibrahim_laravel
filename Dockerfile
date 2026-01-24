@@ -39,23 +39,24 @@ WORKDIR /var/www
 COPY . .
 
 # Create all necessary directories
-RUN mkdir -p storage/framework/{views,sessions,cache} \
+RUN mkdir -p storage/framework/views \
+    && mkdir -p storage/framework/sessions \
+    && mkdir -p storage/framework/cache \
     && mkdir -p storage/logs \
     && mkdir -p storage/app/public \
     && mkdir -p bootstrap/cache \
     && mkdir -p /var/log/supervisor
 
-# Install dependencies (before changing ownership for better Docker layer caching)
+# Install dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN npm install && npm run build
 
-# CRITICAL: Set ownership and permissions (do this AFTER all file operations)
+# CRITICAL: Fix permissions
+# We do this in one step to ensure consistency
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 storage \
-    && chmod -R 775 bootstrap/cache
-
-# Create log file with correct permissions
-RUN touch storage/logs/laravel.log \
+    && chmod -R 775 bootstrap/cache \
+    && touch storage/logs/laravel.log \
     && chown www-data:www-data storage/logs/laravel.log \
     && chmod 664 storage/logs/laravel.log
 
@@ -71,9 +72,10 @@ COPY ./docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose HTTP port
 EXPOSE 80
+
+# Copy and prepare entrypoint
 COPY ./docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Fix potential Windows line endings (CRLF) in entrypoint
+RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 
 CMD ["/entrypoint.sh"]
-# Start all services
-# CMD ["/usr/bin/supervisord", "-n"]
