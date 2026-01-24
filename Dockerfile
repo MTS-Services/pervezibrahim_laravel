@@ -1,8 +1,5 @@
 FROM php:8.3-fpm
 
-# Add custom php.ini file
-COPY ./docker/php.ini /usr/local/etc/php/conf.d/custom.ini
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     nginx \
@@ -19,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     supervisor \
     gnupg2 \
     ca-certificates \
+    netcat-openbsd \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_mysql mbstring zip exif pcntl gd \
     && apt-get clean \
@@ -30,39 +28,60 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
-COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-# Copy source
+# Copy composer files
+COPY composer.json composer.lock ./
+
+# Install PHP dependencies
+RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
+
+# Copy package files
+COPY package*.json ./
+RUN npm ci --only=production || npm install --only=production
+
+# Copy application code
 COPY . .
 
-# Create required directories
-RUN mkdir -p storage/framework/views \
-    storage/framework/sessions \
-    storage/framework/cache \
+# Complete composer installation
+RUN composer dump-autoload --optimize --no-dev
+
+# Build frontend assets
+RUN npm run build || echo "No build script found"
+
+# Create required directories with proper structure
+RUN mkdir -p storage/framework/sessions \
+    storage/framework/views \
+    storage/framework/cache/data \
     storage/logs \
     storage/app/public \
     bootstrap/cache \
     /var/log/supervisor
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction
-RUN npm install && npm run build
+# Create php.ini if needed
+RUN echo "upload_max_filesize = 500M" > /usr/local/etc/php/conf.d/custom.ini && \
+    echo "post_max_size = 500M" >> /usr/local/etc/php/conf.d/custom.ini && \
+    echo "max_execution_time = 600" >> /usr/local/etc/php/conf.d/custom.ini && \
+    echo "max_input_time = 600" >> /usr/local/etc/php/conf.d/custom.ini && \
+    echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/custom.ini
 
-# Fix permissions (separate commands to avoid chaining issues)
-RUN chown -R www-data:www-data /var/www
-RUN chmod -R 775 /var/www/storage
-RUN chmod -R 775 /var/www/bootstrap/cache
+# Set permissions
+RUN chown -R www-data:www-data /var/www && \
+    chmod -R 775 /var/www/storage && \
+    chmod -R 775 /var/www/bootstrap/cache
 
-# Configure Nginx and Supervisor
-RUN rm -f /etc/nginx/sites-enabled/default
-COPY ./docker/nginx.conf /etc/nginx/nginx.conf
-COPY ./docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# Copy nginx configuration
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+
+# Copy supervisor configuration
+COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Copy and prepare entrypoint
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 
-COPY ./docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
