@@ -86,6 +86,8 @@ RUN rm -f /etc/nginx/sites-enabled/default
 COPY ./docker/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+
+RUN touch /var/www/storage/logs/laravel.log && chown www-data:www-data /var/www/storage/logs/laravel.log
 # Expose HTTP port
 EXPOSE 80
 
