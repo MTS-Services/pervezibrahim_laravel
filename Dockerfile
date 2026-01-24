@@ -37,20 +37,20 @@ WORKDIR /var/www
 # Copy source
 COPY . .
 
-# Separate the mkdir commands to avoid chaining issues
-RUN mkdir -p storage/framework/views
-RUN mkdir -p storage/framework/sessions
-RUN mkdir -p storage/framework/cache
-RUN mkdir -p storage/logs
-RUN mkdir -p storage/app/public
-RUN mkdir -p bootstrap/cache
-RUN mkdir -p /var/log/supervisor
+# Create required directories
+RUN mkdir -p storage/framework/views \
+    storage/framework/sessions \
+    storage/framework/cache \
+    storage/logs \
+    storage/app/public \
+    bootstrap/cache \
+    /var/log/supervisor
 
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN npm install && npm run build
 
-# FIXED PERMISSIONS SECTION (No chaining symbols to avoid the chown error)
+# Fix permissions (separate commands to avoid chaining issues)
 RUN chown -R www-data:www-data /var/www
 RUN chmod -R 775 /var/www/storage
 RUN chmod -R 775 /var/www/bootstrap/cache
@@ -63,7 +63,6 @@ COPY ./docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 80
 
 COPY ./docker/entrypoint.sh /entrypoint.sh
-RUN sed -i 's/\r$//' /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 CMD ["/entrypoint.sh"]

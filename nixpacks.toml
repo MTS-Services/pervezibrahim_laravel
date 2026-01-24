@@ -7,3 +7,19 @@ nixPkgs = ["php", "composer", "mysql"]
 
 [phases.install]
 cmds = ["composer install --no-dev --optimize-autoloader"]
+### 4. Create .dockerignore
+
+Add a `.dockerignore` file to your repo root:
+```
+.env
+.git
+.gitignore
+node_modules
+vendor
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+bootstrap/cache/*
+.DS_Store
+Thumbs.db
