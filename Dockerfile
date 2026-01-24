@@ -3,7 +3,7 @@ FROM php:8.3-fpm
 # Add custom php.ini file
 COPY ./docker/php.ini /usr/local/etc/php/conf.d/custom.ini
 
-# Install system dependencies and PHP extensions
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     nginx \
     git \
@@ -32,50 +32,38 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 # Install Composer
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
-# Set working directory
 WORKDIR /var/www
 
-# Copy Laravel app source
+# Copy source
 COPY . .
 
-# Create all necessary directories
-RUN mkdir -p storage/framework/views \
-    && mkdir -p storage/framework/sessions \
-    && mkdir -p storage/framework/cache \
-    && mkdir -p storage/logs \
-    && mkdir -p storage/app/public \
-    && mkdir -p bootstrap/cache \
-    && mkdir -p /var/log/supervisor
+# Separate the mkdir commands to avoid chaining issues
+RUN mkdir -p storage/framework/views
+RUN mkdir -p storage/framework/sessions
+RUN mkdir -p storage/framework/cache
+RUN mkdir -p storage/logs
+RUN mkdir -p storage/app/public
+RUN mkdir -p bootstrap/cache
+RUN mkdir -p /var/log/supervisor
 
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN npm install && npm run build
 
-# CRITICAL: Fix permissions
-# We do this in one step to ensure consistency
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 775 storage \
-    && chmod -R 775 bootstrap/cache \
-    && touch storage/logs/laravel.log \
-    && chown www-data:www-data storage/logs/laravel.log \
-    && chmod 664 storage/logs/laravel.log
-
-# Laravel Artisan commands
-RUN php artisan config:clear \
-    && php artisan route:clear \
-    && php artisan view:clear
+# FIXED PERMISSIONS SECTION (No chaining symbols to avoid the chown error)
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 775 /var/www/storage
+RUN chmod -R 775 /var/www/bootstrap/cache
 
 # Configure Nginx and Supervisor
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY ./docker/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose HTTP port
 EXPOSE 80
 
-# Copy and prepare entrypoint
 COPY ./docker/entrypoint.sh /entrypoint.sh
-# Fix potential Windows line endings (CRLF) in entrypoint
-RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
+RUN sed -i 's/\r$//' /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 CMD ["/entrypoint.sh"]
