@@ -71,6 +71,9 @@ COPY ./docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose HTTP port
 EXPOSE 80
+COPY ./docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
+CMD ["/entrypoint.sh"]
 # Start all services
-CMD ["/usr/bin/supervisord", "-n"]
+# CMD ["/usr/bin/supervisord", "-n"]
