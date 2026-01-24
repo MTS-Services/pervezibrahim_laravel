@@ -75,11 +75,11 @@ RUN npm install && npm run build
 #     && php artisan config:cache && php artisan route:cache && php artisan view:cache \
 #     && php artisan migrate --force || true \
 #     && php artisan optimize:clear
-RUN php artisan config:clear \
-    && php artisan route:clear \
-    && php artisan view:clear \
-    && php artisan config:cache \
-    && php artisan view:cache
+# RUN php artisan config:clear \
+#     && php artisan route:clear \
+#     && php artisan view:clear \
+#     && php artisan config:cache \
+#     && php artisan view:cache
 
 # Configure Nginx and Supervisor
 RUN rm -f /etc/nginx/sites-enabled/default
