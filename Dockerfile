@@ -1,7 +1,12 @@
 FROM php:8.3-fpm
 
-# Install system dependencies
+# Add custom php.ini file
+COPY ./docker/php.ini /usr/local/etc/php/conf.d/custom.ini
+
+# Install system dependencies and PHP extensions
+# Combining update, install, and cleanup in one RUN command
 RUN apt-get update && apt-get install -y \
+    nano \
     nginx \
     git \
     unzip \
@@ -16,76 +21,73 @@ RUN apt-get update && apt-get install -y \
     supervisor \
     gnupg2 \
     ca-certificates \
-    netcat-openbsd \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_mysql mbstring zip exif pcntl gd \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js 20 LTS
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get update && apt-get install -y nodejs && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+# Separating Node.js installation into distinct steps for clarity and cache efficiency
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get update && apt-get install -y nodejs
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
+# Set working directory
 WORKDIR /var/www
 
-# Copy composer files first
-COPY composer.json composer.lock ./
-
-# Install PHP dependencies
-RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
-
-# Copy package files
-COPY package*.json ./
-
-# Install Node dependencies
-RUN npm ci --only=production || npm install --only=production
-
-# Copy all application files
+# Copy Laravel app source
 COPY . .
 
-# Complete composer installation
-RUN composer dump-autoload --optimize --no-dev
+# Create .env file and set proper permissions
+RUN if [ -f .env.example ]; then cp .env.example .env; else touch .env; fi \
+    && chown www-data:www-data .env \
+    && chmod 664 .env
 
-# Build frontend assets
-RUN npm run build || echo "No build script found"
+# Change ownership of the entire application directory to the www-data user
+RUN chown -R www-data:www-data /var/www
 
-# Create ALL required Laravel directories
-RUN mkdir -p storage/framework/sessions && \
-    mkdir -p storage/framework/views && \
-    mkdir -p storage/framework/cache/data && \
-    mkdir -p storage/logs && \
-    mkdir -p storage/app/public && \
-    mkdir -p bootstrap/cache && \
-    mkdir -p /var/log/supervisor
+# Prepare Laravel cache paths & permissions
+# RUN mkdir -p storage/framework/{views,sessions,cache} \
+#     && mkdir -p bootstrap/cache \
+#     && chown -R www-data:www-data storage bootstrap/cache \
+#     && chmod -R 775 storage bootstrap/cache
 
-# Create custom PHP configuration
-RUN echo "upload_max_filesize = 500M" > /usr/local/etc/php/conf.d/custom.ini && \
-    echo "post_max_size = 500M" >> /usr/local/etc/php/conf.d/custom.ini && \
-    echo "max_execution_time = 600" >> /usr/local/etc/php/conf.d/custom.ini && \
-    echo "max_input_time = 600" >> /usr/local/etc/php/conf.d/custom.ini && \
-    echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/custom.ini
+RUN mkdir -p storage/framework/{views,sessions,cache} \
+    && mkdir -p storage/logs \
+    && mkdir -p bootstrap/cache \
+    && mkdir -p /var/log/supervisor \
+    && chown -R www-data:www-data storage/framework storage/logs bootstrap/cache \
+    && chmod -R 775 storage/framework storage/logs bootstrap/cache
 
-# Set permissions - SINGLE RUN COMMAND
-RUN chown -R www-data:www-data /var/www && \
-    chmod -R 775 /var/www/storage && \
-    chmod -R 775 /var/www/bootstrap/cache
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader
 
-# Create nginx config directory and copy configuration
-RUN mkdir -p /etc/nginx
-COPY docker/nginx.conf /etc/nginx/nginx.conf
+# Install npm dependencies and build assets
+# Combining npm install and build into one RUN command
+RUN npm install && npm run build
 
-# Copy supervisor configuration
-RUN mkdir -p /etc/supervisor/conf.d
-COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# Laravel Artisan commands
+# Grouping related commands
+# RUN php artisan config:clear && php artisan route:clear && php artisan view:clear \
+#     && php artisan config:cache && php artisan route:cache && php artisan view:cache \
+#     && php artisan migrate --force || true \
+#     && php artisan optimize:clear
+RUN php artisan config:clear \
+    && php artisan route:clear \
+    && php artisan view:clear \
+    && php artisan config:cache \
+    && php artisan view:cache
 
-# Copy and prepare entrypoint script
-COPY docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Configure Nginx and Supervisor
+RUN rm -f /etc/nginx/sites-enabled/default
+COPY ./docker/nginx.conf /etc/nginx/nginx.conf
+COPY ./docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Expose HTTP port
 EXPOSE 80
 
-ENTRYPOINT ["/entrypoint.sh"]
+# Start all services
+CMD ["/usr/bin/supervisord", "-n"]
