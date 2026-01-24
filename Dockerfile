@@ -47,7 +47,7 @@ COPY . .
 #     && chmod 664 .env
 
 # Change ownership of the entire application directory to the www-data user
-RUN chown -R www-data:www-data /var/www [cite: 6]
+RUN chown -R www-data:www-data /var/www
 
 # Prepare Laravel cache paths & permissions
 # RUN mkdir -p storage/framework/{views,sessions,cache} \
